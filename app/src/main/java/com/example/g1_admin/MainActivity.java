@@ -32,17 +32,20 @@ public class MainActivity extends AppCompatActivity {
     private  EditText email;
     private EditText password;
 
-    /* @Override
+
+    @Override
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null)
         // If signed in application refers user to Menu class
         if (FirebaseAuth.getInstance().getCurrentUser() != null)
-            startActivity(new Intent(getApplicationContext(), Menu.class));
+            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
         finish();
 
     }
-*/
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(AuthResult authResult) {
                 Toast.makeText(MainActivity.this, "Logged in Successfully.", Toast.LENGTH_SHORT).show();
-                //checkUserAccessLevel(authResult.getUser().getUid());
+                checkUserAccessLevel(authResult.getUser().getUid());
             }
         }).addOnFailureListener(new OnFailureListener() {
 
@@ -105,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                 // Identify user access level
                 // If user is administrator redirects to Menu class
                 if (documentSnapshot.getString("isAdmin") != null)
-                    startActivity(new Intent(getApplicationContext(), Menu.class));
+                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
 
             }
         });
