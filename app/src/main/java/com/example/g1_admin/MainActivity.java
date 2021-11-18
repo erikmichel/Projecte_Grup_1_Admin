@@ -1,22 +1,16 @@
 package com.example.g1_admin;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -35,8 +29,10 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth fAuth;
     private FirebaseFirestore fStore;
+    private  EditText email;
+    private EditText password;
 
-    @Override
+    /* @Override
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null)
@@ -46,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         finish();
 
     }
-
+*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,11 +50,11 @@ public class MainActivity extends AppCompatActivity {
 
         //Intent intent = new Intent(this, MainMenu.class);
 
-        EditText email = findViewById(R.id.txtUsername);
-        EditText password = findViewById(R.id.txtPassword);
         Button btnLogin = findViewById(R.id.btnLogin);
+        email = findViewById(R.id.txtUsername);
+        password = findViewById(R.id.txtPassword);
 
-                // Initialize Firebase Auth & Firebase Store
+        // Initialize Firebase Auth & Firebase Store
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
 
@@ -67,27 +63,32 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                // LogIn with email and password to Firebase
-                fAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
-
-                    // If user logged successfully shows Toast and refers user to Menu class
-                    @Override
-                    public void onSuccess(AuthResult authResult) {
-                        Toast.makeText(MainActivity.this, "Logged in Successfully.", Toast.LENGTH_SHORT).show();
-                        checkUserAccessLevel(authResult.getUser().getUid());
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-
-                    // On failure shows Toast
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(MainActivity.this, "Wrong Email or Password.", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
+                registerNewUser();
             }
         });
+    }
+
+    public void registerNewUser() {
+        fAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
+
+            // If user logged successfully shows Toast and refers user to Menu class
+            @Override
+            public void onSuccess(AuthResult authResult) {
+                Toast.makeText(MainActivity.this, "Logged in Successfully.", Toast.LENGTH_SHORT).show();
+                //checkUserAccessLevel(authResult.getUser().getUid());
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+
+            // On failure shows Toast
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(MainActivity.this, "Wrong Email or Password.", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    public void updateUI(FirebaseUser user){
+        Log.i(TAG, "aquí");
     }
 
     // Checks if the user is administrator
@@ -109,4 +110,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }
