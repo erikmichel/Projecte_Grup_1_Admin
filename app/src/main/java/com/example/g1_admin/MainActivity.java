@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth fAuth;
     private FirebaseFirestore fStore;
-    private  EditText email;
+    private EditText email;
     private EditText password;
 
     /* @Override
@@ -63,12 +63,12 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                registerNewUser();
+                authEmailAndPassword();
             }
         });
     }
 
-    public void registerNewUser() {
+    public void authEmailAndPassword() {
         fAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
 
             // If user logged successfully shows Toast and refers user to Menu class
