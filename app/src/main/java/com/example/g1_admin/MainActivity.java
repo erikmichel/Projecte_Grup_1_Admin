@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Intent intent = new Intent(this, MainMenu.class);
+        Intent intent = new Intent(this, HomeActivity.class);
 
         Button btnLogin = findViewById(R.id.btnLogin);
         email = findViewById(R.id.txtUsername);
@@ -63,12 +63,12 @@ public class MainActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                authEmailAndPassword();
+                authEmailAndPassword(intent);
             }
         });
     }
 
-    public void authEmailAndPassword() {
+    public void authEmailAndPassword(Intent intent) {
         fAuth.signInWithEmailAndPassword(email.getText().toString(), password.getText().toString()).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
 
             // If user logged successfully shows Toast and refers user to Menu class
@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
             public void onSuccess(AuthResult authResult) {
                 Toast.makeText(MainActivity.this, "Logged in Successfully.", Toast.LENGTH_SHORT).show();
                 //checkUserAccessLevel(authResult.getUser().getUid());
+                startActivity(intent);
             }
         }).addOnFailureListener(new OnFailureListener() {
 
