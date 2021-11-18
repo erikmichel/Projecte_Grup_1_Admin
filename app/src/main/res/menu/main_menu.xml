@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_products"
+            android:title="Products"
+            />
+        <item
+            android:id="@+id/nav_insert"
+            android:title="Insert"
+            />
+        <item
+            android:id="@+id/nav_promotion"
+            android:title="Promotions"
+            />
+        <item
+            android:id="@+id/nav_ingredients"
+            android:title="Ingredients"
+            />
+    </group>
+    <group android:checkableBehavior="single">
+        <item android:title="Authentication">
+            <menu>
+                <item
+                    android:id="@+id/nav_newUser"
+                    android:title="New user"
+                    />
+                <item
+                    android:id="@+id/nav_logout"
+                    android:title="Logout"
+                    />
+            </menu>
+        </item>
+    </group>
+</menu>
