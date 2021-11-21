@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
     private  EditText email;
     private EditText password;
 
-
     @Override
     public void onStart() {
         super.onStart();
@@ -44,15 +43,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         //Intent intent = new Intent(this, MainMenu.class);
-
         Button btnLogin = findViewById(R.id.btnLogin);
         email = findViewById(R.id.txtUsername);
         password = findViewById(R.id.txtPassword);
@@ -60,7 +56,6 @@ public class MainActivity extends AppCompatActivity {
         // Initialize Firebase Auth & Firebase Store
         fAuth = FirebaseAuth.getInstance();
         fStore = FirebaseFirestore.getInstance();
-
 
         // Button to Login into the application with email & password from Firebase
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -108,8 +103,7 @@ public class MainActivity extends AppCompatActivity {
                 // Identify user access level
                 // If user is administrator redirects to Menu class
                 if (documentSnapshot.getString("isAdmin") != null)
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
-
+                    startActivity(new Intent(getApplicationContext(), HomeActivity.class));
             }
         });
     }
