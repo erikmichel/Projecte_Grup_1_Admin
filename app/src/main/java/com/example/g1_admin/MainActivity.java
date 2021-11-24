@@ -39,8 +39,11 @@ public class MainActivity extends AppCompatActivity {
         // If signed in application refers user to Menu class
         if (FirebaseAuth.getInstance().getCurrentUser() != null)
             startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-        finish();
+    }
 
+    @Override
+    public void onStop() {
+        super.onStop();
     }
 
     @Override
