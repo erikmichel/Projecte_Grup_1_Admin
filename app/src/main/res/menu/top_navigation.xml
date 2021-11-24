@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/nav_all"
+    <item android:id="@+id/nav_home"
         android:title="Home"
 
-        />
-    <item android:id="@+id/nav_cat1"
-        android:title="cat1"
-
-        />
-    <item android:id="@+id/nav_cat2"
-        android:title="cat2"
         />
 
 </menu>

@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.g1_admin.Moduls.Categoria;
 import com.example.g1_admin.Moduls.food;
 import com.example.g1_admin.R;
 
@@ -21,12 +22,14 @@ import java.util.stream.Collectors;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     private ArrayList<food> array_food;
     private ArrayList<food> all_items;
-    public RecyclerViewAdapter(ArrayList<food> arrN){
 
+
+    public RecyclerViewAdapter(ArrayList<food> arrN){
         array_food = arrN;
         all_items = new ArrayList<>();
         all_items.addAll(array_food);
     }
+
 
     @NonNull
     @Override
@@ -41,7 +44,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.etiquetaNom.setText(array_food.get(position).getName());
-        holder.etiquetacost.setText(array_food.get(position).getCost());
+
     }
 
     @Override
@@ -78,12 +81,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView etiquetaNom;
-        TextView etiquetacost;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             etiquetaNom = itemView.findViewById(R.id.name);
-            etiquetacost= itemView.findViewById(R.id.Product_cost);
         }
     }
 }
