@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.view.Gravity;
@@ -47,6 +48,7 @@ public class HomeActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment selectedFragment = null;
                 switch(item.getItemId()) {
                     case R.id.nav_products:
                         drawerLayout.closeDrawer(GravityCompat.START);
@@ -59,7 +61,7 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_ingredients:
                         drawerLayout.closeDrawer(GravityCompat.START);
-                        getSupportFragmentManager().beginTransaction().replace(R.id.navigationView, new FormFragment()).commit();
+                        selectedFragment = new FormFragment();
                         break;
                     case R.id.nav_newUser:
                         drawerLayout.closeDrawer(GravityCompat.START);
@@ -68,6 +70,8 @@ public class HomeActivity extends AppCompatActivity {
                         drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                 }
+                getSupportFragmentManager().beginTransaction().add(R.id.home_layout, selectedFragment).commit();
+
                 return true;
             }
         });

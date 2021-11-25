@@ -11,8 +11,8 @@
 
     <EditText
         android:id="@+id/edtxtIngredient"
-        android:layout_width="412dp"
-        android:layout_height="59dp"
+        android:layout_width="383dp"
+        android:layout_height="55dp"
         android:layout_marginTop="16dp"
         android:hint="Enter ingredient"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,7 +25,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:text="Add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtxtIngredient"
-        tools:layout_editor_absoluteX="161dp" />
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
