@@ -13,12 +13,10 @@
         android:layout_marginTop="316dp"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="SpeakableTextPresentCheck" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/txtPassword"
@@ -30,8 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtUsername"
-        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        app:layout_constraintTop_toBottomOf="@+id/txtUsername" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -47,7 +44,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="EatSleepAndRepeat"
+        android:text="EatSleapAndRepeat"
         android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/txtUsername"
         app:layout_constraintEnd_toEndOf="parent"
