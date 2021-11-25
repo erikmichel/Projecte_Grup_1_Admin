@@ -11,8 +11,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,8 +24,8 @@ import android.widget.ScrollView;
 public class FormFragment extends Fragment {
 
     // SCROLLVIEW & RELATIVELAYOUT
-    ScrollView scrollView;
-    RelativeLayout relativeLayout;
+    //ScrollView scrollView;
+    //RelativeLayout relativeLayout;
     CheckBox checkBox;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -73,22 +75,28 @@ public class FormFragment extends Fragment {
         // Inflate the layout for this fragment
 
         // INITIALIZE SCROLLVIEW WITH RELATIVELAYOUT
-        scrollView = new ScrollView(getActivity());
-        relativeLayout = new RelativeLayout(getActivity());
-        scrollView.addView(relativeLayout);
+        //scrollView = new ScrollView(getActivity());
+        //relativeLayout = new RelativeLayout(getActivity());
+        //scrollView.addView(relativeLayout);
 
         // FORM FRAGMENT ELEMENTS
         EditText edtxtIngredient = view.findViewById(R.id.edtxtIngredient);
         Button btnAdd = view.findViewById(R.id.btn_add);
+        LinearLayout linearLayout = view.findViewById(R.id.linear_layout);
 
         // ADD BUTTON
         btnAdd.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View view) {
                     String ingredient = edtxtIngredient.getText().toString();
-                    checkBox = new CheckBox(getActivity().getApplicationContext());
-                    checkBox.setText(ingredient);
-                    relativeLayout.addView(checkBox);
+
+                    if(ingredient.isEmpty()) {
+                        Toast.makeText(getActivity(), "Ingredient name cannot be empty", Toast.LENGTH_LONG).show();
+                    } else {
+                        checkBox = new CheckBox(getActivity().getApplicationContext());
+                        checkBox.setText(ingredient);
+                        linearLayout.addView(checkBox);
+                    }
               }
           }
         );
