@@ -2,7 +2,6 @@ package com.example.g1_admin;
 
 import android.os.Bundle;
 
-import androidx.annotation.RestrictTo;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -12,20 +11,16 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.Toast;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FormFragment#newInstance} factory method to
+ * Use the {@link IngredientFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FormFragment extends Fragment {
+public class IngredientFragment extends Fragment {
 
-    // SCROLLVIEW & RELATIVELAYOUT
-    //ScrollView scrollView;
-    //RelativeLayout relativeLayout;
+    // CHECKBOX
     CheckBox checkBox;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -37,7 +32,7 @@ public class FormFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public FormFragment() {
+    public IngredientFragment() {
         // Required empty public constructor
     }
 
@@ -50,8 +45,8 @@ public class FormFragment extends Fragment {
      * @return A new instance of fragment FormFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static FormFragment newInstance(String param1, String param2) {
-        FormFragment fragment = new FormFragment();
+    public static IngredientFragment newInstance(String param1, String param2) {
+        IngredientFragment fragment = new IngredientFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -73,11 +68,6 @@ public class FormFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_form, container, false);
         // Inflate the layout for this fragment
-
-        // INITIALIZE SCROLLVIEW WITH RELATIVELAYOUT
-        //scrollView = new ScrollView(getActivity());
-        //relativeLayout = new RelativeLayout(getActivity());
-        //scrollView.addView(relativeLayout);
 
         // FORM FRAGMENT ELEMENTS
         EditText edtxtIngredient = view.findViewById(R.id.edtxtIngredient);

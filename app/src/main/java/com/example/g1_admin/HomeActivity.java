@@ -9,7 +9,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
@@ -61,7 +60,7 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_ingredients:
                         drawerLayout.closeDrawer(GravityCompat.START);
-                        selectedFragment = new FormFragment();
+                        selectedFragment = new IngredientFragment();
                         break;
                     case R.id.nav_newUser:
                         drawerLayout.closeDrawer(GravityCompat.START);
