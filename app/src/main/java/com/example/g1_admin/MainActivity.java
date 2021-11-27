@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth fAuth;
     private FirebaseFirestore fStore;
-    private  EditText email;
+    private EditText email;
     private EditText password;
 
     @Override

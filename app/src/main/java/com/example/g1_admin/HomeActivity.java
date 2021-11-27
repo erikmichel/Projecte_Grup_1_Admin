@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.view.Gravity;
@@ -50,6 +51,7 @@ public class HomeActivity extends AppCompatActivity {
                 switch(item.getItemId()) {
                     case R.id.nav_products:
                         drawerLayout.closeDrawer(GravityCompat.START);
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new HomeFragment()).commit();
                         break;
                     case R.id.nav_insert:
                         drawerLayout.closeDrawer(GravityCompat.START);
@@ -62,6 +64,7 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_newUser:
                         drawerLayout.closeDrawer(GravityCompat.START);
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new RegisterFragment()).commit();
                         break;
                     case R.id.nav_logout:
                         drawerLayout.closeDrawer(GravityCompat.START);
@@ -71,5 +74,9 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void swapFragment (Fragment fragment) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, fragment).commit();
     }
 }
