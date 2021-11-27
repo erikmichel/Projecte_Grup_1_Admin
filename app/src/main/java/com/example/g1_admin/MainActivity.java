@@ -29,9 +29,10 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth fAuth;
     private FirebaseFirestore fStore;
-    private  EditText email;
+    private EditText email;
     private EditText password;
 
+    /*
     @Override
     public void onStart() {
         super.onStart();
@@ -40,8 +41,8 @@ public class MainActivity extends AppCompatActivity {
         if (FirebaseAuth.getInstance().getCurrentUser() != null)
             startActivity(new Intent(getApplicationContext(), HomeActivity.class));
         finish();
-
     }
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
