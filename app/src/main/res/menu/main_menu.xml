@@ -7,7 +7,7 @@
             />
         <item
             android:id="@+id/nav_insert"
-            android:title="Insert"
+            android:title="Insert Dish"
             />
         <item
             android:id="@+id/nav_promotion"

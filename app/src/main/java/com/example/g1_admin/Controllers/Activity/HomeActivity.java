@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.g1_admin.Controllers.Fragment.DishFormFragment;
 import com.example.g1_admin.Controllers.Fragment.RegisterFragment;
 import com.example.g1_admin.Controllers.Fragment.FoodFragment;
 import com.example.g1_admin.R;
@@ -57,6 +58,7 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_insert:
                         drawerLayout.closeDrawer(GravityCompat.START);
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new DishFormFragment()).commit();
                         break;
                     case R.id.nav_promotion:
                         drawerLayout.closeDrawer(GravityCompat.START);
