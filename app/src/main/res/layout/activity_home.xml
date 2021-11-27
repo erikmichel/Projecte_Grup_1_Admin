@@ -5,7 +5,7 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    tools:context=".Controllers.Activity.HomeActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -13,7 +13,7 @@
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/fragmentContainer"
-            android:name="com.example.g1_admin.HomeFragment"
+            android:name="com.example.g1_admin.Controllers.Fragment.HomeFragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"

@@ -1,15 +1,15 @@
 package com.example.g1_admin.Moduls;
 
-public class food {
+public class Food {
     private String Name;
     private String Cost;
     private String Category;
 
-    public food(String name, String cost) {
+    public Food(String name, String cost) {
         Name = name;
         Cost = cost;
     }
-    public food(String name, String cost, String category) {
+    public Food(String name, String cost, String category) {
         Name = name;
         Cost = cost;
         Category = category;

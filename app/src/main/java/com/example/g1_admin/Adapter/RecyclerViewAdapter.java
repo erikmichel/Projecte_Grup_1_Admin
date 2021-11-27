@@ -1,4 +1,4 @@
-package com.example.g1_admin.Controllers;
+package com.example.g1_admin.Adapter;
 
 
 import android.os.Build;
@@ -10,8 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.g1_admin.Moduls.Categoria;
-import com.example.g1_admin.Moduls.food;
+import com.example.g1_admin.Moduls.Food;
 import com.example.g1_admin.R;
 
 import java.util.ArrayList;
@@ -20,11 +19,11 @@ import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
-    private ArrayList<food> array_food;
-    private ArrayList<food> all_items;
+    private ArrayList<Food> array_food;
+    private ArrayList<Food> all_items;
 
 
-    public RecyclerViewAdapter(ArrayList<food> arrN){
+    public RecyclerViewAdapter(ArrayList<Food> arrN){
         array_food = arrN;
         all_items = new ArrayList<>();
         all_items.addAll(array_food);
@@ -59,14 +58,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         }else{
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                List<food> collect=array_food.stream()
+                List<Food> collect=array_food.stream()
                         .filter(i->i.getName().toLowerCase(Locale.ROOT).contains(StrSearch))
                         .collect(Collectors.toList());
                 array_food.clear();
                 array_food.addAll(collect);
             }else{
                 array_food.clear();
-                for(food i:all_items){
+                for(Food i:all_items){
                     if(i.getName().toLowerCase(Locale.ROOT).contains(StrSearch)){
                         array_food.add(i);
                     }

@@ -1,9 +1,8 @@
-package com.example.g1_admin;
+package com.example.g1_admin.Controllers.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,10 +11,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
+import com.example.g1_admin.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -23,7 +21,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class MainActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = "CustomAuthActivity";
 
@@ -49,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         //Intent intent = new Intent(this, MainMenu.class);
         Button btnLogin = findViewById(R.id.btnLogin);
@@ -75,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             // If user logged successfully shows Toast and refers user to Menu class
             @Override
             public void onSuccess(AuthResult authResult) {
-                Toast.makeText(MainActivity.this, "Logged in Successfully.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Logged in Successfully.", Toast.LENGTH_SHORT).show();
                 checkUserAccessLevel(authResult.getUser().getUid());
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -83,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
             // On failure shows Toast
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(MainActivity.this, "Wrong Email or Password.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Wrong Email or Password.", Toast.LENGTH_SHORT).show();
             }
         });
     }

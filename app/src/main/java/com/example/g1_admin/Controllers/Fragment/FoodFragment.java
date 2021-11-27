@@ -1,33 +1,26 @@
-package com.example.g1_admin.Controllers;
+package com.example.g1_admin.Controllers.Fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.SearchView;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.g1_admin.Moduls.Categoria;
-import com.example.g1_admin.Moduls.food;
+import com.example.g1_admin.Adapter.HomeViewAdapter;
+import com.example.g1_admin.Adapter.SelectListner;
+import com.example.g1_admin.Moduls.Category;
 import com.example.g1_admin.R;
 
 import java.util.ArrayList;
-import androidx.fragment.app.Fragment;
 
-public class fragmentFood extends Fragment implements SelectListner {
+public class FoodFragment extends Fragment implements SelectListner {
 
-    public fragmentFood() {
+    public FoodFragment() {
         // Required empty public constructor
     }
 
@@ -36,11 +29,11 @@ public class fragmentFood extends Fragment implements SelectListner {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        ArrayList<Categoria> dataCata=new ArrayList();
-        dataCata.add(new Categoria("cat1"));
-        dataCata.add(new Categoria("cat2"));
-        dataCata.add(new Categoria("cat3"));
-        dataCata.add(new Categoria("cat4"));
+        ArrayList<Category> dataCata=new ArrayList();
+        dataCata.add(new Category("cat1"));
+        dataCata.add(new Category("cat2"));
+        dataCata.add(new Category("cat3"));
+        dataCata.add(new Category("cat4"));
         View view=inflater.inflate(R.layout.fragment_food, container, false);
         //SearchView searchItem = (SearchView) view.findViewById(R.id.searchView);
 
@@ -68,16 +61,16 @@ public class fragmentFood extends Fragment implements SelectListner {
     }
 
     @Override
-    public void onItemClicked(Categoria categoria) {
+    public void onItemClicked(Category category) {
         /*Intent Redrict= new Intent(getContext(), fragmentcat.class);
         startActivity(Redrict);
     */
         Bundle bundle = new Bundle();
-        bundle.putSerializable("category", categoria);
-        fragmentcat categoriaFragment= new fragmentcat();
+        bundle.putSerializable("category", category);
+        CategoryFragment categoriaFragment= new CategoryFragment();
         categoriaFragment.setArguments(bundle);
 
-        getFragmentManager().beginTransaction().replace(R.id.fragment_container, categoriaFragment).commit();
+        getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, categoriaFragment).commit();
     }
 
 }

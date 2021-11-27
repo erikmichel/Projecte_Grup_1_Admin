@@ -1,4 +1,4 @@
-package com.example.g1_admin;
+package com.example.g1_admin.Controllers.Fragment;
 
 import android.os.Bundle;
 
@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.g1_admin.R;
 
 
 public class HomeFragment extends Fragment {

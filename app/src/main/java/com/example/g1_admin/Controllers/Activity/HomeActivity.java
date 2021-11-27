@@ -1,4 +1,4 @@
-package com.example.g1_admin;
+package com.example.g1_admin.Controllers.Activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -9,10 +9,11 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.MenuItem;
 
-import com.example.g1_admin.Controllers.fragmentFood;
+import com.example.g1_admin.Controllers.Fragment.RegisterFragment;
+import com.example.g1_admin.Controllers.Fragment.FoodFragment;
+import com.example.g1_admin.R;
 import com.google.android.material.navigation.NavigationView;
 
 public class HomeActivity extends AppCompatActivity {
@@ -52,7 +53,7 @@ public class HomeActivity extends AppCompatActivity {
                 switch(item.getItemId()) {
                     case R.id.nav_food:
                         drawerLayout.closeDrawer(GravityCompat.START);
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new fragmentFood()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new FoodFragment()).commit();
                         break;
                     case R.id.nav_insert:
                         drawerLayout.closeDrawer(GravityCompat.START);
