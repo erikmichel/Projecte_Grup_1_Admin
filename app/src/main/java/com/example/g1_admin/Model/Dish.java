@@ -2,7 +2,7 @@ package com.example.g1_admin.Model;
 
 public class Dish {
 
-    int id;
+    String id;
     String category;
     String name;
     String description;
@@ -12,7 +12,7 @@ public class Dish {
 
     }
 
-    public Dish(int id, String category, String name, String description, double price) {
+    public Dish(String id, String category, String name, String description, double price) {
         this.id = id;
         this.category = category;
         this.name = name;
@@ -20,11 +20,11 @@ public class Dish {
         this.price = price;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

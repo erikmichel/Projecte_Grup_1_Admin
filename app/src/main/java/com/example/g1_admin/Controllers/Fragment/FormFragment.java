@@ -17,6 +17,7 @@ import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,13 +27,27 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.g1_admin.DBHelper.DBHelper;
 import com.example.g1_admin.R;
+import com.google.firebase.database.DatabaseReference;
+
+import org.w3c.dom.Text;
+
 
 public class FormFragment extends Fragment {
 
     ImageView image;
+
+    DatabaseReference mDatabase;
+    DBHelper dbHelper;
+
+    public FormFragment(DatabaseReference mDatabase, DBHelper dbHelper) {
+        this.mDatabase = mDatabase;
+        this.dbHelper = dbHelper;
+    }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -43,6 +58,10 @@ public class FormFragment extends Fragment {
 
         image = (ImageView) formView.findViewById(R.id.dishImage);
         image.setImageResource(R.drawable.pizza_generic);
+
+        TextView name = formView.findViewById(R.id.txtNameDish);
+        TextView description = formView.findViewById(R.id.txtDescription);
+        TextView price = formView.findViewById(R.id.txtPrice);
 
         Spinner spinner = (Spinner) formView.findViewById(R.id.spinner_categories);
 
@@ -76,7 +95,10 @@ public class FormFragment extends Fragment {
                 builder.setMessage(R.string.alert_missage)
                         .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-
+                                int category = spinner.getSelectedItemPosition();
+                                String cat = spinner.getSelectedItem().toString();
+                                Double pr = Double.parseDouble(price.getText().toString());
+                                dbHelper.addDish(name.getText().toString(), cat, description.getText().toString(), pr);
                             }
                         })
                         .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {

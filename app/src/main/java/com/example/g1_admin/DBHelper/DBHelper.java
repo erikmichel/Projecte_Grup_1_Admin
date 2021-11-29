@@ -3,6 +3,7 @@ package com.example.g1_admin.DBHelper;
 import android.util.Log;
 import android.util.MonthDisplayHelper;
 
+import com.example.g1_admin.Model.Dish;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -14,47 +15,61 @@ public class DBHelper {
     private static final String TAG = "DBHelper";
 
     // Instance  of the Firebase Database
-    private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+    DatabaseReference mDatabase;
+
+    public DBHelper(DatabaseReference mDatabase) {
+        this.mDatabase = mDatabase;
+    }
 
     // Creates a new Dish object and ads it to the Database
     // This method also allows to update all the values from a dish element
-    private void addDish(String dishId, String name, String category, String description, Double price) {
-        Dish dish = new Dish(dishId,name,category,description,price);
-        mDatabase.child("dish").child(dishId).setValue(dish);
+
+    public void addDish(String name, String category, String description, Double price) {
+
+        //mDatabase = mDatabase.child("dish");
+
+        /*DatabaseReference pushedPostRef = mDatabase.child("dish").push();
+
+        String dishId = pushedPostRef.getKey();
+        Log.i("testDB", "" + dishId);
+        */
+
+        Dish dish = new Dish("TEST",category,name,description,price);
+        mDatabase.child("dish").child("TEST").setValue(dish);
     }
 
     // Replaces the name from a single dish element
-    private void replaceName(String dishId, String newName) {
-        mDatabase.child("dish").child(dishId).child("name").setValue(newName);
+    public void replaceName(Integer dishId, String newName) {
+        mDatabase.child("dish").child(String.valueOf(dishId)).child("name").setValue(newName);
     }
 
     // Replaces the category from a single dish element
-    private void replaceCategory(String dishIs, String newCategory) {
-        mDatabase.child("dish").child(dishIs).child("category").setValue(newCategory);
+    public void replaceCategory(Integer dishIs, String newCategory) {
+        mDatabase.child("dish").child(String.valueOf(dishIs)).child("category").setValue(newCategory);
     }
 
     // Replaces the description from a single dish element
-    private void replaceDescription(String dishId, String newDescription) {
-        mDatabase.child("dish").child(dishId).child("description").setValue(newDescription);
+    public void replaceDescription(Integer dishId, String newDescription) {
+        mDatabase.child("dish").child(String.valueOf(dishId)).child("description").setValue(newDescription);
     }
 
     // Replaces the price from a single dish element
-    private void replacePrice(String dishId, Double newPrice) {
-        mDatabase.child("dish").child(dishId).child("price").setValue(newPrice);
+    public void replacePrice(Integer dishId, Double newPrice) {
+        mDatabase.child("dish").child(String.valueOf(dishId)).child("price").setValue(newPrice);
     }
 
     // Removes a values from a single dish element
-    private void removeValue(String dishId, String type) {
-        mDatabase.child("dish").child(dishId).child(type).removeValue();
+    public void removeValue(Integer dishId, String type) {
+        mDatabase.child("dish").child(String.valueOf(dishId)).child(type).removeValue();
     }
 
     // Removes a hole Dish element
-    private void removeDish(String dishId) {
-        mDatabase.child("dish").child(dishId).removeValue();
+    public void removeDish(Integer dishId) {
+        mDatabase.child("dish").child(String.valueOf(dishId)).removeValue();
     }
 
     // Receives a DataSnapshot that contains the values from a specific location on the database
-    private void readDataSnapShot(DatabaseReference mDishReference) {
+    public void readDataSnapShot(DatabaseReference mDishReference) {
         ValueEventListener dishListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

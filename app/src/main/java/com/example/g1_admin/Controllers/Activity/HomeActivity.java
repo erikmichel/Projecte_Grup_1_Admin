@@ -14,14 +14,23 @@ import android.view.MenuItem;
 import com.example.g1_admin.Controllers.Fragment.FormFragment;
 import com.example.g1_admin.Controllers.Fragment.RegisterFragment;
 import com.example.g1_admin.Controllers.Fragment.FoodFragment;
+import com.example.g1_admin.DBHelper.DBHelper;
 import com.example.g1_admin.R;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class HomeActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
     ActionBarDrawerToggle actionBarDrawerToggle;
+
+    // Instance  of the Firebase Database
+    private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+
+    //
+    DBHelper dbHelper = new DBHelper(mDatabase);
 
     // When return true navigationView will show
     @Override
@@ -58,7 +67,7 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_insert:
                         drawerLayout.closeDrawer(GravityCompat.START);
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new FormFragment()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new FormFragment(mDatabase, dbHelper)).commit();
                         break;
                     case R.id.nav_newUser:
                         drawerLayout.closeDrawer(GravityCompat.START);
