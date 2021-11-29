@@ -1,5 +1,26 @@
 <resources>
-    <string name="app_name">ESAR</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <!-- General -->
+    <string name="app_name">G1_Admin</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <!-- FormFragment-->
+    <string name="title_fragment">Upload Form</string>
+    <string-array name="categories">
+        <item>Pizza</item>
+        <item>Drink</item>
+        <item>Appetizer</item>
+    </string-array>
+    <string name="select_category">Select category:</string>
+    <string name="name_category">Name of the category:</string>
+    <string name="price_category">Price:</string>
+    <string name="price_icon">ic_euro</string>
+    <string name="add_btn">Add</string>
+    <string name="alert_title">Do you want to add it definitively?</string>
+    <string name="alert_missage">It cannot be reversed!</string>
+    <string name="toast_added">Added the category</string>
+
+    <string name="menu_Open">Open</string>
+    <string name="menu_Close">Close</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

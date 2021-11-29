@@ -1,7 +1,6 @@
-package com.example.g1_admin.Controllers;
+package com.example.g1_admin.Adapter;
 
 
-import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,20 +10,16 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.g1_admin.Moduls.Categoria;
-import com.example.g1_admin.Moduls.food;
+import com.example.g1_admin.Moduls.Category;
 import com.example.g1_admin.R;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.stream.Collectors;
 
 public class HomeViewAdapter extends RecyclerView.Adapter<HomeViewAdapter.ViewHolder> {
 
-    private ArrayList<Categoria> array_Cat;
+    private ArrayList<Category> array_Cat;
     private SelectListner lisnter;
-    public HomeViewAdapter(ArrayList<Categoria> cat,SelectListner lisnter){
+    public HomeViewAdapter(ArrayList<Category> cat, SelectListner lisnter){
         array_Cat = cat;
         this.lisnter=lisnter;
     }
