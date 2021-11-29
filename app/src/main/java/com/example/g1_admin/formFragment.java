@@ -1,32 +1,46 @@
-package com.example.g1_admin.Controllers.Fragment;
+package com.example.g1_admin;
+
+import static android.app.Activity.RESULT_OK;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.g1_admin.R;
+public class formFragment extends Fragment {
 
-public class DishFormFragment extends Fragment {
+    ImageView image;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View formView = inflater.inflate(R.layout.fragment_dish_form, container, false);
+        View formView = inflater.inflate(R.layout.fragment_form, container, false);
+
+        image = (ImageView) formView.findViewById(R.id.dishImage);
+        image.setImageResource(R.drawable.pizza_generic);
 
         Spinner spinner = (Spinner) formView.findViewById(R.id.spinner_categories);
 
@@ -73,6 +87,52 @@ public class DishFormFragment extends Fragment {
             }
         });
 
+        Button changeImage = (Button) formView.findViewById(R.id.btnChangeImage);
+        changeImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                uploadImage();
+            }
+        });
+
         return formView;
+    }
+
+    private void uploadImage() {
+        Intent intent = new Intent(Intent.ACTION_PICK,
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(intent, 10);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        Bitmap bitmap = null;
+
+        if(requestCode == 10 && resultCode == RESULT_OK){
+
+            Uri uri;
+            uri = data.getData();
+
+            try {
+                bitmap = MediaStore.Images.Media
+                        .getBitmap(getContext().getContentResolver(), uri);
+
+
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        } else if (requestCode == 20 && resultCode == RESULT_OK){
+
+            bitmap = (Bitmap) data.getExtras().get("data");
+
+        }
+
+        if(bitmap != null){
+            image.setImageBitmap(bitmap);
+        }
+
+
     }
 }
