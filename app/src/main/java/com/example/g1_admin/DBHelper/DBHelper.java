@@ -1,6 +1,7 @@
 package com.example.g1_admin.DBHelper;
 
 import android.util.Log;
+import android.util.MonthDisplayHelper;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -10,11 +11,9 @@ import com.google.firebase.database.ValueEventListener;
 
 public class DBHelper {
 
-
     private static final String TAG = "DBHelper";
 
-    // Instances of the Firebase Database
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    // Instance  of the Firebase Database
     private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
 
     // Creates a new Dish object and ads it to the Database
@@ -47,6 +46,11 @@ public class DBHelper {
     // Removes a values from a single dish element
     private void removeValue(String dishId, String type) {
         mDatabase.child("dish").child(dishId).child(type).removeValue();
+    }
+
+    // Removes a hole Dish element
+    private void removeDish(String dishId) {
+        mDatabase.child("dish").child(dishId).removeValue();
     }
 
     // Receives a DataSnapshot that contains the values from a specific location on the database
