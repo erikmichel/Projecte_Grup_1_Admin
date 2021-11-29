@@ -58,7 +58,7 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_insert:
                         drawerLayout.closeDrawer(GravityCompat.START);
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new DishFormFragment()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new FormFragment()).commit();
                         break;
                     case R.id.nav_newUser:
                         drawerLayout.closeDrawer(GravityCompat.START);
