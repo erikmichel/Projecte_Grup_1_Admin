@@ -4,15 +4,19 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.196875" />
-        <entry key="app/src/main/res/layout/activity_home.xml" value="0.33177083333333335" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33177083333333335" />
-        <entry key="app/src/main/res/layout/activity_menu.xml" value="0.34739583333333335" />
         <entry key="app/src/main/res/layout/fragment_cat.xml" value="0.34739583333333335" />
-        <entry key="app/src/main/res/layout/fragment_form.xml" value="0.34739583333333335" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.34739583333333335" />
         <entry key="app/src/main/res/layout/fragment_ingredient.xml" value="0.34739583333333335" />
-        <entry key="app/src/main/res/layout/header_menu.xml" value="0.18177083333333333" />
-        <entry key="app/src/main/res/menu/main_menu.xml" value="0.34739583333333335" />
+        <entry key="..\:/Users/Facundo/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/activity_main.xml" value="0.35778985507246375" />
+        <entry key="app/src/main/res/drawable/ic_euro.xml" value="0.11944444444444445" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.11944444444444445" />
+        <entry key="app/src/main/res/drawable/pizza_generic.xml" value="0.11944444444444445" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.3453125" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_form.xml" value="0.3333333333333333" />
+        <entry key="app/src/main/res/layout/header_menu.xml" value="0.3453125" />
+        <entry key="app/src/main/res/menu/main_menu.xml" value="0.3453125" />
+        <entry key="app/src/main/res/layout/activity_menu.xml" value="0.34739583333333335" />
       </map>
     </option>
   </component>
