@@ -91,14 +91,14 @@ public class formFragment extends Fragment {
         changeImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cargar_imagen_galeria();
+                uploadImage();
             }
         });
 
         return formView;
     }
 
-    private void cargar_imagen_galeria() {
+    private void uploadImage() {
         Intent intent = new Intent(Intent.ACTION_PICK,
                 MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, 10);
