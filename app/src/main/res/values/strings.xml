@@ -11,8 +11,9 @@
         <item>Drink</item>
         <item>Appetizer</item>
     </string-array>
+    <string name="btnChangeImage">Change</string>
     <string name="select_category">Select category:</string>
-    <string name="name_category">Name of the category:</string>
+    <string name="name_dish">Name of the dish:</string>
     <string name="price_category">Price:</string>
     <string name="price_icon">ic_euro</string>
     <string name="add_btn">Add</string>
