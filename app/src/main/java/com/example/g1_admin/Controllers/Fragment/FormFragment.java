@@ -1,4 +1,4 @@
-package com.example.g1_admin;
+package com.example.g1_admin.Controllers.Fragment;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -28,7 +28,9 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class formFragment extends Fragment {
+import com.example.g1_admin.R;
+
+public class FormFragment extends Fragment {
 
     ImageView image;
 
