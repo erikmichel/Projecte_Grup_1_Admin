@@ -74,10 +74,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="Name"
+                android:hint="@string/name_dish_hint"
                 android:inputType="textPersonName"
                 android:minHeight="48dp"
                 android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/txtNameCategory2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_description"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <EditText
+                android:id="@+id/txtDescription"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="@string/txt_description_hint"
+                android:inputType="textMultiLine"
+                android:minHeight="48dp" />
 
             <TextView
                 android:id="@+id/txtPriceCategory"

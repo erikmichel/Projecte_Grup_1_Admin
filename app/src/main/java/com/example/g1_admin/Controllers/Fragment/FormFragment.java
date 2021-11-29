@@ -76,7 +76,7 @@ public class FormFragment extends Fragment {
                 builder.setMessage(R.string.alert_missage)
                         .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                Toast.makeText(getContext(), "Added the category", Toast.LENGTH_LONG).show();
+
                             }
                         })
                         .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
