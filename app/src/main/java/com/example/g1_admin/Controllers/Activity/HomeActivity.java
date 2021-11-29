@@ -60,18 +60,9 @@ public class HomeActivity extends AppCompatActivity {
                         drawerLayout.closeDrawer(GravityCompat.START);
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new DishFormFragment()).commit();
                         break;
-                    case R.id.nav_promotion:
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
-                    case R.id.nav_ingredients:
-                        drawerLayout.closeDrawer(GravityCompat.START);
-                        break;
                     case R.id.nav_newUser:
                         drawerLayout.closeDrawer(GravityCompat.START);
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new RegisterFragment()).commit();
-                        break;
-                    case R.id.nav_logout:
-                        drawerLayout.closeDrawer(GravityCompat.START);
                         break;
                 }
                 return true;
