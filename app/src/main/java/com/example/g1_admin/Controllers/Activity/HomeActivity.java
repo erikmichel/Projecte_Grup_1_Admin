@@ -27,7 +27,7 @@ public class HomeActivity extends AppCompatActivity {
     ActionBarDrawerToggle actionBarDrawerToggle;
 
     // Instance  of the Firebase Database
-    private DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+    private DatabaseReference mDatabase = FirebaseDatabase.getInstance("https://admin-987aa-default-rtdb.europe-west1.firebasedatabase.app/").getReference();
 
     //
     DBHelper dbHelper = new DBHelper(mDatabase);

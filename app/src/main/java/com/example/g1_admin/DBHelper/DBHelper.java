@@ -21,21 +21,20 @@ public class DBHelper {
         this.mDatabase = mDatabase;
     }
 
-    // Creates a new Dish object and ads it to the Database
+    // Creates a new Dish object and adds it to the Database
     // This method also allows to update all the values from a dish element
-
     public void addDish(String name, String category, String description, Double price) {
 
         //mDatabase = mDatabase.child("dish");
 
-        /*DatabaseReference pushedPostRef = mDatabase.child("dish").push();
+        DatabaseReference pushedPostRef = mDatabase.child("dish").push();
 
         String dishId = pushedPostRef.getKey();
         Log.i("testDB", "" + dishId);
-        */
 
-        Dish dish = new Dish("TEST",category,name,description,price);
-        mDatabase.child("dish").child("TEST").setValue(dish);
+
+        Dish dish = new Dish(dishId,category,name,description,price);
+        mDatabase.child("dish").child(dishId).setValue(dish);
     }
 
     // Replaces the name from a single dish element
