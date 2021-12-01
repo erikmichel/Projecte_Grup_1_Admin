@@ -23,7 +23,7 @@ public class DBHelper {
 
     // Creates a new Dish object and adds it to the Database
     // This method also allows to update all the values from a dish element
-    public void addDish(String name, String category, String description, Double price) {
+    public void addDish(String name, String imageName, String category, String description, Double price) {
 
         //mDatabase = mDatabase.child("dish");
 
@@ -33,7 +33,7 @@ public class DBHelper {
         Log.i("testDB", "" + dishId);
 
 
-        Dish dish = new Dish(dishId,category,name,description,price);
+        Dish dish = new Dish(dishId,imageName,category,name,description,price);
         mDatabase.child("dish").child(dishId).setValue(dish);
     }
 

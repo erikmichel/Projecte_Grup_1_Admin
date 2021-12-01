@@ -12,10 +12,12 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 
+import android.os.storage.StorageManager;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -32,14 +34,31 @@ import android.widget.Toast;
 
 import com.example.g1_admin.DBHelper.DBHelper;
 import com.example.g1_admin.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import org.w3c.dom.Text;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 
 public class FormFragment extends Fragment {
 
     ImageView image;
+
+    String fileName;
+
+    Uri imageUri;
+
+    StorageReference storageReference;
+
+
 
     DatabaseReference mDatabase;
     DBHelper dbHelper;
@@ -95,10 +114,11 @@ public class FormFragment extends Fragment {
                 builder.setMessage(R.string.alert_missage)
                         .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
+                                uploadImage();
                                 int category = spinner.getSelectedItemPosition();
                                 String cat = spinner.getSelectedItem().toString();
                                 Double pr = Double.parseDouble(price.getText().toString());
-                                dbHelper.addDish(name.getText().toString(), cat, description.getText().toString(), pr);
+                                dbHelper.addDish(name.getText().toString(), fileName, cat, description.getText().toString(), pr);
                             }
                         })
                         .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
@@ -115,14 +135,14 @@ public class FormFragment extends Fragment {
         changeImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                uploadImage();
+                changeImage();
             }
         });
 
         return formView;
     }
 
-    private void uploadImage() {
+    private void changeImage() {
         Intent intent = new Intent(Intent.ACTION_PICK,
                 MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, 10);
@@ -136,12 +156,11 @@ public class FormFragment extends Fragment {
 
         if(requestCode == 10 && resultCode == RESULT_OK){
 
-            Uri uri;
-            uri = data.getData();
+            imageUri = data.getData();
 
             try {
                 bitmap = MediaStore.Images.Media
-                        .getBitmap(getContext().getContentResolver(), uri);
+                        .getBitmap(getContext().getContentResolver(), imageUri);
 
 
             }catch (Exception e){
@@ -158,5 +177,27 @@ public class FormFragment extends Fragment {
         }
 
 
+    }
+
+    private void uploadImage(){
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.FRANCE);
+        Date now = new Date();
+        fileName = formatter.format(now);
+        storageReference = FirebaseStorage.getInstance().getReference("images/"+fileName);
+
+        storageReference.putFile(imageUri)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        image.setImageURI(null);
+                        Toast.makeText(getContext(), "Successfully Uploaded", Toast.LENGTH_SHORT).show();
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getContext(), "Failed to Upload", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
