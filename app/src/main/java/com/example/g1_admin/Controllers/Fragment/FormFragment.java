@@ -6,31 +6,25 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.RequiresApi;
-import androidx.fragment.app.Fragment;
-
-import android.os.storage.StorageManager;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+import androidx.fragment.app.Fragment;
 
 import com.example.g1_admin.DBHelper.DBHelper;
 import com.example.g1_admin.R;
@@ -40,8 +34,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
-import org.w3c.dom.Text;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -53,6 +45,7 @@ public class FormFragment extends Fragment {
     ImageView image;
 
     String fileName;
+    String cat;
 
     Uri imageUri;
 
@@ -75,14 +68,14 @@ public class FormFragment extends Fragment {
         // Inflate the layout for this fragment
         View formView = inflater.inflate(R.layout.fragment_form, container, false);
 
-        image = (ImageView) formView.findViewById(R.id.dishImage);
+        image = formView.findViewById(R.id.dishImage);
         image.setImageResource(R.drawable.pizza_generic);
 
         TextView name = formView.findViewById(R.id.txtNameDish);
         TextView description = formView.findViewById(R.id.txtDescription);
         TextView price = formView.findViewById(R.id.txtPrice);
 
-        Spinner spinner = (Spinner) formView.findViewById(R.id.spinner_categories);
+        Spinner spinner = formView.findViewById(R.id.spinner_categories);
 
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),
@@ -105,7 +98,7 @@ public class FormFragment extends Fragment {
             }
         });
 
-        Button add_category = (Button) formView.findViewById(R.id.add_btn);
+        Button add_category = formView.findViewById(R.id.add_btn);
         add_category.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -114,10 +107,17 @@ public class FormFragment extends Fragment {
                 builder.setMessage(R.string.alert_missage)
                         .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
+
+                                //We assign the value in String of the selected Item of the Spinner.
+                                cat = spinner.getSelectedItem().toString();
+
+                                //We upload the image to FireBase Storage.
                                 uploadImage();
-                                int category = spinner.getSelectedItemPosition();
-                                String cat = spinner.getSelectedItem().toString();
+
+                                //We transform the currency value to Double
                                 Double pr = Double.parseDouble(price.getText().toString());
+
+                                //We call the method to create and upload a plate.
                                 dbHelper.addDish(name.getText().toString(), fileName, cat, description.getText().toString(), pr);
                             }
                         })
@@ -131,10 +131,11 @@ public class FormFragment extends Fragment {
             }
         });
 
-        Button changeImage = (Button) formView.findViewById(R.id.btnChangeImage);
+        Button changeImage = formView.findViewById(R.id.btnChangeImage);
         changeImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 changeImage();
             }
         });
@@ -152,13 +153,16 @@ public class FormFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+        //Declared the bitmap
         Bitmap bitmap = null;
 
         if(requestCode == 10 && resultCode == RESULT_OK){
 
+            //We assign the URI of the imageWe assign the URI of the image
             imageUri = data.getData();
 
             try {
+                //We assign the previously chosen image to our bitmap
                 bitmap = MediaStore.Images.Media
                         .getBitmap(getContext().getContentResolver(), imageUri);
 
@@ -173,6 +177,7 @@ public class FormFragment extends Fragment {
         }
 
         if(bitmap != null){
+            //We update our ImageView for the chosen image.
             image.setImageBitmap(bitmap);
         }
 
@@ -180,11 +185,19 @@ public class FormFragment extends Fragment {
     }
 
     private void uploadImage(){
+        //We declare the date formatter
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.FRANCE);
+
+        //We declare the current date including seconds
         Date now = new Date();
-        fileName = formatter.format(now);
+
+        //We create the name of the file taking the category as a reference and adding the current date in the declared format.
+        fileName = cat + "_" + formatter.format(now);
+
+        //We declare the fate of the images
         storageReference = FirebaseStorage.getInstance().getReference("images/"+fileName);
 
+        //Let's put the image inside the storage
         storageReference.putFile(imageUri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
