@@ -6,8 +6,6 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -23,14 +21,13 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.g1_admin.R;
 
-public class FormFragment extends Fragment {
+public class DishFormFragment extends Fragment {
 
     ImageView image;
 
@@ -39,7 +36,7 @@ public class FormFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View formView = inflater.inflate(R.layout.fragment_form, container, false);
+        View formView = inflater.inflate(R.layout.fragment_dish_form, container, false);
 
         image = (ImageView) formView.findViewById(R.id.dishImage);
         image.setImageResource(R.drawable.pizza_generic);

@@ -3,12 +3,24 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/User/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/activity_home.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/activity_login.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/fragment_dish_form.xml" value="0.1" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/fragment_food.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/item_list.xml" value="0.20416666666666666" />
+        <entry key="../../../../layout/custom_preview.xml" value="0.196875" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.33177083333333335" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.34270833333333334" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33177083333333335" />
+        <entry key="app/src/main/res/layout/activity_menu.xml" value="0.34739583333333335" />
+        <entry key="app/src/main/res/layout/fragment_cat.xml" value="0.34739583333333335" />
+        <entry key="app/src/main/res/layout/fragment_category.xml" value="0.34270833333333334" />
+        <entry key="app/src/main/res/layout/fragment_category_form.xml" value="0.34270833333333334" />
+        <entry key="app/src/main/res/layout/fragment_dish_form.xml" value="0.34270833333333334" />
+        <entry key="app/src/main/res/layout/fragment_food.xml" value="0.34270833333333334" />
+        <entry key="app/src/main/res/layout/fragment_form.xml" value="0.34739583333333335" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.34739583333333335" />
+        <entry key="app/src/main/res/layout/fragment_ingredient.xml" value="0.34739583333333335" />
+        <entry key="app/src/main/res/layout/fragment_register.xml" value="0.34270833333333334" />
+        <entry key="app/src/main/res/layout/fragment_user_detail.xml" value="0.34270833333333334" />
+        <entry key="app/src/main/res/layout/header_menu.xml" value="0.18177083333333333" />
+        <entry key="app/src/main/res/layout/item_list.xml" value="0.33" />
+        <entry key="app/src/main/res/menu/main_menu.xml" value="0.34739583333333335" />
       </map>
     </option>
   </component>
