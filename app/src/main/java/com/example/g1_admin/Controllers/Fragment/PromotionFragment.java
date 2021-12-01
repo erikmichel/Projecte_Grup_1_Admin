@@ -107,7 +107,8 @@ public class PromotionFragment extends Fragment implements DatePickerDialog.OnDa
         btnAddPromotion.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View view) {
-
+                  food.setPromotionDate(txtDate.getText().toString());
+                  food.setPromotionDiscount(edtxtDiscount.getText().toString());
               }
          }
         );
@@ -133,6 +134,5 @@ public class PromotionFragment extends Fragment implements DatePickerDialog.OnDa
         i1 = i1+1;
         String date = i2 + "/" + i1 + "/" + i;
         txtDate.setText(date);
-        food.setPromotionDate(date);
     }
 }
