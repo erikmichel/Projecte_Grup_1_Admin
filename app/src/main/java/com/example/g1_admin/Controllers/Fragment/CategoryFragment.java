@@ -87,9 +87,9 @@ public class CategoryFragment extends Fragment implements SelectListner {
     public void onItemClicked(Food food) {
         Bundle bundle = new Bundle();
         bundle.putSerializable("food", food);
-        IngredientFragment ingredientFragment= new IngredientFragment();
-        ingredientFragment.setArguments(bundle);
+        PromotionFragment promotionFragment= new PromotionFragment();
+        promotionFragment.setArguments(bundle);
 
-        getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, ingredientFragment).commit();
+        getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, promotionFragment).commit();
     }
 }
