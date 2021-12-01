@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.g1_admin.Moduls.Food;
 import com.example.g1_admin.R;
 
 /**
@@ -70,6 +71,10 @@ public class IngredientFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_ingredient, container, false);
         // Inflate the layout for this fragment
 
+        // BUNDLE
+        Bundle bundle = getArguments();
+        Food food = (Food) bundle.getSerializable("food");
+
         // FORM FRAGMENT ELEMENTS
         EditText edtxtIngredient = view.findViewById(R.id.edtxtIngredient);
         Button btnAdd = view.findViewById(R.id.btn_add);
@@ -84,6 +89,7 @@ public class IngredientFragment extends Fragment {
                     if(ingredient.isEmpty()) {
                         Toast.makeText(getActivity(), "Ingredient name cannot be empty", Toast.LENGTH_LONG).show();
                     } else {
+                        food.setIngredients(food.getIngredients() + ", " + ingredient);
                         checkBox = new CheckBox(getActivity().getApplicationContext());
                         checkBox.setText(ingredient);
                         linearLayout.addView(checkBox);

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.g1_admin.Moduls.Food;
@@ -21,12 +22,13 @@ import java.util.stream.Collectors;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     private ArrayList<Food> array_food;
     private ArrayList<Food> all_items;
+    private SelectListner lisnter;
 
-
-    public RecyclerViewAdapter(ArrayList<Food> arrN){
+    public RecyclerViewAdapter(ArrayList<Food> arrN, SelectListner lisnter){
         array_food = arrN;
         all_items = new ArrayList<>();
         all_items.addAll(array_food);
+        this.lisnter = lisnter;
     }
 
 
@@ -43,6 +45,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.etiquetaNom.setText(array_food.get(position).getName());
+
+        holder.etiquetaCOntainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                lisnter.onItemClicked(array_food.get(position));
+            }
+        });
 
     }
 
@@ -80,11 +89,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView etiquetaNom;
-
+        ConstraintLayout etiquetaCOntainer;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             etiquetaNom = itemView.findViewById(R.id.name);
+            etiquetaCOntainer = itemView.findViewById(R.id.containerCat);
         }
     }
 }

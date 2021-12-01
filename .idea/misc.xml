@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin COPIA DEL MAIN/app/src/main/res/layout/fragment_category.xml" value="0.10144927536231885" />
+        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin COPIA DEL MAIN/app/src/main/res/layout/fragment_home.xml" value="0.10144927536231885" />
+        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin COPIA DEL MAIN/app/src/main/res/layout/fragment_ingredient.xml" value="0.22" />
+        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin COPIA DEL MAIN/app/src/main/res/layout/header_menu.xml" value="0.10144927536231885" />
+        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin COPIA DEL MAIN/app/src/main/res/layout/item_list.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/activity_home.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/activity_login.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/fragment_dish_form.xml" value="0.1" />

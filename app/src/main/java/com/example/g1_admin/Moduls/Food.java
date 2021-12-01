@@ -1,9 +1,13 @@
 package com.example.g1_admin.Moduls;
 
-public class Food {
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Food implements Serializable {
     private String Name;
     private String Cost;
     private String Category;
+    private String ingredients;
 
     public Food(String name, String cost) {
         Name = name;
@@ -37,5 +41,13 @@ public class Food {
 
     public void setCategory(String category) {
         Category = category;
+    }
+
+    public String getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(String ingredients) {
+        this.ingredients = ingredients;
     }
 }

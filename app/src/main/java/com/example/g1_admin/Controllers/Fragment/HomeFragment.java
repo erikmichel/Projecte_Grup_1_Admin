@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import com.example.g1_admin.Adapter.HomeViewAdapter;
 import com.example.g1_admin.Adapter.SelectListner;
 import com.example.g1_admin.Moduls.Category;
+import com.example.g1_admin.Moduls.Food;
 import com.example.g1_admin.R;
 
 import java.util.ArrayList;
@@ -67,5 +68,10 @@ public class HomeFragment extends Fragment implements SelectListner {
         categoriaFragment.setArguments(bundle);
 
         getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, categoriaFragment).commit();
+    }
+
+    @Override
+    public void onItemClicked(Food food) {
+
     }
 }
