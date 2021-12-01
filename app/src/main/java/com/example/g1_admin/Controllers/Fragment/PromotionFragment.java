@@ -30,6 +30,8 @@ public class PromotionFragment extends Fragment implements DatePickerDialog.OnDa
     // PROMOTION FRAGMENT ELEMENTS
     TextView txtDate;
     TextView txtProductName;
+    EditText edtxtDiscount;
+    Button btnAddPromotion;
 
     // FOOD OBJECT
     Food food;
@@ -89,6 +91,8 @@ public class PromotionFragment extends Fragment implements DatePickerDialog.OnDa
         txtDate = view.findViewById(R.id.txtDate);
         txtProductName = view.findViewById(R.id.txtProductName);
         txtProductName.setText(food.getName());
+        edtxtDiscount = view.findViewById(R.id.edtxtDiscount);
+        btnAddPromotion = view.findViewById(R.id.btnAddPromotion);
 
         // CALENDAR BUTTON
         btnCalendar.setOnClickListener(new View.OnClickListener() {
@@ -97,6 +101,15 @@ public class PromotionFragment extends Fragment implements DatePickerDialog.OnDa
                   showDatePickerDialog();
               }
           }
+        );
+
+        // ADD PROMOTION BUTTON
+        btnAddPromotion.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View view) {
+
+              }
+         }
         );
 
 
