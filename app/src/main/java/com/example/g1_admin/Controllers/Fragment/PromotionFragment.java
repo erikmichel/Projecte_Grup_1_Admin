@@ -27,8 +27,9 @@ import java.util.Calendar;
  */
 public class PromotionFragment extends Fragment implements DatePickerDialog.OnDateSetListener{
 
-    //Txt Date
+    // PROMOTION FRAGMENT ELEMENTS
     TextView txtDate;
+    TextView txtProductName;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -83,6 +84,8 @@ public class PromotionFragment extends Fragment implements DatePickerDialog.OnDa
         // PROMOTION FRAGMENT ELEMENTS
         Button btnCalendar = view.findViewById(R.id.btnCalendar);
         txtDate = view.findViewById(R.id.txtDate);
+        txtProductName = view.findViewById(R.id.txtProductName);
+        txtProductName.setText(food.getName());
 
         // CALENDAR BUTTON
         btnCalendar.setOnClickListener(new View.OnClickListener() {
@@ -111,7 +114,8 @@ public class PromotionFragment extends Fragment implements DatePickerDialog.OnDa
 
     @Override
     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-        String date = i + "/" + i1 + "/" + i2;
+        i1 = i1+1;
+        String date = i2 + "/" + i1 + "/" + i;
         txtDate.setText(date);
     }
 }
