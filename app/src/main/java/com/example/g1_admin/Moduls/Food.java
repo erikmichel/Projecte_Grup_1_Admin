@@ -8,6 +8,8 @@ public class Food implements Serializable {
     private String Cost;
     private String Category;
     private String ingredients;
+    private String PromotionDate;
+    private String PromotionDiscount;
 
     public Food(String name, String cost) {
         Name = name;
@@ -49,5 +51,21 @@ public class Food implements Serializable {
 
     public void setIngredients(String ingredients) {
         this.ingredients = ingredients;
+    }
+
+    public String getPromotionDate() {
+        return PromotionDate;
+    }
+
+    public void setPromotionDate(String promotionDate) {
+        PromotionDate = promotionDate;
+    }
+
+    public String getPromotionDiscount() {
+        return PromotionDiscount;
+    }
+
+    public void setPromotionDiscount(String promotionDiscount) {
+        PromotionDiscount = promotionDiscount;
     }
 }

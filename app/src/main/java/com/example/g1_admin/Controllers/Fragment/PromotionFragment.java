@@ -31,6 +31,9 @@ public class PromotionFragment extends Fragment implements DatePickerDialog.OnDa
     TextView txtDate;
     TextView txtProductName;
 
+    // FOOD OBJECT
+    Food food;
+
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -79,7 +82,7 @@ public class PromotionFragment extends Fragment implements DatePickerDialog.OnDa
 
         // BUNDLE
         Bundle bundle = getArguments();
-        Food food = (Food) bundle.getSerializable("food");
+        food = (Food) bundle.getSerializable("food");
 
         // PROMOTION FRAGMENT ELEMENTS
         Button btnCalendar = view.findViewById(R.id.btnCalendar);
@@ -117,5 +120,6 @@ public class PromotionFragment extends Fragment implements DatePickerDialog.OnDa
         i1 = i1+1;
         String date = i2 + "/" + i1 + "/" + i;
         txtDate.setText(date);
+        food.setPromotionDate(date);
     }
 }
