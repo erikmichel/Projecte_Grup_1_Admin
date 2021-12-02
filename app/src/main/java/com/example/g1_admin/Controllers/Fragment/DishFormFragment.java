@@ -40,7 +40,7 @@ import java.util.Date;
 import java.util.Locale;
 
 
-public class FormFragment extends Fragment {
+public class DishFormFragment extends Fragment {
 
     ImageView image;
     String defaultImageIdentificator;
@@ -65,7 +65,7 @@ public class FormFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View formView = inflater.inflate(R.layout.fragment_form, container, false);
+        View formView = inflater.inflate(R.layout.fragment_dish_form, container, false);
 
         image = formView.findViewById(R.id.dishImage);
         image.setImageResource(R.drawable.pizza_generic);

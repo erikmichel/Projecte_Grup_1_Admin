@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.g1_admin.Controllers.Fragment.CategoryFormFragment;
 import com.example.g1_admin.Controllers.Fragment.DishFormFragment;
 import com.example.g1_admin.Controllers.Fragment.HomeFragment;
 import com.example.g1_admin.Controllers.Fragment.RegisterFragment;
@@ -66,9 +67,13 @@ public class HomeActivity extends AppCompatActivity {
                         drawerLayout.closeDrawer(GravityCompat.START);
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new HomeFragment()).commit();
                         break;
-                    case R.id.nav_insert:
+                    case R.id.nav_insertDish:
                         drawerLayout.closeDrawer(GravityCompat.START);
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new FormFragment(mDatabase, dbHelper)).commit();
+                        break;
+                    case R.id.nav_insertCategory:
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new CategoryFormFragment()).commit();
                         break;
                     case R.id.nav_newUser:
                         drawerLayout.closeDrawer(GravityCompat.START);
