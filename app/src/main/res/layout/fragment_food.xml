@@ -7,7 +7,7 @@
     tools:context=".Controllers.Fragment.FoodFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewHome"
+        android:id="@+id/recyclerViewfood"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
