@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 
 import com.example.g1_admin.Adapter.HomeViewAdapter;
 import com.example.g1_admin.Adapter.SelectListner;
+import com.example.g1_admin.Controllers.Activity.HomeActivity;
+import com.example.g1_admin.Controllers.Activity.LoginActivity;
 import com.example.g1_admin.Moduls.Category;
 import com.example.g1_admin.Moduls.Food;
 import com.example.g1_admin.R;
@@ -34,6 +36,8 @@ public class HomeFragment extends Fragment implements SelectListner {
         View view=inflater.inflate(R.layout.fragment_home, container, false);
         //SearchView searchItem = (SearchView) view.findViewById(R.id.searchView);
 
+        // SET FRAGMENT TITLE TO "HOME"
+        ((HomeActivity) getActivity()).setActionBarTitle("Home");
 
         RecyclerView recyclerView = view.findViewById(R.id.recyclerViewHome);
         HomeViewAdapter adapter = new HomeViewAdapter(dataCata,this);

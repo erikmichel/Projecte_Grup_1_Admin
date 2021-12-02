@@ -15,6 +15,7 @@ import android.widget.SearchView;
 
 import com.example.g1_admin.Adapter.RecyclerViewAdapter;
 import com.example.g1_admin.Adapter.SelectListner;
+import com.example.g1_admin.Controllers.Activity.HomeActivity;
 import com.example.g1_admin.Moduls.Category;
 import com.example.g1_admin.Moduls.Food;
 import com.example.g1_admin.R;
@@ -29,6 +30,10 @@ public class CategoryFragment extends Fragment implements SelectListner {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_category, container, false);
+
+        // SET FRAGMENT TITLE TO "PRODUCTS"
+        ((HomeActivity) getActivity()).setActionBarTitle("Products");
+
         // Inflate the layout for this fragment
         Bundle bundle = getArguments();
         Category category1 = (Category) bundle.getSerializable("category");

@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.g1_admin.Controllers.Activity.HomeActivity;
 import com.example.g1_admin.Moduls.Food;
 import com.example.g1_admin.R;
 
@@ -82,6 +83,9 @@ public class PromotionFragment extends Fragment implements DatePickerDialog.OnDa
         View view = inflater.inflate(R.layout.fragment_promotion, container, false);
         // Inflate the layout for this fragment
 
+        // SET FRAGMENT TITLE TO "PROMOTIONS"
+        ((HomeActivity) getActivity()).setActionBarTitle("Promotions");
+
         // BUNDLE
         Bundle bundle = getArguments();
         food = (Food) bundle.getSerializable("food");
@@ -110,10 +114,8 @@ public class PromotionFragment extends Fragment implements DatePickerDialog.OnDa
                   food.setPromotionDate(txtDate.getText().toString());
                   food.setPromotionDiscount(edtxtDiscount.getText().toString());
               }
-         }
+            }
         );
-
-
 
         return view;
     }

@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.example.g1_admin.Controllers.Activity.HomeActivity;
 import com.example.g1_admin.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -38,6 +39,9 @@ public class RegisterFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_register, container, false);
+
+        // SET FRAGMENT TITLE TO "NEW USER"
+        ((HomeActivity) getActivity()).setActionBarTitle("New user");
 
         // Firestore init
         db = FirebaseFirestore.getInstance();

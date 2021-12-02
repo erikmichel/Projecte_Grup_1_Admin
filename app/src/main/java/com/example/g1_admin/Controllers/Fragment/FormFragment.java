@@ -28,6 +28,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.g1_admin.Controllers.Activity.HomeActivity;
 import com.example.g1_admin.R;
 
 public class FormFragment extends Fragment {
@@ -40,6 +41,9 @@ public class FormFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View formView = inflater.inflate(R.layout.fragment_form, container, false);
+
+        // SET FRAGMENT TITLE TO "INSERT DISH"
+        ((HomeActivity) getActivity()).setActionBarTitle("Insert dish");
 
         image = (ImageView) formView.findViewById(R.id.dishImage);
         image.setImageResource(R.drawable.pizza_generic);
