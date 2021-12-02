@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.g1_admin.Moduls.Category;
+import com.example.g1_admin.Model.Category;
 import com.example.g1_admin.R;
 
 import java.util.ArrayList;

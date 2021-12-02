@@ -55,7 +55,7 @@ public class DishFormFragment extends Fragment {
     DatabaseReference mDatabase;
     DBHelper dbHelper;
 
-    public FormFragment(DatabaseReference mDatabase, DBHelper dbHelper) {
+    public DishFormFragment(DatabaseReference mDatabase, DBHelper dbHelper) {
         this.mDatabase = mDatabase;
         this.dbHelper = dbHelper;
     }
@@ -110,7 +110,7 @@ public class DishFormFragment extends Fragment {
 
                         //We check that the user has changed the default image
                         if (image.getDrawable().toString().equals(defaultImageIdentificator)) {
-                            Toast.makeText(getContext(), "U need to change the default image", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), "You need to change the default image", Toast.LENGTH_SHORT).show();
                         } else {
                             //We assign the value in String of the selected Item of the Spinner.
                             cat = spinner.getSelectedItem().toString();

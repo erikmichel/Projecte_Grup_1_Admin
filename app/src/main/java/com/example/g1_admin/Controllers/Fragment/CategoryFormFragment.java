@@ -4,7 +4,6 @@ import static android.app.Activity.RESULT_OK;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -19,7 +18,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.g1_admin.Moduls.Category;
+import com.example.g1_admin.Model.Category;
 import com.example.g1_admin.R;
 
 public class CategoryFormFragment extends Fragment {

@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.SearchView;
 
 import com.example.g1_admin.Adapter.RecyclerViewAdapter;
-import com.example.g1_admin.Moduls.Category;
+import com.example.g1_admin.Model.Category;
 import com.example.g1_admin.Moduls.Food;
 import com.example.g1_admin.R;
 

@@ -1,4 +1,4 @@
-package com.example.g1_admin.Moduls;
+package com.example.g1_admin.Model;
 
 import java.io.Serializable;
 
