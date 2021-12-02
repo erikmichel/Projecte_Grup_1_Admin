@@ -43,6 +43,7 @@ import java.util.Locale;
 public class FormFragment extends Fragment {
 
     ImageView image;
+    String defaultImageIdentificator;
 
     String fileName;
     String cat;
@@ -50,8 +51,6 @@ public class FormFragment extends Fragment {
     Uri imageUri;
 
     StorageReference storageReference;
-
-
 
     DatabaseReference mDatabase;
     DBHelper dbHelper;
@@ -70,6 +69,7 @@ public class FormFragment extends Fragment {
 
         image = formView.findViewById(R.id.dishImage);
         image.setImageResource(R.drawable.pizza_generic);
+        defaultImageIdentificator = image.getDrawable().toString();
 
         TextView name = formView.findViewById(R.id.txtNameDish);
         TextView description = formView.findViewById(R.id.txtDescription);
@@ -104,28 +104,33 @@ public class FormFragment extends Fragment {
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
                 builder.setTitle(R.string.alert_title);
-                builder.setMessage(R.string.alert_missage)
-                        .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
+                builder.setMessage(R.string.alert_missage);
+                builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
 
-                                //We assign the value in String of the selected Item of the Spinner.
-                                cat = spinner.getSelectedItem().toString();
+                        //We check that the user has changed the default image
+                        if (image.getDrawable().toString().equals(defaultImageIdentificator)) {
+                            Toast.makeText(getContext(), "U need to change the default image", Toast.LENGTH_SHORT).show();
+                        } else {
+                            //We assign the value in String of the selected Item of the Spinner.
+                            cat = spinner.getSelectedItem().toString();
 
-                                //We upload the image to FireBase Storage.
-                                uploadImage();
+                            //We upload the image to FireBase Storage.
+                            uploadImage();
 
-                                //We transform the currency value to Double
-                                Double pr = Double.parseDouble(price.getText().toString());
+                            //We transform the currency value to Double
+                            Double pr = Double.parseDouble(price.getText().toString());
 
-                                //We call the method to create and upload a plate.
-                                dbHelper.addDish(name.getText().toString(), fileName, cat, description.getText().toString(), pr);
-                            }
-                        })
-                        .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
+                            //We call the method to create and upload a plate.
+                            dbHelper.addDish(name.getText().toString(), fileName, cat, description.getText().toString(), pr);
+                        }
+                    }
+                });
+                builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
 
-                            }
-                        });
+                    }
+                });
                 AlertDialog dialog = builder.create();
                 dialog.show();
             }
