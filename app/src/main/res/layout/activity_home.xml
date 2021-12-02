@@ -23,13 +23,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-    
+
     <com.google.android.material.navigation.NavigationView
+        android:background="@color/light_gray"
+        android:id="@+id/navigationView"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:id="@+id/navigationView"
-        app:headerLayout="@layout/header_menu"
-        app:menu="@menu/main_menu"
+        android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        android:layout_gravity="start"/>
+        app:headerLayout="@layout/header_menu"
+        app:menu="@menu/main_menu" />
 </androidx.drawerlayout.widget.DrawerLayout>
