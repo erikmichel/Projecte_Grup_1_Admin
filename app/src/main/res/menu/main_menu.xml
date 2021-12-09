@@ -4,10 +4,12 @@
         <item
             android:id="@+id/nav_food"
             android:title="Food"
+            android:textColor="#000000"
             />
         <item
             android:id="@+id/nav_insert"
             android:title="Insert Dish"
+            android:textColor="#000000"
             />
 
     </group>
@@ -17,6 +19,7 @@
                 <item
                     android:id="@+id/nav_newUser"
                     android:title="New user"
+                    android:textColor="#000000"
                     />
             </menu>
         </item>
