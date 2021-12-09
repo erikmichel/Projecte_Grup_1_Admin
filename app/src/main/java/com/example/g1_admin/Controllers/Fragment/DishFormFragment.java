@@ -163,7 +163,7 @@ public class DishFormFragment extends Fragment {
 
         if(requestCode == 10 && resultCode == RESULT_OK){
 
-            //We assign the URI of the imageWe assign the URI of the image
+            //We assign the URI of the image
             imageUri = data.getData();
 
             try {
@@ -193,7 +193,7 @@ public class DishFormFragment extends Fragment {
         //We declare the date formatter
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.FRANCE);
 
-        //We declare the current date including seconds
+        //We declare the current date cluding seconds
         Date now = new Date();
 
         //We create the name of the file taking the category as a reference and adding the current date in the declared format.

@@ -13,6 +13,15 @@ public class Dish {
 
     }
 
+    public Dish(String imageName, String category, String name, String description, double price) {
+        this.imageName = imageName;
+        this.category = category;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+    }
+
+
     public Dish(String id, String imageName, String category, String name, String description, double price) {
         this.id = id;
         this.imageName = imageName;

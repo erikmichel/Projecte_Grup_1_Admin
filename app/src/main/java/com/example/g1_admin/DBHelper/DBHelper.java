@@ -3,6 +3,7 @@ package com.example.g1_admin.DBHelper;
 import android.util.Log;
 import android.util.MonthDisplayHelper;
 
+import com.example.g1_admin.Model.Category;
 import com.example.g1_admin.Model.Dish;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,7 +35,7 @@ public class DBHelper {
 
 
         Dish dish = new Dish(dishId,imageName,category,name,description,price);
-        mDatabase.child("dish").child(dishId).setValue(dish);
+        mDatabase.child("dish").child(category).child(dishId).setValue(dish);
     }
 
     // Replaces the name from a single dish element
@@ -85,4 +86,20 @@ public class DBHelper {
         };
         mDishReference.addValueEventListener(dishListener);
     }
+
+    // Creates a new Dish object and adds it to the Database
+    // This method also allows to update all the values from a dish element
+    public void addCategory(String name, String imageName) {
+
+        DatabaseReference pushedPostRef = mDatabase.child("category").push();
+
+        String categoryId = pushedPostRef.getKey();
+        Log.i("testDB", "" + categoryId);
+
+
+        Category category = new Category(categoryId, imageName, name);
+        mDatabase.child("category").child(categoryId).setValue(category);
+    }
+
+
 }

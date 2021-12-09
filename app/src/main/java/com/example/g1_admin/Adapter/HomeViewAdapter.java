@@ -36,7 +36,7 @@ public class HomeViewAdapter extends RecyclerView.Adapter<HomeViewAdapter.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.etiquetaCat.setText(array_Cat.get(position).getCategory());
+        holder.etiquetaCat.setText(array_Cat.get(position).getCategoryName());
         holder.etiquetaCOntainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

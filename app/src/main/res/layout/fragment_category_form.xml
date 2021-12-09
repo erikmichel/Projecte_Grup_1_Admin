@@ -8,7 +8,7 @@
     tools:context=".Controllers.Fragment.CategoryFormFragment" >
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/categoryFormName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
@@ -32,7 +32,7 @@
 
     <ImageView
         android:id="@+id/imageViewCategory"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="200dp"
         android:layout_marginTop="36dp"
         android:rotation="90"
@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:text="Add Category"
-        app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintStart_toStartOf="@+id/categoryFormName"
+        app:layout_constraintTop_toBottomOf="@+id/categoryFormName" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

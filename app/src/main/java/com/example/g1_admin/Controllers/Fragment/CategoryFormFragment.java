@@ -4,9 +4,11 @@ import static android.app.Activity.RESULT_OK;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
@@ -15,17 +17,43 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.g1_admin.DBHelper.DBHelper;
 import com.example.g1_admin.Model.Category;
 import com.example.g1_admin.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class CategoryFormFragment extends Fragment {
     private ImageView imageViewCategory;
+    private EditText categoryFormName;
     private Category newCategory;
     private Bitmap image;
     private Button btnSetCategoryImage, btnAddCategory;
+    private Uri imageUri;
+
+    String name;
+    String imageName;
+    DatabaseReference mDatabase;
+    DBHelper dbHelper;
+    StorageReference storageReference;
+
+    public CategoryFormFragment(DatabaseReference mDatabase, DBHelper dbHelper) {
+        this.mDatabase = mDatabase;
+        this.dbHelper = dbHelper;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,6 +61,7 @@ public class CategoryFormFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_category_form, container, false);
 
+        categoryFormName = root.findViewById(R.id.categoryFormName);
         btnSetCategoryImage = root.findViewById(R.id.btnSetCategoryImage);
         btnAddCategory = root.findViewById(R.id.btnAddCategory);
         imageViewCategory = root.findViewById(R.id.imageViewCategory);
@@ -67,12 +96,11 @@ public class CategoryFormFragment extends Fragment {
         Bitmap bitmap = null;
 
         if(requestCode == 10 && resultCode == RESULT_OK){
-            Uri uri;
-            uri = data.getData();
+            imageUri = data.getData();
             try {
                 bitmap = MediaStore.Images.Media
-                        .getBitmap(getContext().getContentResolver(), uri);
-            } catch (Exception e){
+                        .getBitmap(getContext().getContentResolver(), imageUri);
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         } else if (requestCode == 20 && resultCode == RESULT_OK){
@@ -86,8 +114,52 @@ public class CategoryFormFragment extends Fragment {
     }
 
     public void uploadNewCategory() {
+        name = categoryFormName.getText().toString();
+
+        // Image check
         if(image == null) {
-            Toast.makeText(getContext(), "Image is needed", Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), "Category image is required", Toast.LENGTH_LONG).show();
+            return;
         }
+
+        // Name check
+        if(name.isEmpty()) {
+            categoryFormName.setError("Category name is required");
+            categoryFormName.requestFocus();
+            return;
+        }
+        uploadImage();
+        dbHelper.addCategory(name, imageName);
     }
+
+    private void uploadImage(){
+        //We declare the date formatter
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.FRANCE);
+
+        //We declare the current date including seconds
+        Date now = new Date();
+
+        //We create the name of the file taking the category as a reference and adding the current date in the declared format.
+        imageName = name + "_" + formatter.format(now);
+
+        //We declare the fate of the images
+        storageReference = FirebaseStorage.getInstance().getReference("images/"+imageName);
+
+        //Let's put the image inside the storage
+        storageReference.putFile(imageUri)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        imageViewCategory.setImageURI(null);
+                        Toast.makeText(getContext(), "Successfully Uploaded", Toast.LENGTH_SHORT).show();
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getContext(), "Failed to Upload", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 }

@@ -26,10 +26,10 @@ public class HomeFragment extends Fragment implements SelectListner {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         ArrayList<Category> dataCata=new ArrayList();
-        dataCata.add(new Category("cat1"));
-        dataCata.add(new Category("cat2"));
-        dataCata.add(new Category("cat3"));
-        dataCata.add(new Category("cat4"));
+        dataCata.add(new Category("imagePlaceHolder", "Starter"));
+        dataCata.add(new Category("imagePlaceHolder", "Pizza"));
+        dataCata.add(new Category("imagePlaceHolder", "Drink"));
+        dataCata.add(new Category("imagePlaceHolder", "cat4"));
         View view=inflater.inflate(R.layout.fragment_home, container, false);
         //SearchView searchItem = (SearchView) view.findViewById(R.id.searchView);
 

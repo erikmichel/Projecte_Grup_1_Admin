@@ -15,7 +15,7 @@ import android.widget.SearchView;
 
 import com.example.g1_admin.Adapter.RecyclerViewAdapter;
 import com.example.g1_admin.Model.Category;
-import com.example.g1_admin.Moduls.Food;
+import com.example.g1_admin.Model.Dish;
 import com.example.g1_admin.R;
 
 import java.util.ArrayList;
@@ -31,28 +31,28 @@ public class CategoryFragment extends Fragment {
         // Inflate the layout for this fragment
         Bundle bundle = getArguments();
         Category category1 = (Category) bundle.getSerializable("category");
-        Log.i("categoria","categoraia"+ category1.getCategory());
-        ArrayList<Food> data=new ArrayList();
-        ArrayList<Food> dataFilter=new ArrayList();
+        Log.i("categoria","categoraia"+ category1.getCategoryName());
+        ArrayList<Dish> data=new ArrayList();
+        ArrayList<Dish> dataFilter=new ArrayList();
         SearchView searchItem = (SearchView) view.findViewById(R.id.searchView);
-        data.add(new Food("product1","100","cat1"));
-        data.add(new Food("product2","100","cat1"));
-        data.add(new Food("product3","100","cat1"));
-        data.add(new Food("product4","100","cat1"));
-        data.add(new Food("product5","100","cat1"));
-        data.add(new Food("product6","100","cat4"));
-        data.add(new Food("product7","100","cat4"));
-        data.add(new Food("product8","100","cat2"));
-        data.add(new Food("product21","100","cat2"));
-        data.add(new Food("product22","100","cat2"));
-        data.add(new Food("product23","100","cat2"));
-        data.add(new Food("product24","100","cat2"));
-        data.add(new Food("product25","100","cat3"));
-        data.add(new Food("product26","100","cat3"));
-        data.add(new Food("product27","100","cat2"));
-        data.add(new Food("product28","100","cat2"));
+        data.add(new Dish("imagePlaceholder","Starter", "Fries", "Description", 5.99));
+        data.add(new Dish("imagePlaceholder","Starter", "Fried Chicken", "Description", 5.99));
+        data.add(new Dish("imagePlaceholder","Starter", "Deluxe Fries", "Description", 5.99));
+        data.add(new Dish("imagePlaceholder","Starter", "Salad", "Description", 5.99));
+        data.add(new Dish("imagePlaceholder","Starter", "Garlic Bread", "Description", 5.99));
+        data.add(new Dish("imagePlaceholder","Pizza", "Margherita", "Description", 12.50));
+        data.add(new Dish("imagePlaceholder","Pizza", "Pepperoni", "Description", 12.50));
+        data.add(new Dish("imagePlaceholder","Pizza", "Hawaiian", "Description", 12.50));
+        data.add(new Dish("imagePlaceholder","Pizza", "Buffalo", "Description", 12.50));
+        data.add(new Dish("imagePlaceholder","Pizza", "Veggie", "Description", 12.50));
+        data.add(new Dish("imagePlaceholder","Pizza", "Cheese", "Description", 12.50));
+        data.add(new Dish("imagePlaceholder","Pizza", "Meat", "Description", 12.50));
+        data.add(new Dish("imagePlaceholder","Drink", "Cocacola", "Description", 2.99));
+        data.add(new Dish("imagePlaceholder","Drink", "Fanta", "Description", 2.99));
+        data.add(new Dish("imagePlaceholder","Drink", "Water", "Description", 2.99));
+        data.add(new Dish("imagePlaceholder","Drink", "Beer", "Description", 2.99));
         for(int i=0;i<data.size();i++){
-            if((data.get(i).getCategory()).equals(category1.getCategory())){
+            if((data.get(i).getCategory()).equals(category1.getCategoryName())){
                 dataFilter.add(data.get(i));
             }
         }
