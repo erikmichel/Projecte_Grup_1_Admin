@@ -38,4 +38,27 @@
         app:layout_constraintStart_toStartOf="@+id/headerUsername"
         app:layout_constraintTop_toBottomOf="@+id/headerUsername" />
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/view2"
+        android:layout_width="40dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="-2dp"
+        android:background="@drawable/ic_baseline_account_circle_24"
+        app:layout_constraintBottom_toBottomOf="@+id/headerEmail"
+        app:layout_constraintEnd_toStartOf="@+id/headerUsername"
+        app:layout_constraintTop_toTopOf="@+id/headerUsername" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

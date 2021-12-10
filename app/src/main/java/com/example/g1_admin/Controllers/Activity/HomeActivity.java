@@ -101,7 +101,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch(item.getItemId()) {
-                    case R.id.nav_food:
+                    case R.id.nav_home:
                         drawerLayout.closeDrawer(GravityCompat.START);
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new HomeFragment()).commit();
                         break;
