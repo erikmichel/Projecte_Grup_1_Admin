@@ -49,6 +49,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        // ActionBar Title
+        getSupportActionBar().setTitle("Sign in");
+
         //Intent intent = new Intent(this, MainMenu.class);
         Button btnLogin = findViewById(R.id.btnLogin);
         email = findViewById(R.id.txtUsername);
