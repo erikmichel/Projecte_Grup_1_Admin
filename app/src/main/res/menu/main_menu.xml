@@ -1,19 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_food"
-            android:title="Food"
-            />
-        <item
-            android:id="@+id/nav_insertDish"
-            android:title="Insert Dish"
-            />
-        <item
-            android:id="@+id/nav_insertCategory"
-            android:title="Insert Category"
-            />
-
+        <item android:title="Main">
+            <menu>
+                <item
+                    android:id="@+id/nav_home"
+                    android:title="Home"
+                    />
+            </menu>
+        </item>
+    </group>
+    <group android:checkableBehavior="single">
+        <item android:title="Insert Forms">
+            <menu>
+                <item
+                    android:id="@+id/nav_insertDish"
+                    android:title="Dish"
+                    />
+                <item
+                    android:id="@+id/nav_insertCategory"
+                    android:title="Category"
+                    />
+            </menu>
+        </item>
     </group>
     <group android:checkableBehavior="single">
         <item android:title="Authentication">

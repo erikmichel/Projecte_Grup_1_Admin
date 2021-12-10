@@ -2,6 +2,7 @@ package com.example.g1_admin.Controllers.Fragment;
 
 import android.os.Bundle;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -28,6 +29,8 @@ public class CategoryFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_category, container, false);
+
+
         // Inflate the layout for this fragment
         Bundle bundle = getArguments();
         Category category1 = (Category) bundle.getSerializable("category");

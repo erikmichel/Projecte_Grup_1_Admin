@@ -3,13 +3,18 @@ package com.example.g1_admin.DBHelper;
 import android.util.Log;
 import android.util.MonthDisplayHelper;
 
+import androidx.annotation.NonNull;
+
 import com.example.g1_admin.Model.Category;
 import com.example.g1_admin.Model.Dish;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 
 public class DBHelper {
 
@@ -100,6 +105,4 @@ public class DBHelper {
         Category category = new Category(categoryId, imageName, name);
         mDatabase.child("category").child(categoryId).setValue(category);
     }
-
-
 }
