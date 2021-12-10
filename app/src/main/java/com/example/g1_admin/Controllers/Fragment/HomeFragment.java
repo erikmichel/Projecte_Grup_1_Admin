@@ -83,7 +83,7 @@ public class HomeFragment extends Fragment implements SelectListner {
         startActivity(Redrict);
     */
         Bundle bundle = new Bundle();
-        bundle.putSerializable("category", category);
+        bundle.putSerializable("category", category.getCategoryName());
         CategoryFragment categoriaFragment= new CategoryFragment();
         categoriaFragment.setArguments(bundle);
 

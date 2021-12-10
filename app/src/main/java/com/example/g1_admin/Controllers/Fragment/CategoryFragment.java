@@ -33,29 +33,29 @@ public class CategoryFragment extends Fragment {
 
         // Inflate the layout for this fragment
         Bundle bundle = getArguments();
-        Category category1 = (Category) bundle.getSerializable("category");
-        Log.i("categoria","categoraia"+ category1.getCategoryName());
+        String categoryName = (String) bundle.getSerializable("category");
+
         ArrayList<Dish> data = new ArrayList();
         ArrayList<Dish> dataFilter = new ArrayList();
         SearchView searchItem = (SearchView) view.findViewById(R.id.searchView);
-        data.add(new Dish("imagePlaceholder","Starter", "Fries", "Description", 5.99));
-        data.add(new Dish("imagePlaceholder","Starter", "Fried Chicken", "Description", 5.99));
-        data.add(new Dish("imagePlaceholder","Starter", "Deluxe Fries", "Description", 5.99));
-        data.add(new Dish("imagePlaceholder","Starter", "Salad", "Description", 5.99));
-        data.add(new Dish("imagePlaceholder","Starter", "Garlic Bread", "Description", 5.99));
-        data.add(new Dish("imagePlaceholder","Pizza", "Margherita", "Description", 12.50));
-        data.add(new Dish("imagePlaceholder","Pizza", "Pepperoni", "Description", 12.50));
-        data.add(new Dish("imagePlaceholder","Pizza", "Hawaiian", "Description", 12.50));
-        data.add(new Dish("imagePlaceholder","Pizza", "Buffalo", "Description", 12.50));
-        data.add(new Dish("imagePlaceholder","Pizza", "Veggie", "Description", 12.50));
-        data.add(new Dish("imagePlaceholder","Pizza", "Cheese", "Description", 12.50));
-        data.add(new Dish("imagePlaceholder","Pizza", "Meat", "Description", 12.50));
-        data.add(new Dish("imagePlaceholder","Drink", "Cocacola", "Description", 2.99));
-        data.add(new Dish("imagePlaceholder","Drink", "Fanta", "Description", 2.99));
-        data.add(new Dish("imagePlaceholder","Drink", "Water", "Description", 2.99));
-        data.add(new Dish("imagePlaceholder","Drink", "Beer", "Description", 2.99));
+        data.add(new Dish("imagePlaceholder","Appetizers", "Fries", "Description", 5.99));
+        data.add(new Dish("imagePlaceholder","Appetizers", "Fried Chicken", "Description", 5.99));
+        data.add(new Dish("imagePlaceholder","Appetizers", "Deluxe Fries", "Description", 5.99));
+        data.add(new Dish("imagePlaceholder","Appetizers", "Salad", "Description", 5.99));
+        data.add(new Dish("imagePlaceholder","Appetizers", "Garlic Bread", "Description", 5.99));
+        data.add(new Dish("imagePlaceholder","Pizzas", "Margherita", "Description", 12.50));
+        data.add(new Dish("imagePlaceholder","Pizzas", "Pepperoni", "Description", 12.50));
+        data.add(new Dish("imagePlaceholder","Pizzas", "Hawaiian", "Description", 12.50));
+        data.add(new Dish("imagePlaceholder","Pizzas", "Buffalo", "Description", 12.50));
+        data.add(new Dish("imagePlaceholder","Pizzas", "Veggie", "Description", 12.50));
+        data.add(new Dish("imagePlaceholder","Pizzas", "Cheese", "Description", 12.50));
+        data.add(new Dish("imagePlaceholder","Pizzas", "Meat", "Description", 12.50));
+        data.add(new Dish("imagePlaceholder","Drinks", "Cocacola", "Description", 2.99));
+        data.add(new Dish("imagePlaceholder","Drinks", "Fanta", "Description", 2.99));
+        data.add(new Dish("imagePlaceholder","Drinks", "Water", "Description", 2.99));
+        data.add(new Dish("imagePlaceholder","Drinks", "Beer", "Description", 2.99));
         for(int i=0;i<data.size();i++){
-            if((data.get(i).getCategory()).equals(category1.getCategoryName())){
+            if((data.get(i).getCategory()).equals(categoryName)){
                 dataFilter.add(data.get(i));
             }
         }
