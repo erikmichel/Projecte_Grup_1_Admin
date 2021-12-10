@@ -3,20 +3,17 @@ package com.example.g1_admin.Model;
 import java.io.Serializable;
 
 public class Category implements Serializable {
-    private String id;
-    private String imageName;
     private String categoryName;
+    private String id;
+    private String imagePath;
 
-    public Category(String imageName, String name) {
-        this.imageName = imageName;
-        this.categoryName = name;
+    public Category() {
     }
 
-
-    public Category(String id, String imageName, String name) {
+    public Category(String categoryName, String id, String imagePath) {
+        this.categoryName = categoryName;
         this.id = id;
-        this.imageName = imageName;
-        this.categoryName = name;
+        this.imagePath = imagePath;
     }
 
     public String getId() {
@@ -27,12 +24,12 @@ public class Category implements Serializable {
         this.id = id;
     }
 
-    public String getImageName() {
-        return imageName;
+    public String getImagePath() {
+        return imagePath;
     }
 
-    public void setImageName(String imageName) {
-        this.imageName = imageName;
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
     public String getCategoryName() {
