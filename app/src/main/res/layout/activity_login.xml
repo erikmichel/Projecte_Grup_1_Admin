@@ -6,28 +6,53 @@
     android:layout_height="match_parent"
     tools:context=".Controllers.Activity.LoginActivity">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
     <EditText
         android:id="@+id/txtUsername"
-        android:layout_width="wrap_content"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="316dp"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/bg_login_et"
+        android:drawableStart="@drawable/ic_baseline_mail_outline_24"
+        android:drawablePadding="7dp"
+        android:elevation="10dp"
         android:ems="10"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
+        android:paddingStart="7dp"
+        android:paddingEnd="7dp"
         android:text="projdam@iesjoandaustria.org"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/txtPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="24dp"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/bg_login_et"
+        android:drawableStart="@drawable/ic_outline_lock_24"
+        android:drawablePadding="7dp"
+        android:elevation="10dp"
         android:ems="10"
         android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:paddingStart="7dp"
+        android:paddingEnd="7dp"
         android:text="123dam!&amp;"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -35,25 +60,44 @@
         app:layout_constraintTop_toBottomOf="@+id/txtUsername"
         tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="70dp"
+        android:backgroundTint="@color/black"
+        android:elevation="10dp"
+        android:minWidth="280dp"
+        android:minHeight="60dp"
         android:text="Login"
+        android:textSize="20sp"
+        app:cornerRadius="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/txtPassword"/>
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="EatSleepAndRepeat"
+        android:layout_marginTop="-20dp"
+        android:text="Administrator Panel"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/txtUsername"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <CheckBox
+        android:id="@+id/chboxRemember"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-5dp"
+        android:text="Remember me"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btnLogin"
+        app:layout_constraintStart_toStartOf="@+id/btnLogin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
