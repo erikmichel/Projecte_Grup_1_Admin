@@ -8,13 +8,17 @@ import androidx.annotation.NonNull;
 import com.example.g1_admin.Model.Category;
 import com.example.g1_admin.Model.Dish;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+
+import java.util.ArrayList;
 
 public class DBHelper {
 
@@ -102,7 +106,9 @@ public class DBHelper {
         Log.i("testDB", "" + categoryId);
 
 
-        Category category = new Category(categoryId, imageName, name);
+        Category category = new Category(name, categoryId, imageName);
         mDatabase.child("category").child(categoryId).setValue(category);
     }
+
+
 }

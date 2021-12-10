@@ -1,10 +1,56 @@
 {
   "project_info": {
     "project_number": "890339539734",
+    "firebase_url": "https://admin-987aa-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "admin-987aa",
     "storage_bucket": "admin-987aa.appspot.com"
   },
   "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:890339539734:android:36f16ec748a0330f21ee37",
+        "android_client_info": {
+          "package_name": "com.example.EatSleepAndRepeat_User"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890339539734-11ngc6b0r96h717iou3bad1ess5pd42f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.EatSleepAndRepeat_User",
+            "certificate_hash": "51eaaeb407551acc3a752e24a798d4f341ca8bd6"
+          }
+        },
+        {
+          "client_id": "890339539734-h1dqfnajqh2cqgt18934ccfulqmk0ohq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.EatSleepAndRepeat_User",
+            "certificate_hash": "9fb534d35fe4bbcb4fc42442fe82194a09597539"
+          }
+        },
+        {
+          "client_id": "890339539734-50vu60qkou7912h4t42lo72b5vjgrc3i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDuDAFgXiNsyMawuWjQCgkyR3xAU0zLAy8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "890339539734-50vu60qkou7912h4t42lo72b5vjgrc3i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
     {
       "client_info": {
         "mobilesdk_app_id": "1:890339539734:android:bd8950ec9ac13e5821ee37",
@@ -13,6 +59,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "890339539734-2ciafs17loa6v5ec1sa2jn57d6kmj1ss.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.g1_admin",
+            "certificate_hash": "960cd018c0776c1434de7041412781c2bfee422e"
+          }
+        },
         {
           "client_id": "890339539734-50vu60qkou7912h4t42lo72b5vjgrc3i.apps.googleusercontent.com",
           "client_type": 3

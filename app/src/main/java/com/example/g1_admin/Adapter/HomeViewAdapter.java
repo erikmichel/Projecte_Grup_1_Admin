@@ -1,17 +1,26 @@
 package com.example.g1_admin.Adapter;
 
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.g1_admin.Model.Category;
 import com.example.g1_admin.R;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
@@ -19,9 +28,11 @@ public class HomeViewAdapter extends RecyclerView.Adapter<HomeViewAdapter.ViewHo
 
     private ArrayList<Category> array_Cat;
     private SelectListner lisnter;
-    public HomeViewAdapter(ArrayList<Category> cat, SelectListner lisnter){
+    private Context context;
+    public HomeViewAdapter(ArrayList<Category> cat, SelectListner lisnter, Context context){
         array_Cat = cat;
-        this.lisnter=lisnter;
+        this.lisnter = lisnter;
+        this.context = context;
     }
 
     @NonNull
@@ -32,15 +43,23 @@ public class HomeViewAdapter extends RecyclerView.Adapter<HomeViewAdapter.ViewHo
         return holder;
     }
 
-
-
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.etiquetaCat.setText(array_Cat.get(position).getCategoryName());
         holder.etiquetaCOntainer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 lisnter.onItemClicked(array_Cat.get(position));
+            }
+        });
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+        storageReference.child(array_Cat.get(position).getImagePath()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Glide.with(context)
+                    .load(uri.toString())
+                    .into(holder.etiquetaImatge);
+                Log.i("IMAGEGLIDE", uri.toString());
             }
         });
     }
@@ -54,12 +73,20 @@ public class HomeViewAdapter extends RecyclerView.Adapter<HomeViewAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView etiquetaCat;
         ConstraintLayout etiquetaCOntainer;
+        ImageView etiquetaImatge;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             etiquetaCat = itemView.findViewById(R.id.name);
             etiquetaCOntainer = itemView.findViewById(R.id.containerCat);
+            etiquetaImatge = itemView.findViewById(R.id.imageView);
         }
+    }
+
+    public StorageReference downloadImage(String imagePath){
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference reference = storage.getReference().child(imagePath);
+        return reference;
     }
 }
 

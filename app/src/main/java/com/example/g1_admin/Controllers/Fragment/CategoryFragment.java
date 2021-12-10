@@ -35,8 +35,8 @@ public class CategoryFragment extends Fragment {
         Bundle bundle = getArguments();
         Category category1 = (Category) bundle.getSerializable("category");
         Log.i("categoria","categoraia"+ category1.getCategoryName());
-        ArrayList<Dish> data=new ArrayList();
-        ArrayList<Dish> dataFilter=new ArrayList();
+        ArrayList<Dish> data = new ArrayList();
+        ArrayList<Dish> dataFilter = new ArrayList();
         SearchView searchItem = (SearchView) view.findViewById(R.id.searchView);
         data.add(new Dish("imagePlaceholder","Starter", "Fries", "Description", 5.99));
         data.add(new Dish("imagePlaceholder","Starter", "Fried Chicken", "Description", 5.99));

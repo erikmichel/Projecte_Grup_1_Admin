@@ -103,7 +103,7 @@ public class HomeActivity extends AppCompatActivity {
                 switch(item.getItemId()) {
                     case R.id.nav_home:
                         drawerLayout.closeDrawer(GravityCompat.START);
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new HomeFragment()).commit();
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new HomeFragment(dbHelper)).commit();
                         break;
                     case R.id.nav_insertDish:
                         drawerLayout.closeDrawer(GravityCompat.START);

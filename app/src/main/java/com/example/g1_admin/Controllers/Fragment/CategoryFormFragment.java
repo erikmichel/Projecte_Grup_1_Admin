@@ -4,7 +4,6 @@ import static android.app.Activity.RESULT_OK;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.media.ExifInterface;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -31,7 +30,6 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -45,7 +43,7 @@ public class CategoryFormFragment extends Fragment {
     private Uri imageUri;
 
     String name;
-    String imageName;
+    String imagePath;
     DatabaseReference mDatabase;
     DBHelper dbHelper;
     StorageReference storageReference;
@@ -129,10 +127,10 @@ public class CategoryFormFragment extends Fragment {
             return;
         }
         uploadImage();
-        dbHelper.addCategory(name, imageName);
+        dbHelper.addCategory(name, imagePath);
     }
 
-    private void uploadImage(){
+    public void uploadImage(){
         //We declare the date formatter
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.FRANCE);
 
@@ -140,10 +138,10 @@ public class CategoryFormFragment extends Fragment {
         Date now = new Date();
 
         //We create the name of the file taking the category as a reference and adding the current date in the declared format.
-        imageName = name + "_" + formatter.format(now);
+        imagePath = "images/" + name + "_" + formatter.format(now);
 
         //We declare the fate of the images
-        storageReference = FirebaseStorage.getInstance().getReference("images/"+imageName);
+        storageReference = FirebaseStorage.getInstance().getReference(imagePath);
 
         //Let's put the image inside the storage
         storageReference.putFile(imageUri)
