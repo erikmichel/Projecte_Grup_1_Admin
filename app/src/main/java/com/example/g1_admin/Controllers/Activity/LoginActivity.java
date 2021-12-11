@@ -1,10 +1,13 @@
 package com.example.g1_admin.Controllers.Activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -29,14 +32,19 @@ public class LoginActivity extends AppCompatActivity {
     private FirebaseFirestore fStore;
     private EditText email;
     private EditText password;
+    private SharedPreferences prefs;
+    private CheckBox chboxRemember;
 
     @Override
     public void onStart() {
         super.onStart();
+        prefs= getSharedPreferences("SharedP", Context.MODE_PRIVATE);
         // Check if user is signed in (non-null)
         // If signed in application refers user to Menu class
-        if (FirebaseAuth.getInstance().getCurrentUser() != null)
-            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+        if(prefs.getBoolean("login", false)) {
+            if (FirebaseAuth.getInstance().getCurrentUser() != null)
+                startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+        }
     }
 
     @Override
@@ -52,10 +60,11 @@ public class LoginActivity extends AppCompatActivity {
         // ActionBar Title
         getSupportActionBar().setTitle("Sign in");
 
-        //Intent intent = new Intent(this, MainMenu.class);
+        // Properties
         Button btnLogin = findViewById(R.id.btnLogin);
         email = findViewById(R.id.txtUsername);
         password = findViewById(R.id.txtPassword);
+        chboxRemember = findViewById(R.id.chboxRemember);
 
         // Initialize Firebase Auth & Firebase Store
         fAuth = FirebaseAuth.getInstance();
@@ -76,7 +85,6 @@ public class LoginActivity extends AppCompatActivity {
             // If user logged successfully shows Toast and refers user to Menu class
             @Override
             public void onSuccess(AuthResult authResult) {
-                Toast.makeText(LoginActivity.this, "Logged in Successfully.", Toast.LENGTH_SHORT).show();
                 checkUserAccessLevel(authResult.getUser().getUid());
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -106,8 +114,16 @@ public class LoginActivity extends AppCompatActivity {
 
                 // Identify user access level
                 // If user is administrator redirects to Menu class
-                if (documentSnapshot.getString("isAdmin") != null)
+                if (documentSnapshot.getString("isAdmin") != null) {
+                    Toast.makeText(LoginActivity.this, "Logged in Successfully.", Toast.LENGTH_SHORT).show();
+                    if(chboxRemember.isChecked()) {
+                        SharedPreferences.Editor editor = prefs.edit();
+                        editor.putBoolean("login", true).commit();
+                    }
                     startActivity(new Intent(getApplicationContext(), HomeActivity.class));
+                } else {
+                    Toast.makeText(LoginActivity.this, "User is not admin", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
