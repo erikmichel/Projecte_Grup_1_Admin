@@ -9,11 +9,17 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.g1_admin.Controllers.Fragment.CategoryFormFragment;
 import com.example.g1_admin.Controllers.Fragment.DishFormFragment;
@@ -116,6 +122,28 @@ public class HomeActivity extends AppCompatActivity {
                     case R.id.nav_newUser:
                         drawerLayout.closeDrawer(GravityCompat.START);
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new RegisterFragment()).commit();
+                        break;
+                    case R.id.nav_logout:
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+                        builder.setTitle(R.string.alert_logout_title);
+                        builder.setMessage(R.string.alert_logout_message);
+                        builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                SharedPreferences prefs= getSharedPreferences("SharedP", Context.MODE_PRIVATE);
+                                SharedPreferences.Editor editor = prefs.edit();
+                                editor.putBoolean("login", false);
+                                editor.commit();
+                                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                            }
+                        });
+                        builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+
+                            }
+                        });
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
                         break;
                 }
                 return true;

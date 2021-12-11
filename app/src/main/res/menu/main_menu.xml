@@ -31,6 +31,10 @@
                     android:id="@+id/nav_newUser"
                     android:title="New user"
                     />
+                <item
+                    android:id="@+id/nav_logout"
+                    android:title="Log Out"
+                    />
             </menu>
         </item>
     </group>
