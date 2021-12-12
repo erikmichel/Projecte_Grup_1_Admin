@@ -19,12 +19,12 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.g1_admin.Controllers.Fragment.CategoryFormFragment;
 import com.example.g1_admin.Controllers.Fragment.DishFormFragment;
 import com.example.g1_admin.Controllers.Fragment.HomeFragment;
 import com.example.g1_admin.Controllers.Fragment.RegisterFragment;
+import com.example.g1_admin.Controllers.Fragment.ViewOrders;
 import com.example.g1_admin.DBHelper.DBHelper;
 import com.example.g1_admin.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -118,6 +118,10 @@ public class HomeActivity extends AppCompatActivity {
                     case R.id.nav_insertCategory:
                         drawerLayout.closeDrawer(GravityCompat.START);
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new CategoryFormFragment(mDatabase, dbHelper)).commit();
+                        break;
+                    case R.id.nav_userCommands:
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new ViewOrders(mDatabase, dbHelper)).commit();
                         break;
                     case R.id.nav_newUser:
                         drawerLayout.closeDrawer(GravityCompat.START);

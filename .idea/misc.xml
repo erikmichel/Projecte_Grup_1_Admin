@@ -3,44 +3,28 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin COPIA DEL MAIN/app/src/main/res/layout/activity_home.xml" value="0.16394927536231885" />
-        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin COPIA DEL MAIN/app/src/main/res/layout/activity_login.xml" value="0.16394927536231885" />
-        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin COPIA DEL MAIN/app/src/main/res/layout/fragment_category.xml" value="0.10144927536231885" />
-        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin COPIA DEL MAIN/app/src/main/res/layout/fragment_food.xml" value="0.16394927536231885" />
-        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin COPIA DEL MAIN/app/src/main/res/layout/fragment_form.xml" value="0.22" />
-        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin COPIA DEL MAIN/app/src/main/res/layout/fragment_home.xml" value="0.10144927536231885" />
-        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin COPIA DEL MAIN/app/src/main/res/layout/fragment_ingredient.xml" value="0.22" />
-        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin COPIA DEL MAIN/app/src/main/res/layout/fragment_promotion.xml" value="0.3333333333333333" />
-        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin COPIA DEL MAIN/app/src/main/res/layout/fragment_register.xml" value="0.16394927536231885" />
-        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin COPIA DEL MAIN/app/src/main/res/layout/fragment_user_detail.xml" value="0.16394927536231885" />
-        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin COPIA DEL MAIN/app/src/main/res/layout/header_menu.xml" value="0.16666666666666666" />
-        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin COPIA DEL MAIN/app/src/main/res/layout/item_list.xml" value="0.3333333333333333" />
-        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin COPIA DEL MAIN/app/src/main/res/menu/main_menu.xml" value="0.2" />
-        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin COPIA DEL MAIN/app/src/main/res/menu/top_navigation.xml" value="0.2" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/activity_home.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/activity_login.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/fragment_dish_form.xml" value="0.1" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/fragment_food.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/User/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/item_list.xml" value="0.20416666666666666" />
-        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3614583333333333" />
-        <entry key="app/src/main/res/drawable/bg_login_btn.xml" value="0.3614583333333333" />
-        <entry key="app/src/main/res/drawable/bg_login_textfield.xml" value="0.3614583333333333" />
-        <entry key="app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.20729166666666668" />
-        <entry key="app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.3614583333333333" />
-        <entry key="app/src/main/res/drawable/ic_baseline_mail_outline_24.xml" value="0.3614583333333333" />
-        <entry key="app/src/main/res/drawable/ic_euro.xml" value="0.3614583333333333" />
-        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.3614583333333333" />
-        <entry key="app/src/main/res/drawable/ic_outline_lock_24.xml" value="0.3614583333333333" />
-        <entry key="app/src/main/res/layout/activity_home.xml" value="0.3453125" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/fragment_category_form.xml" value="0.3453125" />
-        <entry key="app/src/main/res/layout/fragment_register.xml" value="0.3453125" />
-        <entry key="app/src/main/res/layout/fragment_user_detail.xml" value="0.3453125" />
-        <entry key="app/src/main/res/layout/header_menu.xml" value="0.5" />
-        <entry key="app/src/main/res/layout/item_list.xml" value="0.3453125" />
-        <entry key="app/src/main/res/menu/main_menu.xml" value="0.3453125" />
-        <entry key="app/src/main/res/menu/top_navigation.xml" value="0.3453125" />
+        <entry key="../../../../layout/custom_preview.xml" value="0.196875" />
+        <entry key="..\:/Users/Facundo/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/activity_home.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Facundo/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Facundo/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/command_view.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Facundo/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/fragment_category.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Facundo/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/fragment_category_form.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Facundo/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/fragment_dish_form.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Facundo/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/fragment_food.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Facundo/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/fragment_home.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Facundo/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/fragment_ingredient.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Facundo/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/fragment_register.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Facundo/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/fragment_user_detail.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Facundo/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/fragment_view_commands.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Facundo/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/fragment_view_orders.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Facundo/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/header_menu.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Facundo/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/item_list.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Facundo/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/order_view.xml" value="0.5" />
+        <entry key="..\:/Users/Facundo/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/menu/main_menu.xml" value="0.36666666666666664" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.33177083333333335" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.33177083333333335" />
+        <entry key="app/src/main/res/layout/fragment_form.xml" value="0.33177083333333335" />
+        <entry key="app/src/main/res/layout/header_menu.xml" value="0.18177083333333333" />
       </map>
     </option>
   </component>

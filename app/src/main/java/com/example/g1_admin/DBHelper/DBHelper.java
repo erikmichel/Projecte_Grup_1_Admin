@@ -1,22 +1,16 @@
 package com.example.g1_admin.DBHelper;
 
 import android.util.Log;
-import android.util.MonthDisplayHelper;
 
 import androidx.annotation.NonNull;
 
 import com.example.g1_admin.Model.Category;
+import com.example.g1_admin.Model.Order;
 import com.example.g1_admin.Model.Dish;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 
 import java.util.ArrayList;
 
@@ -26,6 +20,8 @@ public class DBHelper {
 
     // Instance  of the Firebase Database
     DatabaseReference mDatabase;
+
+    ArrayList<Order> orders = new ArrayList<>();
 
     public DBHelper(DatabaseReference mDatabase) {
         this.mDatabase = mDatabase;
@@ -110,5 +106,40 @@ public class DBHelper {
         mDatabase.child("category").child(categoryId).setValue(category);
     }
 
+    // Returns an ArrayList of the Orders nodes from Firebase
+    public ArrayList<Order> getOrders() {
 
+        mDatabase.child("orders").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    // Gets the child's from Order
+                    for (DataSnapshot ds: snapshot.getChildren()) {
+
+                        // Gets the child's from the Order child's
+                        for (int i = 0; i < ds.getChildrenCount(); i++) {
+
+                            int id = Integer.parseInt(ds.child(String.valueOf(i)).child("id").getValue().toString());
+                            String name = ds.child(String.valueOf(i)).child("name").getValue().toString();
+                            double price = Double.parseDouble(ds.child(String.valueOf(i)).child("price").getValue().toString());
+
+                            Order order = new Order(ds.getKey(), i, id, name, price);
+
+                            //Log.i("command", order.getName());
+
+                            orders.add(order);
+
+                        }
+                    }
+
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Do nothing
+            }
+        });
+
+        return orders;
+    }
 }
