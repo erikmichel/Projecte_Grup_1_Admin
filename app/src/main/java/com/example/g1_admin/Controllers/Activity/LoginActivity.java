@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         // ActionBar Title
-        getSupportActionBar().setTitle("Sign in");
+        getSupportActionBar().hide();
 
         // Properties
         Button btnLogin = findViewById(R.id.btnLogin);

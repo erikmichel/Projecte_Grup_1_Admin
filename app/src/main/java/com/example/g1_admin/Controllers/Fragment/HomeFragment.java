@@ -18,6 +18,7 @@ import com.example.g1_admin.Adapter.HomeViewAdapter;
 import com.example.g1_admin.Adapter.SelectListner;
 import com.example.g1_admin.DBHelper.DBHelper;
 import com.example.g1_admin.Model.Category;
+import com.example.g1_admin.Model.Dish;
 import com.example.g1_admin.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -92,5 +93,10 @@ public class HomeFragment extends Fragment implements SelectListner {
 
         // ActionBar subtitle
         ((AppCompatActivity)getActivity()).getSupportActionBar().setSubtitle(category.getCategoryName());
+    }
+
+    @Override
+    public void onItemClicked(Dish dish) {
+
     }
 }
