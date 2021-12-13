@@ -13,10 +13,11 @@
     android:background="@drawable/bgcategory">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="390dp"
-        android:layout_height="72dp"
-        android:background="@color/white"
+        android:layout_width="367dp"
+        android:layout_height="105dp"
+        android:background="@drawable/bgproduct"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
@@ -24,21 +25,26 @@
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="48dp"
             android:text="Name"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.048"
             app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingBottom="20dp">
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="395dp"
-            android:layout_height="117dp"
+            android:layout_width="396dp"
+            android:layout_height="116dp"
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.333"
