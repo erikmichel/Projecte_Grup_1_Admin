@@ -20,7 +20,7 @@ public class itemSelected extends AppCompatActivity {
 
         TextView id = findViewById(R.id.txtDetailID);
         TextView name = findViewById(R.id.txtDetailName);
-        TextView price = findViewById(R.id.txtDetalPrice);
+        TextView price = findViewById(R.id.txtDetailPrice);
         ImageButton bnt = findViewById(R.id.btnGoBack);
         Spinner spinner = findViewById(R.id.spinnerDetailOrder);
 
