@@ -53,6 +53,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                 listener.onItemClicked(array_food.get(position));
             }
         });
+        holder.etiquetaDetails.setText(array_food.get(position).getDescription());
+        holder.etiquetaPrice.setText(array_food.get(position).toString().getPrice());
     }
 
     @Override
@@ -90,11 +92,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView etiquetaNom;
         ConstraintLayout etiquetaContainer;
+        TextView etiquetaDetails;
+        TextView etiquetaPrice;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             etiquetaNom = itemView.findViewById(R.id.name);
             etiquetaContainer = itemView.findViewById(R.id.containerProduct);
+            etiquetaDetails = itemView.findViewById(R.id.details);
+            etiquetaPrice = itemView.findViewById(R.id.price);
         }
     }
 }
