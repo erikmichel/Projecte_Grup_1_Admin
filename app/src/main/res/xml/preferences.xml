@@ -1,4 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-  
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:defaultValue="1">
+
+    <SwitchPreference
+        android:key="pref_dark_mode"
+        android:summary="Change theme to DarkMode"
+        android:title="Dark Mode"
+        app:icon="@drawable/ic_baseline_bedtime_24" />
+
+    <ListPreference
+        android:entries="@array/ringstone_array"
+        android:entryValues="@array/entries_ringstone_array"
+        android:icon="@drawable/ic_baseline_language_24"
+        android:key="pref_lang"
+        android:negativeButtonText="Cancel"
+        android:summary="Select your language"
+        android:title="Languages"
+        app:defaultValue="1" />
+
+
 </PreferenceScreen>

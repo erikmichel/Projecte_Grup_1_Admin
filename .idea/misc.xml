@@ -8,6 +8,9 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33177083333333335" />
         <entry key="app/src/main/res/layout/fragment_form.xml" value="0.33177083333333335" />
         <entry key="app/src/main/res/layout/header_menu.xml" value="0.18177083333333333" />
+        <entry key="app/src/main/res/menu/main_menu.xml" value="0.35260416666666666" />
+        <entry key="app/src/main/res/xml/preferences.xml" value="0.33" />
+        <entry key="app/src/main/res/xml/root_preferences.xml" value="0.24583333333333332" />
       </map>
     </option>
   </component>

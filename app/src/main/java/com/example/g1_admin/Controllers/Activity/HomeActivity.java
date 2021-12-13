@@ -15,6 +15,7 @@ import com.example.g1_admin.Controllers.Fragment.CategoryFormFragment;
 import com.example.g1_admin.Controllers.Fragment.DishFormFragment;
 import com.example.g1_admin.Controllers.Fragment.HomeFragment;
 import com.example.g1_admin.Controllers.Fragment.RegisterFragment;
+import com.example.g1_admin.Controllers.Fragment.SettingsFragment;
 import com.example.g1_admin.DBHelper.DBHelper;
 import com.example.g1_admin.R;
 import com.google.android.material.navigation.NavigationView;
@@ -73,6 +74,10 @@ public class HomeActivity extends AppCompatActivity {
                     case R.id.nav_insertCategory:
                         drawerLayout.closeDrawer(GravityCompat.START);
                         getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new CategoryFormFragment()).commit();
+                        break;
+                    case R.id.nav_settings:
+                        drawerLayout.closeDrawer(GravityCompat.START);
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, new SettingsFragment()).commit();
                         break;
                     case R.id.nav_newUser:
                         drawerLayout.closeDrawer(GravityCompat.START);

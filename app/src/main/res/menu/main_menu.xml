@@ -13,6 +13,10 @@
             android:id="@+id/nav_insertCategory"
             android:title="Insert Category"
             />
+        <item
+            android:id="@+id/nav_settings"
+            android:title="Settings"
+            />
 
     </group>
     <group android:checkableBehavior="single">
