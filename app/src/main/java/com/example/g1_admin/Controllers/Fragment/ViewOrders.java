@@ -63,29 +63,6 @@ public class ViewOrders extends Fragment {
 
         ArrayList<Order> orders = dbHelper.getOrders();
 
-        Spinner spinner = view.findViewById(R.id.spinner_categories);
-
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapterSpinner = ArrayAdapter.createFromResource(getContext(),
-                R.array.state, android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
-        adapterSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        spinner.setAdapter(adapterSpinner);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                if(position == 1){
-                    String categorySelected = ((String) adapterView.getItemAtPosition(position));
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-
         // RecyclerView
         RecyclerView recyclerView = view.findViewById(R.id.recyclerViewOrders);
         OrderAdapter adapter = new OrderAdapter(orders);
@@ -115,8 +92,6 @@ public class ViewOrders extends Fragment {
                 // Do nothing
             }
         }));
-
-
 
         return view;
 

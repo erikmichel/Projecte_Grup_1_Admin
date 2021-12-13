@@ -31,8 +31,8 @@
 
     <!-- View Order Spinner -->
     <string-array name="state">
-        <item>ID</item>
-        <item>Name</item>
+        <item>Received</item>
+        <item>In Process</item>
         <item>Price</item>
     </string-array>
 </resources>
