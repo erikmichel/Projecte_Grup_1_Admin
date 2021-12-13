@@ -52,7 +52,7 @@ public class HomeViewAdapter extends RecyclerView.Adapter<HomeViewAdapter.ViewHo
                 lisnter.onItemClicked(array_Cat.get(position));
             }
         });
-        StorageReference storageReference = FirebaseStorage.getInstance("https://admin-987aa-default-rtdb.europe-west1.firebasedatabase.app/").getReference();
+        StorageReference storageReference = FirebaseStorage.getInstance("gs://admin-987aa.appspot.com/").getReference();
         storageReference.child(array_Cat.get(position).getImagePath()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
