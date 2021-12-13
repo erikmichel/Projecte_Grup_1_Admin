@@ -2,6 +2,8 @@ package com.example.g1_admin.Controllers.Fragment;
 
 import static android.app.Activity.RESULT_OK;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -36,6 +38,7 @@ import java.util.Locale;
 
 public class CategoryFormFragment extends Fragment {
     private ImageView imageViewCategory;
+    String defaultImageIdentificator;
     private EditText categoryFormName;
     private Category newCategory;
     private Bitmap image;
@@ -62,12 +65,35 @@ public class CategoryFormFragment extends Fragment {
         categoryFormName = root.findViewById(R.id.categoryFormName);
         btnSetCategoryImage = root.findViewById(R.id.btnSetCategoryImage);
         btnAddCategory = root.findViewById(R.id.btnAddCategory);
-        imageViewCategory = root.findViewById(R.id.imageViewCategory);
+        imageViewCategory = root.findViewById(R.id.categoryImage);
+
+        imageViewCategory.setImageResource(R.drawable.pizza_generic);
+        defaultImageIdentificator = imageViewCategory.getDrawable().toString();
 
         btnAddCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                uploadNewCategory();
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setTitle(R.string.alert_title);
+                builder.setMessage(R.string.alert_missage);
+                builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        //We check that the user has changed the default image
+                        if (imageViewCategory.getDrawable().toString().equals(defaultImageIdentificator)) {
+                            Toast.makeText(getContext(), "You need to change the default image", Toast.LENGTH_SHORT).show();
+                        } else {
+                            uploadNewCategory();
+                        }
+                    }
+                });
+                builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                    }
+                });
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
             }
         });
         btnSetCategoryImage.setOnClickListener(new View.OnClickListener() {

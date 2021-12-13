@@ -52,7 +52,8 @@ public class HomeFragment extends Fragment implements SelectListner {
 
         recyclerView = view.findViewById(R.id.recyclerViewHome);
         categories = new ArrayList<>();
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("category");
+
+        DatabaseReference reference = FirebaseDatabase.getInstance("https://admin-987aa-default-rtdb.europe-west1.firebasedatabase.app/").getReference("category");
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
