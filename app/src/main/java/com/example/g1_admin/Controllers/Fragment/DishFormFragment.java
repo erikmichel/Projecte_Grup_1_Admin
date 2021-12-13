@@ -41,11 +41,11 @@ import java.util.Locale;
 
 
 public class DishFormFragment extends Fragment {
-
+    TextView name, description, price;
     ImageView image;
     String defaultImageIdentificator;
 
-    String fileName;
+    String imagePath;
     String cat;
 
     Uri imageUri;
@@ -71,9 +71,9 @@ public class DishFormFragment extends Fragment {
         image.setImageResource(R.drawable.pizza_generic);
         defaultImageIdentificator = image.getDrawable().toString();
 
-        TextView name = formView.findViewById(R.id.txtNameDish);
-        TextView description = formView.findViewById(R.id.txtDescription);
-        TextView price = formView.findViewById(R.id.txtPrice);
+        name = formView.findViewById(R.id.txtNameDish);
+        description = formView.findViewById(R.id.txtDescription);
+        price = formView.findViewById(R.id.txtPrice);
 
         Spinner spinner = formView.findViewById(R.id.spinner_categories);
 
@@ -122,7 +122,7 @@ public class DishFormFragment extends Fragment {
                             Double pr = Double.parseDouble(price.getText().toString());
 
                             //We call the method to create and upload a plate.
-                            dbHelper.addDish(name.getText().toString(), fileName, cat, description.getText().toString(), pr);
+                            dbHelper.addDish(name.getText().toString(), imagePath, cat, description.getText().toString(), pr);
                         }
                     }
                 });
@@ -197,10 +197,10 @@ public class DishFormFragment extends Fragment {
         Date now = new Date();
 
         //We create the name of the file taking the category as a reference and adding the current date in the declared format.
-        fileName = cat + "_" + formatter.format(now);
+        imagePath = "images/" + name.getText().toString() + "_" + formatter.format(now);
 
         //We declare the fate of the images
-        storageReference = FirebaseStorage.getInstance().getReference("images/"+fileName);
+        storageReference = FirebaseStorage.getInstance().getReference(imagePath);
 
         //Let's put the image inside the storage
         storageReference.putFile(imageUri)
