@@ -2,6 +2,8 @@ package com.example.g1_admin.Controllers.Fragment;
 
 import static android.app.Activity.RESULT_OK;
 
+import static java.lang.Thread.sleep;
+
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -25,16 +27,20 @@ import android.widget.Toast;
 import com.example.g1_admin.DBHelper.DBHelper;
 import com.example.g1_admin.Model.Category;
 import com.example.g1_admin.R;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 public class CategoryFormFragment extends Fragment {
     private ImageView imageViewCategory;
