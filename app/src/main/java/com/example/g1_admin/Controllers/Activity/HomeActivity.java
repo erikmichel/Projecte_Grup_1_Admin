@@ -61,6 +61,9 @@ public class HomeActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void setActionBarTitle(String title) {
+        getSupportActionBar().setTitle(title);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

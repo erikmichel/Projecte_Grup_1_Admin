@@ -1,6 +1,8 @@
 package com.example.g1_admin.Model;
 
-public class Dish {
+import java.io.Serializable;
+
+public class Dish implements Serializable {
 
     String id;
     String imageName;
@@ -8,6 +10,8 @@ public class Dish {
     String name;
     String description;
     double price;
+    private String PromotionDate;
+    private String PromotionDiscount;
 
     public Dish(){
 
@@ -77,5 +81,21 @@ public class Dish {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public String getPromotionDate() {
+        return PromotionDate;
+    }
+
+    public void setPromotionDate(String promotionDate) {
+        PromotionDate = promotionDate;
+    }
+
+    public String getPromotionDiscount() {
+        return PromotionDiscount;
+    }
+
+    public void setPromotionDiscount(String promotionDiscount) {
+        PromotionDiscount = promotionDiscount;
     }
 }

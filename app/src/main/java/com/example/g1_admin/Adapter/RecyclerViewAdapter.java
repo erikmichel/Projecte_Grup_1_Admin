@@ -54,7 +54,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             }
         });
         holder.etiquetaDetails.setText(array_food.get(position).getDescription());
-        holder.etiquetaPrice.setText(array_food.get(position).toString().getPrice());
+        holder.etiquetaPrice.setText("" + array_food.get(position).getPrice() + "€");
     }
 
     @Override
@@ -65,8 +65,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         if(StrSearch.length()==0){
             array_food.clear();
             array_food.addAll(all_items);
-
-
         }else{
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                 List<Dish> collect=array_food.stream()
