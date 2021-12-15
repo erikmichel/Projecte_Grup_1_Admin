@@ -23,7 +23,7 @@ import com.example.g1_admin.R;
 import java.util.ArrayList;
 
 
-public class CategoryFragment extends Fragment implements SelectListner {
+public class  CategoryFragment extends Fragment implements SelectListner {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,7 +61,7 @@ public class CategoryFragment extends Fragment implements SelectListner {
             }
         }
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(dataFilter);
+        RecyclerViewAdapter adapter = new RecyclerViewAdapter(dataFilter,this);
         recyclerView.setAdapter(adapter);
          searchItem.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

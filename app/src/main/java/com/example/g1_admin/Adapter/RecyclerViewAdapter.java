@@ -1,6 +1,7 @@
 package com.example.g1_admin.Adapter;
 
 
+import android.annotation.SuppressLint;
 import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,7 +26,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     private SelectListner listener;
 
 
-    public RecyclerViewAdapter(ArrayList<Dish> arrN){
+    public RecyclerViewAdapter(ArrayList<Dish> arrN,SelectListner listener){
         array_food = arrN;
         all_items = new ArrayList<>();
         all_items.addAll(array_food);
