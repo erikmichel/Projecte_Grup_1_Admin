@@ -54,9 +54,11 @@ public class HomeFragment extends Fragment implements SelectListner {
         categories = new ArrayList<>();
 
         DatabaseReference reference = FirebaseDatabase.getInstance("https://admin-987aa-default-rtdb.europe-west1.firebasedatabase.app/").getReference("category");
-        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+        //reference.addChildEventListener(new )
+        reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                categories.clear();
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Category category = dataSnapshot.getValue(Category.class);
                     categories.add(category);
