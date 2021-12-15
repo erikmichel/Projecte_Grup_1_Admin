@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.g1_admin.Model.Dish;
@@ -21,19 +22,21 @@ import java.util.stream.Collectors;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
     private ArrayList<Dish> array_food;
     private ArrayList<Dish> all_items;
+    private SelectListner listener;
 
 
     public RecyclerViewAdapter(ArrayList<Dish> arrN){
         array_food = arrN;
         all_items = new ArrayList<>();
         all_items.addAll(array_food);
+        this.listener = listener;
     }
 
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.product_item, parent, false);
         ViewHolder holder = new ViewHolder(view);
         return holder;
     }
@@ -44,6 +47,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.etiquetaNom.setText(array_food.get(position).getName());
 
+        holder.etiquetaContainer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onItemClicked(array_food.get(position));
+            }
+        });
+        holder.etiquetaDetails.setText(array_food.get(position).getDescription());
+        holder.etiquetaPrice.setText(array_food.get(position).toString().getPrice());
     }
 
     @Override
@@ -80,11 +91,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView etiquetaNom;
-
+        ConstraintLayout etiquetaContainer;
+        TextView etiquetaDetails;
+        TextView etiquetaPrice;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             etiquetaNom = itemView.findViewById(R.id.name);
+            etiquetaContainer = itemView.findViewById(R.id.containerProduct);
+            etiquetaDetails = itemView.findViewById(R.id.details);
+            etiquetaPrice = itemView.findViewById(R.id.price);
         }
     }
 }

@@ -7,57 +7,53 @@
     android:layout_height="match_parent"
     tools:context=".Controllers.Fragment.CategoryFormFragment" >
 
-    <EditText
-        android:id="@+id/categoryFormName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:ems="10"
-        android:hint="Category name"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        app:layout_constraintStart_toStartOf="@+id/imageViewCategory"
-        app:layout_constraintTop_toBottomOf="@+id/btnSetCategoryImage" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Upload Category"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/titleCategoryFormFragment"
+            android:layout_width="wrap_content"
+            android:layout_height="66dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center|left"
+            android:text="Upload Category"
+            android:textColor="@color/black"
+            android:textSize="32sp" />
 
-    <ImageView
-        android:id="@+id/imageViewCategory"
-        android:layout_width="0dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="36dp"
-        android:rotation="90"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.232"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView6"
-        tools:src="@drawable/pizza_generic" />
+        <ImageView
+            android:id="@+id/categoryImage"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp"
+            android:rotation="90"
+            tools:src="@drawable/pizza_generic" />
 
-    <Button
-        android:id="@+id/btnSetCategoryImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Upload Image"
-        app:layout_constraintStart_toStartOf="@+id/imageViewCategory"
-        app:layout_constraintTop_toBottomOf="@+id/imageViewCategory" />
+        <Button
+            android:id="@+id/btnSetCategoryImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Upload Image" />
 
-    <Button
-        android:id="@+id/btnAddCategory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:text="Add Category"
-        app:layout_constraintStart_toStartOf="@+id/categoryFormName"
-        app:layout_constraintTop_toBottomOf="@+id/categoryFormName" />
+        <EditText
+            android:id="@+id/categoryFormName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:ems="10"
+            android:hint="Category name"
+            android:inputType="textPersonName"
+            android:minHeight="48dp" />
+
+        <Button
+            android:id="@+id/btnAddCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Add Category" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

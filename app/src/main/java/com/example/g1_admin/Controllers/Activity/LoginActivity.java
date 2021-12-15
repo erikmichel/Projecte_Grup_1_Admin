@@ -38,10 +38,12 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
+        // Shared preference
         prefs= getSharedPreferences("SharedP", Context.MODE_PRIVATE);
-        // Check if user is signed in (non-null)
-        // If signed in application refers user to Menu class
+        // If remember was check permits auto-login.
         if(prefs.getBoolean("login", false)) {
+            // Check if user is signed in (non-null)
+            // If signed in application refers user to Menu class
             if (FirebaseAuth.getInstance().getCurrentUser() != null)
                 startActivity(new Intent(getApplicationContext(), HomeActivity.class));
         }
@@ -58,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         // ActionBar Title
-        getSupportActionBar().setTitle("Sign in");
+        getSupportActionBar().hide();
 
         // Properties
         Button btnLogin = findViewById(R.id.btnLogin);
@@ -116,6 +118,7 @@ public class LoginActivity extends AppCompatActivity {
                 // If user is administrator redirects to Menu class
                 if (documentSnapshot.getString("isAdmin") != null) {
                     Toast.makeText(LoginActivity.this, "Logged in Successfully.", Toast.LENGTH_SHORT).show();
+                    // If remember box isChecked auto-login is activated
                     if(chboxRemember.isChecked()) {
                         SharedPreferences.Editor editor = prefs.edit();
                         editor.putBoolean("login", true).commit();

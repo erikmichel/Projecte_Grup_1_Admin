@@ -67,6 +67,7 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        // Menu properties
         drawerLayout = findViewById(R.id.drawerLayout);
         navigationView = findViewById(R.id.navigationView);
         actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.menu_Open, R.string.menu_Close);
@@ -129,11 +130,13 @@ public class HomeActivity extends AppCompatActivity {
                         break;
                     case R.id.nav_logout:
                         drawerLayout.closeDrawer(GravityCompat.START);
+                        // Alert dialog to confirm logout action
                         AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
                         builder.setTitle(R.string.alert_logout_title);
                         builder.setMessage(R.string.alert_logout_message);
                         builder.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
+                                // Log off the app and deactivates auto-login
                                 SharedPreferences prefs= getSharedPreferences("SharedP", Context.MODE_PRIVATE);
                                 SharedPreferences.Editor editor = prefs.edit();
                                 editor.putBoolean("login", false);

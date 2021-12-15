@@ -52,11 +52,13 @@ public class HomeViewAdapter extends RecyclerView.Adapter<HomeViewAdapter.ViewHo
                 lisnter.onItemClicked(array_Cat.get(position));
             }
         });
-        StorageReference storageReference = FirebaseStorage.getInstance().getReference();
+
+        // Image loader from firebase using glide (Asks firebase for image hosted url using imagePath to storage)
+        StorageReference storageReference = FirebaseStorage.getInstance("gs://admin-987aa.appspot.com/").getReference();
         storageReference.child(array_Cat.get(position).getImagePath()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-                Glide.with(context)
+                Glide.with(context) // Context from getContext() in HomeFragment
                     .load(uri.toString())
                     .into(holder.etiquetaImatge);
                 Log.i("IMAGEGLIDE", uri.toString());
@@ -81,12 +83,6 @@ public class HomeViewAdapter extends RecyclerView.Adapter<HomeViewAdapter.ViewHo
             etiquetaCOntainer = itemView.findViewById(R.id.containerCat);
             etiquetaImatge = itemView.findViewById(R.id.imageView);
         }
-    }
-
-    public StorageReference downloadImage(String imagePath){
-        FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference reference = storage.getReference().child(imagePath);
-        return reference;
     }
 }
 
