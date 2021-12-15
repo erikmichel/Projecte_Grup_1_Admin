@@ -23,6 +23,8 @@ public class DBHelper {
 
     ArrayList<Order> orders = new ArrayList<>();
 
+    ArrayList<String> categories = new ArrayList<>();
+
     public DBHelper(DatabaseReference mDatabase) {
         this.mDatabase = mDatabase;
     }
@@ -141,5 +143,31 @@ public class DBHelper {
         });
 
         return orders;
+    }
+
+    // Returns an ArrayList of the Orders nodes from Firebase
+    public ArrayList<String> getCategories() {
+
+        mDatabase.child("category").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    categories.clear();
+                    // Gets the child's from Order
+                    for (DataSnapshot ds: snapshot.getChildren()) {
+                        String name = ds.child("categoryName").getValue().toString();
+
+                        categories.add(name);
+                    }
+
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Do nothing
+            }
+        });
+
+        return categories;
     }
 }
