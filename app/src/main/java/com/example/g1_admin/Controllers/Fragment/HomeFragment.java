@@ -86,7 +86,7 @@ public class HomeFragment extends Fragment implements SelectListner {
     */
         Bundle bundle = new Bundle();
         bundle.putSerializable("category", category.getCategoryName());
-        CategoryFragment categoriaFragment= new CategoryFragment();
+        CategoryFragment categoriaFragment= new CategoryFragment(dbHelper);
         categoriaFragment.setArguments(bundle);
 
         getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, categoriaFragment).commit();

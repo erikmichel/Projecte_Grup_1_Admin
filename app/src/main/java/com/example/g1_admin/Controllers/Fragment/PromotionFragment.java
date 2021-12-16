@@ -13,6 +13,7 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.example.g1_admin.Controllers.Activity.HomeActivity;
+import com.example.g1_admin.DBHelper.DBHelper;
 import com.example.g1_admin.Model.Dish;
 import com.example.g1_admin.R;
 
@@ -24,6 +25,16 @@ import java.util.Calendar;
  * create an instance of this fragment.
  */
 public class PromotionFragment extends Fragment implements DatePickerDialog.OnDateSetListener{
+
+    // FIREBASE
+    DBHelper dbHelper;
+
+    public PromotionFragment() {
+    }
+
+    public PromotionFragment(DBHelper dbHelper) {
+        this.dbHelper = dbHelper;
+    }
 
     // PROMOTION FRAGMENT ELEMENTS
     TextView txtDate;
@@ -42,10 +53,6 @@ public class PromotionFragment extends Fragment implements DatePickerDialog.OnDa
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
-    public PromotionFragment() {
-        // Required empty public constructor
-    }
 
     /**
      * Use this factory method to create a new instance of
@@ -110,6 +117,8 @@ public class PromotionFragment extends Fragment implements DatePickerDialog.OnDa
               public void onClick(View view) {
                   dish.setPromotionDate(txtDate.getText().toString());
                   dish.setPromotionDiscount(edtxtDiscount.getText().toString());
+
+                  dbHelper.addPromotion(dish.getCategory(), dish.getId(), dish.getPromotionDate(), dish.getPromotionDiscount());
               }
             }
         );

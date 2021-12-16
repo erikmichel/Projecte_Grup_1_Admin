@@ -11,17 +11,17 @@
         android:theme="@style/Theme.G1_Admin">
         <activity
             android:name=".Controllers.Activity.HomeActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity
             android:name=".Controllers.Activity.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Adapter.itemSelected"></activity>
+        <activity android:name=".Adapter.itemSelected" />
     </application>
 
 </manifest>
