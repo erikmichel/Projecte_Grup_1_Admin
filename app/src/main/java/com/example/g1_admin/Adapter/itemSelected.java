@@ -16,11 +16,11 @@ public class itemSelected extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.detail_order);
+        setContentView(R.layout.fragment_detail_order);
 
-        TextView id = findViewById(R.id.txtDetailID);
-        TextView name = findViewById(R.id.txtDetailName);
-        TextView price = findViewById(R.id.txtDetailPrice);
+        TextView id = findViewById(R.id.txtDetailIDBlank);
+        TextView name = findViewById(R.id.txtUserNameBlank);
+        TextView price = findViewById(R.id.txtOrderPrice);
         ImageButton bnt = findViewById(R.id.btnGoBack);
         Spinner spinner = findViewById(R.id.spinnerDetailOrder);
 
