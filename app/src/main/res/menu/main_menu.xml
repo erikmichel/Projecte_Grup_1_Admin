@@ -6,6 +6,7 @@
                 <item
                     android:id="@+id/nav_home"
                     android:title="Home"
+                    android:icon="@drawable/ic_home"
                     />
             </menu>
         </item>
@@ -16,10 +17,12 @@
                 <item
                     android:id="@+id/nav_insertDish"
                     android:title="Dish"
+                    android:icon="@drawable/ic_food"
                     />
                 <item
                     android:id="@+id/nav_insertCategory"
                     android:title="Category"
+                    android:icon="@drawable/ic_food_category"
                     />
             </menu>
         </item>
@@ -30,6 +33,7 @@
                 <item
                     android:id="@+id/nav_userCommands"
                     android:title="View Orders"
+                    android:icon="@drawable/ic_order"
                     />
             </menu>
         </item>
@@ -40,6 +44,7 @@
                 <item
                     android:id="@+id/nav_newUser"
                     android:title="New user"
+                    android:icon="@drawable/ic_add_user"
                     />
                 <item
                     android:id="@+id/nav_logout"
