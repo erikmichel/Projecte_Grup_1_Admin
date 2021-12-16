@@ -17,7 +17,10 @@ import com.example.g1_admin.DBHelper.DBHelper;
 import com.example.g1_admin.Model.Dish;
 import com.example.g1_admin.R;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -94,9 +97,12 @@ public class PromotionFragment extends Fragment implements DatePickerDialog.OnDa
         Bundle bundle = getArguments();
         dish = (Dish) bundle.getSerializable("Dish");
 
+        String currentDate = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
+
         // PROMOTION FRAGMENT ELEMENTS
         Button btnCalendar = view.findViewById(R.id.btnCalendar);
         txtDate = view.findViewById(R.id.txtDate);
+        txtDate.setText(currentDate);
         txtProductName = view.findViewById(R.id.txtProductName);
         txtProductName.setText(dish.getName());
         edtxtDiscount = view.findViewById(R.id.edtxtDiscount);
@@ -115,10 +121,14 @@ public class PromotionFragment extends Fragment implements DatePickerDialog.OnDa
         btnAddPromotion.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View view) {
+                  int discount = Integer.parseInt(edtxtDiscount.getText().toString());
+                  double finalPrice = (dish.getPrice() * discount) / 100;
+
+                  dish.setPrice(finalPrice);
                   dish.setPromotionDate(txtDate.getText().toString());
                   dish.setPromotionDiscount(edtxtDiscount.getText().toString());
 
-                  dbHelper.addPromotion(dish.getCategory(), dish.getId(), dish.getPromotionDate(), dish.getPromotionDiscount());
+                  dbHelper.addPromotion(dish.getCategory(), dish.getId(), dish.getPromotionDate(), dish.getPromotionDiscount(), dish.getPrice());
               }
             }
         );

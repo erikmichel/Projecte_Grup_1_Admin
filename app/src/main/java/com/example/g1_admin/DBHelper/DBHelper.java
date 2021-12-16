@@ -76,9 +76,10 @@ public class DBHelper {
     }
 
     // Add promotion to dish
-    public void addPromotion(String categoria, String id, String promotionDate, String discount) {
+    public void addPromotion(String categoria, String id, String promotionDate, String discount, double newPrice) {
         mDatabase.child("dish").child(categoria).child(id).setValue(promotionDate);
         mDatabase.child("dish").child(categoria).child(id).setValue(discount);
+        mDatabase.child("dish").child(String.valueOf(id)).child("price").setValue(newPrice);
     }
 
     // Receives a DataSnapshot that contains the values from a specific location on the database
