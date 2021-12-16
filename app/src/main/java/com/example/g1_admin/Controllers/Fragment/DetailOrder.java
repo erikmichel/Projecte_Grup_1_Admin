@@ -1,5 +1,6 @@
 package com.example.g1_admin.Controllers.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -31,9 +34,32 @@ public class DetailOrder extends Fragment {
         bntExit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //onBackPressed();
+                Intent viewOrders = new Intent(getContext(), ViewOrders.class);
+                startActivity(viewOrders);
             }
         });
+
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapterSpinner = ArrayAdapter.createFromResource(getContext(), R.array.state, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        adapterSpinner.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        spinnerState.setAdapter(adapterSpinner);
+
+        spinnerState.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                if(position == 1){
+                    String categorySelected = ((String) adapterView.getItemAtPosition(position));
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
 
         return view;
     }
