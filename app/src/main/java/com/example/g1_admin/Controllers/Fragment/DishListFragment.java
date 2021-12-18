@@ -28,10 +28,10 @@ public class DishListFragment extends Fragment implements SelectListner {
 
     DBHelper dbHelper;
 
-    public CategoryFragment() {
+    public DishListFragment() {
     }
 
-    public CategoryFragment(DBHelper dbHelper) {
+    public DishListFragment(DBHelper dbHelper) {
         this.dbHelper = dbHelper;
     }
 
