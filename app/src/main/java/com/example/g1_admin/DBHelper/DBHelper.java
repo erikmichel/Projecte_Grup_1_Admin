@@ -128,6 +128,8 @@ public class DBHelper {
         mDatabase.child("category").child(categoryId).setValue(category);
     }
 
+
+    /*
     // Returns an ArrayList of the Orders nodes from Firebase
     public ArrayList<Order> getOrders() {
 
@@ -164,6 +166,10 @@ public class DBHelper {
 
         return orders;
     }
+
+     */
+
+
 
     // Returns an ArrayList of the Orders nodes from Firebase
     public ArrayList<String> getCategories() {
