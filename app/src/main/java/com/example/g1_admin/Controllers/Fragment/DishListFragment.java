@@ -16,6 +16,7 @@ import android.widget.SearchView;
 
 import com.example.g1_admin.Adapter.RecyclerViewAdapter;
 import com.example.g1_admin.Adapter.SelectListner;
+import com.example.g1_admin.DBHelper.DBHelper;
 import com.example.g1_admin.Model.Category;
 import com.example.g1_admin.Model.Dish;
 import com.example.g1_admin.R;
@@ -24,6 +25,15 @@ import java.util.ArrayList;
 
 
 public class DishListFragment extends Fragment implements SelectListner {
+
+    DBHelper dbHelper;
+
+    public CategoryFragment() {
+    }
+
+    public CategoryFragment(DBHelper dbHelper) {
+        this.dbHelper = dbHelper;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -90,7 +100,7 @@ public class DishListFragment extends Fragment implements SelectListner {
     public void onItemClicked(Dish dish) {
         Bundle bundle = new Bundle();
         bundle.putSerializable("Dish", dish);
-        PromotionFragment promotionFragment= new PromotionFragment();
+        PromotionFragment promotionFragment= new PromotionFragment(dbHelper);
         promotionFragment.setArguments(bundle);
 
         getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, promotionFragment).commit();

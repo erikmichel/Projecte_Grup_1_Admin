@@ -20,15 +20,35 @@
         <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/drawable-v24/bgcategory.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/drawable-v24/bgproduct.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/drawable-v24/bgsearch.xml" value="0.21614583333333334" />
+        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.21614583333333334" />
+        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/drawable/ic_add_user.xml" value="0.21614583333333334" />
+        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/drawable/ic_baseline_account_circle_24.xml" value="0.21614583333333334" />
+        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/drawable/ic_baseline_mail_outline_24.xml" value="0.21614583333333334" />
+        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/drawable/ic_baseline_shopping_cart_24.xml" value="0.21614583333333334" />
+        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/drawable/ic_food.xml" value="0.21614583333333334" />
+        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/drawable/ic_food_category.xml" value="0.21614583333333334" />
+        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/drawable/ic_home.xml" value="0.21614583333333334" />
+        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/drawable/ic_launcher_background.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/layout/activity_home.xml" value="0.15307971014492755" />
+        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/layout/activity_item_category_selected.xml" value="0.14855072463768115" />
         <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/layout/detail_order.xml" value="0.14402173913043478" />
         <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/layout/fragment_category.xml" value="0.3333333333333333" />
-        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/layout/fragment_category_form.xml" value="0.15307971014492755" />
+        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/layout/fragment_category_form.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/layout/fragment_dish_form.xml" value="0.22" />
         <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/layout/fragment_food.xml" value="0.15307971014492755" />
-        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/layout/fragment_promotion.xml" value="0.14855072463768115" />
+        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/layout/fragment_home.xml" value="0.14402173913043478" />
+        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/layout/fragment_ingredient.xml" value="0.14402173913043478" />
+        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/layout/fragment_promotion.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/layout/fragment_register.xml" value="0.14402173913043478" />
+        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/layout/fragment_user_detail.xml" value="0.14402173913043478" />
+        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/layout/fragment_view_orders.xml" value="0.14402173913043478" />
+        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/layout/header_menu.xml" value="0.22" />
         <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/layout/item_list.xml" value="0.22" />
+        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/layout/order_view.xml" value="0.14402173913043478" />
         <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/layout/product_item.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/menu/main_menu.xml" value="0.3333333333333333" />
+        <entry key="..\:/Users/Paul/AndroidStudioProjects/Projecte_Grup_1_Admin MAIN CON DB/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.21614583333333334" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/activity_home.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/activity_login.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/User/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/fragment_dish_form.xml" value="0.1" />

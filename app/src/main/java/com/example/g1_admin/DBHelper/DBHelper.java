@@ -75,6 +75,26 @@ public class DBHelper {
         mDatabase.child("dish").child(String.valueOf(dishId)).removeValue();
     }
 
+    // Add promotion to dish
+    public void addPromotion(String categoria, String id, String promotionDate, String discount, double newPrice, double originalPrice) {
+        mDatabase.child("dish").child(categoria).child(id).setValue(promotionDate);
+        mDatabase.child("dish").child(categoria).child(id).setValue(discount);
+        mDatabase.child("dish").child(String.valueOf(id)).child("price").setValue(newPrice);
+
+        mDatabase.orderByChild("dish").startAt(promotionDate).endAt(promotionDate)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        mDatabase.child("dish").child(String.valueOf(id)).child("price").setValue(originalPrice);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+    }
+
     // Receives a DataSnapshot that contains the values from a specific location on the database
     public void readDataSnapShot(DatabaseReference mDishReference) {
         ValueEventListener dishListener = new ValueEventListener() {

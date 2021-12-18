@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,11 +31,15 @@ import com.example.g1_admin.DBHelper.DBHelper;
 import com.example.g1_admin.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -77,21 +82,35 @@ public class DishFormFragment extends Fragment {
         price = formView.findViewById(R.id.txtPrice);
 
         Spinner spinner = formView.findViewById(R.id.spinner_categories);
+        
+        ArrayList<String> categories = new ArrayList<>();
+        mDatabase.child("category").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    categories.clear();
+                    // Gets the child's from Order
+                    for (DataSnapshot ds: snapshot.getChildren()) {
+                        String name = ds.child("categoryName").getValue().toString();
 
-        ArrayList<String> categories = dbHelper.getCategories();
+                        categories.add(name);
+                    }
 
-        // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, categories);
-        // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
+                    ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(getContext(),android.R.layout.simple_spinner_item, categories);
+                    spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item); // The drop down view
+                    spinner.setAdapter(spinnerArrayAdapter);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Do nothing
+            }
+        });
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                if(position == 1){
-                    String categorySelected = ((String) adapterView.getItemAtPosition(position));
-                }
+                String categorySelected = (String) adapterView.getItemAtPosition(position);
             }
 
             @Override

@@ -13,10 +13,14 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.example.g1_admin.Controllers.Activity.HomeActivity;
+import com.example.g1_admin.DBHelper.DBHelper;
 import com.example.g1_admin.Model.Dish;
 import com.example.g1_admin.R;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,6 +28,16 @@ import java.util.Calendar;
  * create an instance of this fragment.
  */
 public class PromotionFragment extends Fragment implements DatePickerDialog.OnDateSetListener{
+
+    // FIREBASE
+    DBHelper dbHelper;
+
+    public PromotionFragment() {
+    }
+
+    public PromotionFragment(DBHelper dbHelper) {
+        this.dbHelper = dbHelper;
+    }
 
     // PROMOTION FRAGMENT ELEMENTS
     TextView txtDate;
@@ -42,10 +56,6 @@ public class PromotionFragment extends Fragment implements DatePickerDialog.OnDa
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
-    public PromotionFragment() {
-        // Required empty public constructor
-    }
 
     /**
      * Use this factory method to create a new instance of
@@ -87,9 +97,12 @@ public class PromotionFragment extends Fragment implements DatePickerDialog.OnDa
         Bundle bundle = getArguments();
         dish = (Dish) bundle.getSerializable("Dish");
 
+        String currentDate = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault()).format(new Date());
+
         // PROMOTION FRAGMENT ELEMENTS
         Button btnCalendar = view.findViewById(R.id.btnCalendar);
         txtDate = view.findViewById(R.id.txtDate);
+        txtDate.setText(currentDate);
         txtProductName = view.findViewById(R.id.txtProductName);
         txtProductName.setText(dish.getName());
         edtxtDiscount = view.findViewById(R.id.edtxtDiscount);
@@ -108,8 +121,15 @@ public class PromotionFragment extends Fragment implements DatePickerDialog.OnDa
         btnAddPromotion.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View view) {
+                  int discount = Integer.parseInt(edtxtDiscount.getText().toString());
+                  double originalPrice = dish.getPrice();
+                  double finalPrice = originalPrice - ((originalPrice * discount) / 100);
+
+                  dish.setPrice(finalPrice);
                   dish.setPromotionDate(txtDate.getText().toString());
                   dish.setPromotionDiscount(edtxtDiscount.getText().toString());
+
+                  dbHelper.addPromotion(dish.getCategory(), dish.getId(), dish.getPromotionDate(), dish.getPromotionDiscount(), dish.getPrice(), originalPrice);
               }
             }
         );
@@ -131,7 +151,7 @@ public class PromotionFragment extends Fragment implements DatePickerDialog.OnDa
     @Override
     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
         i1 = i1+1;
-        String date = i2 + "/" + i1 + "/" + i;
+        String date = i + "/" + i1 + "/" + i2;
         txtDate.setText(date);
     }
 }
