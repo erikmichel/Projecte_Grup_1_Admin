@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Dish implements Serializable {
 
     String id;
-    String imageName;
+    String imagePath;
     String category;
     String name;
     String description;
@@ -17,8 +17,8 @@ public class Dish implements Serializable {
 
     }
 
-    public Dish(String imageName, String category, String name, String description, double price) {
-        this.imageName = imageName;
+    public Dish(String imagePath, String category, String name, String description, double price) {
+        this.imagePath = imagePath;
         this.category = category;
         this.name = name;
         this.description = description;
@@ -26,9 +26,9 @@ public class Dish implements Serializable {
     }
 
 
-    public Dish(String id, String imageName, String category, String name, String description, double price) {
+    public Dish(String id, String imagePath, String category, String name, String description, double price) {
         this.id = id;
-        this.imageName = imageName;
+        this.imagePath = imagePath;
         this.category = category;
         this.name = name;
         this.description = description;
@@ -43,12 +43,12 @@ public class Dish implements Serializable {
         this.id = id;
     }
 
-    public String getImageName() {
-        return imageName;
+    public String getImagePath() {
+        return imagePath;
     }
 
-    public void setImageName(String imageName) {
-        this.imageName = imageName;
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
     public String getCategory() {

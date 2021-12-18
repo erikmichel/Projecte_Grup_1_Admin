@@ -20,16 +20,20 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.g1_admin.Adapter.HomeViewAdapter;
 import com.example.g1_admin.Adapter.OrderAdapter;
 import com.example.g1_admin.Adapter.RecyclerTouchListener;
 import com.example.g1_admin.Adapter.RecyclerViewAdapter;
 import com.example.g1_admin.Adapter.itemSelected;
 import com.example.g1_admin.DBHelper.DBHelper;
+import com.example.g1_admin.Model.Category;
+import com.example.g1_admin.Model.ItemCart;
 import com.example.g1_admin.Model.Order;
 import com.example.g1_admin.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import org.w3c.dom.Text;
@@ -38,19 +42,19 @@ import java.util.ArrayList;
 
 import javax.annotation.RegEx;
 
-public class ViewOrders extends Fragment {
+public class OrderListFragment extends Fragment {
 
     DatabaseReference mDatabase;
     DBHelper dbHelper;
 
     private OrderAdapter orderAdapter;
     private RecyclerView orderRecyclerView;
-    ArrayList<Order> orders = new ArrayList<>();
+    ArrayList<Order> orders;
 
-    public ViewOrders() {
+    public OrderListFragment() {
     }
 
-    public ViewOrders(DatabaseReference mDatabase, DBHelper dbHelper) {
+    public OrderListFragment(DatabaseReference mDatabase, DBHelper dbHelper) {
         this.mDatabase = mDatabase;
         this.dbHelper = dbHelper;
     }
@@ -61,17 +65,35 @@ public class ViewOrders extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_view_orders, container, false);
 
-        ArrayList<Order> orders = dbHelper.getOrders();
+        orderRecyclerView = view.findViewById(R.id.recyclerViewOrders);
+        orders = new ArrayList<>();
 
-        // RecyclerView
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerViewOrders);
-        OrderAdapter adapter = new OrderAdapter(orders);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setLayoutManager(new LinearLayoutManager((getContext())));
-        recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+        DatabaseReference reference = FirebaseDatabase.getInstance("https://admin-987aa-default-rtdb.europe-west1.firebasedatabase.app/").getReference("order");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                orders.clear();
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    Order order = dataSnapshot.getValue(Order.class);
+                    order.setId(dataSnapshot.getKey());
+                    orders.add(order);
+                }
+                OrderAdapter orderAdapter = new OrderAdapter(orders, getContext());
+                orderRecyclerView.setAdapter(orderAdapter);
+                orderRecyclerView.setLayoutManager(new LinearLayoutManager((getContext())));
+                orderRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+        /*
         // Action when item is touched in RecyclerView
-        recyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new RecyclerTouchListener.ClickListener() {
+        orderRecyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity(), recyclerView, new RecyclerTouchListener.ClickListener() {
             @Override
             public void onClick(View view, int position) {
                 // Creates a new Intent to itemSelected class
@@ -92,6 +114,8 @@ public class ViewOrders extends Fragment {
                 // Do nothing
             }
         }));
+
+         */
 
         return view;
 

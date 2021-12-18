@@ -23,7 +23,7 @@ import com.example.g1_admin.R;
 import java.util.ArrayList;
 
 
-public class  CategoryFragment extends Fragment implements SelectListner {
+public class DishListFragment extends Fragment implements SelectListner {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

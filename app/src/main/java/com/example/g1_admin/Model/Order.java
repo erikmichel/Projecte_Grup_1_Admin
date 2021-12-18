@@ -1,58 +1,63 @@
 package com.example.g1_admin.Model;
 
-public class Order {
+import java.io.Serializable;
+import java.util.ArrayList;
 
-    private String firebaseKey;
-    private int key;
-    private int id;
-    private String name;
-    private double price;
+public class Order implements Serializable {
+    private String id;
 
-    public Order(String firebaseKey, int key, int id, String name, double price) {
-        this.firebaseKey = firebaseKey;
-        this.key = key;
-        this.id = id;
-        this.name = name;
-        this.price = price;
+    public String user;
+    public ArrayList<ItemCart> products;
+    private String status;
+    private String date;
+
+    public Order() {
     }
 
-    public String getFirebaseKey() {
-        return firebaseKey;
+    public Order(String user, ArrayList<ItemCart> products, String status, String date) {
+        this.user = user;
+        this.products = products;
+        this.status = status;
+        this.date = date;
     }
 
-    public void setFirebaseKey(String firebaseKey) {
-        this.firebaseKey = firebaseKey;
-    }
-
-    public int getKey() {
-        return key;
-    }
-
-    public void setKey(int key) {
-        this.key = key;
-    }
-
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUser() {
+        return user;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUser(String user) {
+        this.user = user;
     }
 
-    public double getPrice() {
-        return price;
+    public ArrayList<ItemCart> getProducts() {
+        return products;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setProducts(ArrayList<ItemCart> products) {
+        this.products = products;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }

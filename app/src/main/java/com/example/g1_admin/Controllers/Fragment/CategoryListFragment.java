@@ -5,7 +5,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -29,15 +28,15 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 
-public class HomeFragment extends Fragment implements SelectListner {
+public class CategoryListFragment extends Fragment implements SelectListner {
     DBHelper dbHelper;
     ArrayList<Category> categories;
     RecyclerView recyclerView;
 
-    public HomeFragment() {
+    public CategoryListFragment() {
     }
 
-    public HomeFragment(DBHelper dbHelper) {
+    public CategoryListFragment(DBHelper dbHelper) {
         this.dbHelper = dbHelper;
     }
 
@@ -54,7 +53,6 @@ public class HomeFragment extends Fragment implements SelectListner {
         categories = new ArrayList<>();
 
         DatabaseReference reference = FirebaseDatabase.getInstance("https://admin-987aa-default-rtdb.europe-west1.firebasedatabase.app/").getReference("category");
-        //reference.addChildEventListener(new )
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -62,22 +60,17 @@ public class HomeFragment extends Fragment implements SelectListner {
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Category category = dataSnapshot.getValue(Category.class);
                     categories.add(category);
-                    Log.v("IMAGE", "onDataChange: " + category.getCategoryName());
-                    HomeViewAdapter adapter = new HomeViewAdapter(categories, HomeFragment.this, getContext());
-                    recyclerView.setAdapter(adapter);
                 }
+                HomeViewAdapter adapter = new HomeViewAdapter(categories, CategoryListFragment.this, getContext());
+                recyclerView.setAdapter(adapter);
+                recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Log.v("IMAGE", "onDataChange: LSDFJOIDSFDSFIODSFODSFJOIDSFODSF");
+
             }
         });
-
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
-        //recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
-        //recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.HORIZONTAL));
-
         return view;
     }
 
@@ -88,7 +81,7 @@ public class HomeFragment extends Fragment implements SelectListner {
     */
         Bundle bundle = new Bundle();
         bundle.putSerializable("category", category.getCategoryName());
-        CategoryFragment categoriaFragment= new CategoryFragment();
+        DishListFragment categoriaFragment= new DishListFragment();
         categoriaFragment.setArguments(bundle);
 
         getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, categoriaFragment).commit();
