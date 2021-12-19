@@ -97,7 +97,7 @@ public class PromotionFragment extends Fragment implements DatePickerDialog.OnDa
         Bundle bundle = getArguments();
         dish = (Dish) bundle.getSerializable("Dish");
 
-        String currentDate = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault()).format(new Date());
+        String currentDate = new SimpleDateFormat("yyyy/MM/dd", Locale.getDefault()).format(new Date());
 
         // PROMOTION FRAGMENT ELEMENTS
         Button btnCalendar = view.findViewById(R.id.btnCalendar);
@@ -122,13 +122,14 @@ public class PromotionFragment extends Fragment implements DatePickerDialog.OnDa
               @Override
               public void onClick(View view) {
                   int discount = Integer.parseInt(edtxtDiscount.getText().toString());
-                  double finalPrice = (dish.getPrice() * discount) / 100;
+                  double originalPrice = dish.getPrice();
+                  double finalPrice = originalPrice - ((originalPrice * discount) / 100);
 
                   dish.setPrice(finalPrice);
                   dish.setPromotionDate(txtDate.getText().toString());
                   dish.setPromotionDiscount(edtxtDiscount.getText().toString());
 
-                  dbHelper.addPromotion(dish.getCategory(), dish.getId(), dish.getPromotionDate(), dish.getPromotionDiscount(), dish.getPrice());
+                  dbHelper.addPromotion(dish.getCategory(), dish.getId(), dish.getPromotionDate(), dish.getPromotionDiscount(), dish.getPrice(), originalPrice);
               }
             }
         );
@@ -150,7 +151,7 @@ public class PromotionFragment extends Fragment implements DatePickerDialog.OnDa
     @Override
     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
         i1 = i1+1;
-        String date = i2 + "/" + i1 + "/" + i;
+        String date = i + "/" + i1 + "/" + i2;
         txtDate.setText(date);
     }
 }

@@ -13,4 +13,7 @@
     <color name="darker_red">#AE4C4C</color>
     <color name="light_gray">#EAE8E8</color>
     <color name="gray">#C4C4C4</color>
+    <color name="greenStatus">#21a603</color>
+    <color name="yellowStatus">#fcba03</color>
+    <color name="redStatus">#a60316</color>
 </resources>

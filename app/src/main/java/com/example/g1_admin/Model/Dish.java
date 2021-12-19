@@ -25,7 +25,6 @@ public class Dish implements Serializable {
         this.price = price;
     }
 
-
     public Dish(String id, String imageName, String category, String name, String description, double price) {
         this.id = id;
         this.imageName = imageName;
@@ -34,6 +33,8 @@ public class Dish implements Serializable {
         this.description = description;
         this.price = price;
     }
+
+
 
     public String getId() {
         return id;
