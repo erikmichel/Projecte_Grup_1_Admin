@@ -49,6 +49,7 @@ public class CategoryListFragment extends Fragment implements SelectListner {
         View view=inflater.inflate(R.layout.fragment_category_list, container, false);
 
         // ActionBar Subtitle
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Home");
         ((AppCompatActivity)getActivity()).getSupportActionBar().setSubtitle("Categories");
 
         recyclerView = view.findViewById(R.id.recyclerViewHome);

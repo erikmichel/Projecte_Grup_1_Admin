@@ -39,6 +39,10 @@ public class RegisterFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_register, container, false);
 
+        // Appbar title and subtitle
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Register");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setSubtitle("Form");
+
         // Firestore init
         db = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
