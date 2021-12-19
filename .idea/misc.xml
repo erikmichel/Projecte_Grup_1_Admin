@@ -4,6 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.196875" />
+        <entry key="..\:/Users/Facundo/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/drawable-v24/bgcategory.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/Facundo/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/drawable-v24/bgproduct.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/Facundo/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/drawable-v24/bgsearch.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/Facundo/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/drawable/bg_login_btn.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/Facundo/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/drawable/bg_login_et.xml" value="0.22135416666666666" />
         <entry key="..\:/Users/Facundo/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/activity_home.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Facundo/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Facundo/AndroidStudioProjects/Projecte_Grup_1_Admin/app/src/main/res/layout/command_view.xml" value="0.36666666666666664" />
