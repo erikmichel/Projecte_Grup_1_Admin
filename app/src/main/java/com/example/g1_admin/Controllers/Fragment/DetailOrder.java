@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +15,11 @@ import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.g1_admin.Model.ItemCart;
+import com.example.g1_admin.Model.Order;
 import com.example.g1_admin.R;
+
+import java.util.ArrayList;
 
 public class DetailOrder extends Fragment {
     @Override
@@ -22,6 +27,21 @@ public class DetailOrder extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_detail_order, container, false);
+
+        // Bundle
+        Bundle bundle = getArguments();
+        Order order = (Order) bundle.getSerializable("order");
+/*
+        public String user;
+        public ArrayList<ItemCart> products;
+        private String status;
+        private String date;
+ */
+        Log.i("Bundlefunsiona", order.getUser());
+        Log.i("Bundlefunsiona", order.getId());
+        Log.i("Bundlefunsiona", order.getDate());
+        Log.i("Bundlefunsiona", order.getStatus());
+        Log.i("Bundlefunsiona", order.getProducts().toString());
 
         ImageButton bntExit = view.findViewById(R.id.btnGoBack);
         TextView idOrderInfo = view.findViewById(R.id.txtDetailIDBlank);
@@ -34,7 +54,7 @@ public class DetailOrder extends Fragment {
         bntExit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent viewOrders = new Intent(getContext(), ViewOrders.class);
+                Intent viewOrders = new Intent(getContext(), OrderListFragment.class);
                 startActivity(viewOrders);
             }
         });
