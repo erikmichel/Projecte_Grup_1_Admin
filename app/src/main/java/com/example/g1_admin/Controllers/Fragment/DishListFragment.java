@@ -3,7 +3,6 @@ package com.example.g1_admin.Controllers.Fragment;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,11 +14,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
 
-import com.example.g1_admin.Adapter.RecyclerViewAdapter;
+import com.example.g1_admin.Adapter.DishRecyclerView;
 import com.example.g1_admin.Adapter.SelectListner;
 import com.example.g1_admin.DBHelper.DBHelper;
 import com.example.g1_admin.Model.Category;
 import com.example.g1_admin.Model.Dish;
+import com.example.g1_admin.Model.Order;
 import com.example.g1_admin.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -37,7 +37,7 @@ public class DishListFragment extends Fragment implements SelectListner {
 
     private ArrayList<Dish> data = new ArrayList();
 
-    private RecyclerViewAdapter adapter;
+    private DishRecyclerView adapter;
 
     public DishListFragment() {
     }
@@ -51,7 +51,7 @@ public class DishListFragment extends Fragment implements SelectListner {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view=inflater.inflate(R.layout.fragment_category, container, false);
+        View view=inflater.inflate(R.layout.fragment_dish_list, container, false);
 
         Bundle bundle = getArguments();
 
@@ -80,7 +80,7 @@ public class DishListFragment extends Fragment implements SelectListner {
                     }
 
                     // Sets the adapter for the RecyclerView
-                    adapter = new RecyclerViewAdapter(data, selectListner, getContext());
+                    adapter = new DishRecyclerView(data, selectListner, getContext());
                     recyclerView.setAdapter(adapter);
                 }
             }
@@ -126,5 +126,10 @@ public class DishListFragment extends Fragment implements SelectListner {
         promotionFragment.setArguments(bundle);
 
         getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, promotionFragment).commit();
+    }
+
+    @Override
+    public void onItemClicked(Order order) {
+
     }
 }

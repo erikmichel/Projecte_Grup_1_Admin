@@ -32,7 +32,7 @@
     <!-- View Order Spinner -->
     <string-array name="state">
         <item>Received</item>
-        <item>In Process</item>
-        <item>Price</item>
+        <item>In process</item>
+        <item>Sent</item>
     </string-array>
 </resources>

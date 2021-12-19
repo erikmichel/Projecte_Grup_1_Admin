@@ -14,13 +14,13 @@ import android.widget.TextView;
 import com.example.g1_admin.R;
 
 
-public class UserDetailFragment extends Fragment {
+public class RegisterDetailFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View root = inflater.inflate(R.layout.fragment_user_detail, container, false);
+        View root = inflater.inflate(R.layout.fragment_register_detail, container, false);
 
         // Views init
         TextView txtFullname = root.findViewById(R.id.createdFullname);

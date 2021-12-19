@@ -65,6 +65,11 @@ public class DBHelper {
         mDatabase.child("dish").child(String.valueOf(dishId)).child("price").setValue(newPrice);
     }
 
+    // Replaces the state from a single order
+    public void replaceState(String orderId, String state) {
+        mDatabase.child("order").child(String.valueOf(orderId)).child("status").setValue(state);
+    }
+
     // Removes a values from a single dish element
     public void removeValue(Integer dishId, String type) {
         mDatabase.child("dish").child(String.valueOf(dishId)).child(type).removeValue();
