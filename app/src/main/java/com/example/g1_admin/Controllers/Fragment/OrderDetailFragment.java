@@ -22,7 +22,7 @@ import com.example.g1_admin.Model.Order;
 import com.example.g1_admin.R;
 import com.google.firebase.database.DatabaseReference;
 
-public class DetailOrder extends Fragment {
+public class OrderDetailFragment extends Fragment {
 
     DatabaseReference mDatabase;
     DBHelper dbHelper;
@@ -30,7 +30,7 @@ public class DetailOrder extends Fragment {
     int spinnerState;
     String categorySelected;
 
-    public DetailOrder(DatabaseReference mDatabase, DBHelper dbHelper) {
+    public OrderDetailFragment(DatabaseReference mDatabase, DBHelper dbHelper) {
         this.mDatabase = mDatabase;
         this.dbHelper = dbHelper;
     }
@@ -39,7 +39,7 @@ public class DetailOrder extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_detail_order, container, false);
+        View view = inflater.inflate(R.layout.fragment_order_detail, container, false);
 
         // Bundle
         Bundle bundle = getArguments();

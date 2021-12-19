@@ -16,12 +16,13 @@ import com.example.g1_admin.R;
 
 import java.util.ArrayList;
 
-public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> {
+public class OrderRecyclerView extends RecyclerView.Adapter<OrderRecyclerView.ViewHolder> {
     private Context context;
     private SelectListner listener;
     private ArrayList<Order> orders;
 
-    public OrderAdapter(ArrayList<Order> orders, SelectListner listener, Context context) {
+
+    public OrderRecyclerView(ArrayList<Order> orders, SelectListner listener, Context context) {
         this.orders = orders;
         this.listener = listener;
         this.context = context;

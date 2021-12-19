@@ -28,14 +28,14 @@ import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
+public class DishRecyclerView extends RecyclerView.Adapter<DishRecyclerView.ViewHolder> {
 
     private ArrayList<Dish> array_food;
     private ArrayList<Dish> all_items;
     private SelectListner listener;
     private Context context;
 
-    public RecyclerViewAdapter(ArrayList<Dish> arrN, SelectListner listener, Context context){
+    public DishRecyclerView(ArrayList<Dish> arrN, SelectListner listener, Context context){
         array_food = arrN;
         all_items = new ArrayList<>();
         all_items.addAll(array_food);

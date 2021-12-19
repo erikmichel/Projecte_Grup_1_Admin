@@ -8,12 +8,11 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.g1_admin.Adapter.HomeViewAdapter;
+import com.example.g1_admin.Adapter.CategoriesRecyclerView;
 import com.example.g1_admin.Adapter.SelectListner;
 import com.example.g1_admin.DBHelper.DBHelper;
 import com.example.g1_admin.Model.Category;
@@ -47,7 +46,7 @@ public class CategoryListFragment extends Fragment implements SelectListner {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view=inflater.inflate(R.layout.fragment_home, container, false);
+        View view=inflater.inflate(R.layout.fragment_category_list, container, false);
 
         // ActionBar Subtitle
         ((AppCompatActivity)getActivity()).getSupportActionBar().setSubtitle("Categories");
@@ -64,7 +63,7 @@ public class CategoryListFragment extends Fragment implements SelectListner {
                     Category category = dataSnapshot.getValue(Category.class);
                     categories.add(category);
                 }
-                HomeViewAdapter adapter = new HomeViewAdapter(categories, CategoryListFragment.this, getContext());
+                CategoriesRecyclerView adapter = new CategoriesRecyclerView(categories, CategoryListFragment.this, getContext());
                 recyclerView.setAdapter(adapter);
                 recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
             }
