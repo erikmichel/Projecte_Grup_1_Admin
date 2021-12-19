@@ -122,7 +122,7 @@ public class DishListFragment extends Fragment implements SelectListner {
     public void onItemClicked(Dish dish) {
         Bundle bundle = new Bundle();
         bundle.putSerializable("Dish", dish);
-        PromotionFragment promotionFragment= new PromotionFragment(dbHelper);
+        PromotionFragment promotionFragment= new PromotionFragment(dbHelper, mDatabase);
         promotionFragment.setArguments(bundle);
 
         getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, promotionFragment).commit();

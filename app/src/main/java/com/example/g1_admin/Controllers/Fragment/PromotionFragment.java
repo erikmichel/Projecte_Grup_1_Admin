@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -16,6 +17,8 @@ import com.example.g1_admin.Controllers.Activity.HomeActivity;
 import com.example.g1_admin.DBHelper.DBHelper;
 import com.example.g1_admin.Model.Dish;
 import com.example.g1_admin.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -31,12 +34,14 @@ public class PromotionFragment extends Fragment implements DatePickerDialog.OnDa
 
     // FIREBASE
     DBHelper dbHelper;
+    DatabaseReference mDatabase;
 
     public PromotionFragment() {
     }
 
-    public PromotionFragment(DBHelper dbHelper) {
+    public PromotionFragment(DBHelper dbHelper, DatabaseReference mDatabase) {
         this.dbHelper = dbHelper;
+        this.mDatabase = mDatabase;
     }
 
     // PROMOTION FRAGMENT ELEMENTS
@@ -121,6 +126,11 @@ public class PromotionFragment extends Fragment implements DatePickerDialog.OnDa
         btnAddPromotion.setOnClickListener(new View.OnClickListener() {
               @Override
               public void onClick(View view) {
+                  DatabaseReference mDatabase = FirebaseDatabase.getInstance("https://admin-987aa-default-rtdb.europe-west1.firebasedatabase.app/").getReference();
+
+                  //
+                  dbHelper = new DBHelper(mDatabase);
+
                   int discount = Integer.parseInt(edtxtDiscount.getText().toString());
                   double originalPrice = dish.getPrice();
                   double finalPrice = originalPrice - ((originalPrice * discount) / 100);
@@ -130,6 +140,8 @@ public class PromotionFragment extends Fragment implements DatePickerDialog.OnDa
                   dish.setPromotionDiscount(edtxtDiscount.getText().toString());
 
                   dbHelper.addPromotion(dish.getCategory(), dish.getId(), dish.getPromotionDate(), dish.getPromotionDiscount(), dish.getPrice(), originalPrice);
+
+                  Toast.makeText(getContext(), "Promotion added successfully", Toast.LENGTH_SHORT).show();
               }
             }
         );

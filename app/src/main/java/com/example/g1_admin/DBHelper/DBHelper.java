@@ -77,11 +77,15 @@ public class DBHelper {
 
     // Add promotion to dish
     public void addPromotion(String categoria, String id, String promotionDate, String discount, double newPrice, double originalPrice) {
-        mDatabase.child("dish").child(categoria).child(id).setValue(promotionDate);
-        mDatabase.child("dish").child(categoria).child(id).setValue(discount);
-        mDatabase.child("dish").child(String.valueOf(id)).child("price").setValue(newPrice);
+        //mDatabase.child("dish").child(categoria).child(id).setValue(promotionDate);
+        //mDatabase.child("dish").child(categoria).child(id).setValue(discount);
+        //mDatabase.child("dish").child(String.valueOf(id)).child("promoDate").setValue(promotionDate);
+        //mDatabase.child("dish").child(String.valueOf(id)).child("discount").setValue(discount);
+        mDatabase.child("dish").child(categoria).child(id).child("price").setValue(newPrice);
+        mDatabase.child("dish").child(categoria).child(id).child("promoDate").setValue(promotionDate);
+        mDatabase.child("dish").child(categoria).child(id).child("discount").setValue(discount);
 
-        mDatabase.orderByChild("dish").startAt(promotionDate).endAt(promotionDate)
+        /*mDatabase.orderByChild("dish").startAt(promotionDate).endAt(promotionDate)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -92,7 +96,7 @@ public class DBHelper {
                     public void onCancelled(@NonNull DatabaseError error) {
 
                     }
-                });
+                });*/
     }
 
     // Receives a DataSnapshot that contains the values from a specific location on the database
