@@ -1,54 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
-        <item android:title="Main">
+        <item android:title="@string/main">
             <menu>
                 <item
                     android:id="@+id/nav_home"
-                    android:title="Home"
+                    android:title="@string/home"
                     android:icon="@drawable/ic_home"
                     />
             </menu>
         </item>
     </group>
     <group android:checkableBehavior="single">
-        <item android:title="Insert Forms">
+        <item android:title="@string/insert_forms">
             <menu>
                 <item
                     android:id="@+id/nav_insertDish"
-                    android:title="Dish"
+                    android:title="@string/dish"
                     android:icon="@drawable/ic_food"
                     />
                 <item
                     android:id="@+id/nav_insertCategory"
-                    android:title="Category"
+                    android:title="@string/cat"
                     android:icon="@drawable/ic_food_category"
                     />
             </menu>
         </item>
     </group>
     <group android:checkableBehavior="single">
-        <item android:title="User Orders">
+        <item android:title="@string/user_orders">
             <menu>
                 <item
                     android:id="@+id/nav_userCommands"
-                    android:title="View Orders"
+                    android:title="@string/view_orders"
                     android:icon="@drawable/ic_order"
                     />
             </menu>
         </item>
     </group>
     <group android:checkableBehavior="single">
-        <item android:title="Authentication">
+        <item android:title="@string/auth">
             <menu>
                 <item
                     android:id="@+id/nav_newUser"
-                    android:title="New user"
+                    android:title="@string/new_user"
                     android:icon="@drawable/ic_add_user"
                     />
                 <item
                     android:id="@+id/nav_logout"
-                    android:title="Log Out"
+                    android:title="@string/logout"
+                    android:icon="@drawable/ic_baseline_logout_24"
                     />
             </menu>
         </item>

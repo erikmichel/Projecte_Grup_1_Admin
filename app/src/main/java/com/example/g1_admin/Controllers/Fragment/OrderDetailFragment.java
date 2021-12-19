@@ -104,7 +104,7 @@ public class OrderDetailFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 dbHelper.replaceState(order.getId(), categorySelected);
-                Toast.makeText(getContext(), "Changed the status of this order", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getString(R.string.changed_status), Toast.LENGTH_SHORT).show();
             }
         });
 

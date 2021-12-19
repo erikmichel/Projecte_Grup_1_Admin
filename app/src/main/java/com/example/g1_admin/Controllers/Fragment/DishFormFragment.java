@@ -131,7 +131,7 @@ public class DishFormFragment extends Fragment {
 
                         //We check that the user has changed the default image
                         if (image.getDrawable().toString().equals(defaultImageIdentificator)) {
-                            Toast.makeText(getContext(), "You need to change the default image", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), getString(R.string.no_default_image), Toast.LENGTH_SHORT).show();
                         } else {
                             //We assign the value in String of the selected Item of the Spinner.
                             cat = spinner.getSelectedItem().toString();
@@ -229,13 +229,13 @@ public class DishFormFragment extends Fragment {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         image.setImageURI(null);
-                        Toast.makeText(getContext(), "Successfully Uploaded", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), getString(R.string.success_uploaded), Toast.LENGTH_SHORT).show();
 
                     }
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getContext(), "Failed to Upload", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getString(R.string.failed_upload), Toast.LENGTH_SHORT).show();
             }
         });
     }

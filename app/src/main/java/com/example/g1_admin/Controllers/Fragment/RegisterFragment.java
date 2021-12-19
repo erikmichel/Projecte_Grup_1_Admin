@@ -69,25 +69,25 @@ public class RegisterFragment extends Fragment {
 
         // Fullname conditions
         if(fullName.isEmpty()) {
-            registerPassword.setError("Fullname is required!");
+            registerPassword.setError(getString(R.string.fullname_required));
             registerPassword.requestFocus();
         }
 
         // Email conditions
         if(email.isEmpty()) {
-            registerEmail.setError("Email is required!");
+            registerEmail.setError(getString(R.string.email_required));
             registerEmail.requestFocus();
         } else if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            registerEmail.setError("Please provide valid email!");
+            registerEmail.setError(getString(R.string.provide_valid_email));
             registerEmail.requestFocus();
         }
 
         // Password conditions
         if(password.isEmpty()) {
-            registerPassword.setError("Password is required!");
+            registerPassword.setError(getString(R.string.password_required));
             registerPassword.requestFocus();
         } else if(password.length() < 6) {
-            registerPassword.setError("Min password length should be 6 characters!");
+            registerPassword.setError(getString(R.string.min_password));
             registerPassword.requestFocus();
         }
 
@@ -116,7 +116,7 @@ public class RegisterFragment extends Fragment {
                                         public void onComplete(@NonNull Task<Void> task) {
                                             // If
                                             if (task.isSuccessful()) {
-                                                Toast.makeText(getContext(), "User has been registered succesfully!", Toast.LENGTH_LONG).show();
+                                                Toast.makeText(getContext(), getString(R.string.registered_success), Toast.LENGTH_LONG).show();
                                                 progressBar.setVisibility(View.GONE);
                                                 AppCompatActivity app = (AppCompatActivity) view.getContext();
                                                 Bundle bundle = new Bundle();
@@ -130,14 +130,14 @@ public class RegisterFragment extends Fragment {
                                                         .replace(R.id.fragmentContainer, registerDetailFragment)
                                                         .commit();
                                             } else {
-                                                Toast.makeText(getContext(), "Failed to register! Try again!", Toast.LENGTH_LONG).show();
+                                                Toast.makeText(getContext(), getString(R.string.failed_register), Toast.LENGTH_LONG).show();
                                                 progressBar.setVisibility(View.GONE);
                                             }
                                         }
                                     });
 
                         } else {
-                            Toast.makeText(getContext(), "Failed to register! Try again!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getContext(), getString(R.string.failed_register), Toast.LENGTH_LONG).show();
                             progressBar.setVisibility(View.GONE);
                         }
                     }

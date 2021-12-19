@@ -94,7 +94,7 @@ public class LoginActivity extends AppCompatActivity {
             // On failure shows Toast
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(LoginActivity.this, "Wrong Email or Password.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, getString(R.string.wrong_email_password), Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -117,7 +117,7 @@ public class LoginActivity extends AppCompatActivity {
                 // Identify user access level
                 // If user is administrator redirects to Menu class
                 if (documentSnapshot.getString("isAdmin") != null) {
-                    Toast.makeText(LoginActivity.this, "Logged in Successfully.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, getString(R.string.logged_success), Toast.LENGTH_SHORT).show();
                     // If remember box isChecked auto-login is activated
                     if(chboxRemember.isChecked()) {
                         SharedPreferences.Editor editor = prefs.edit();
@@ -125,7 +125,7 @@ public class LoginActivity extends AppCompatActivity {
                     }
                     startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                 } else {
-                    Toast.makeText(LoginActivity.this, "User is not admin", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, getString(R.string.not_admin), Toast.LENGTH_SHORT).show();
                 }
             }
         });
