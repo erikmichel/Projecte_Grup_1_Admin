@@ -123,11 +123,11 @@ public class RegisterFragment extends Fragment {
                                                 bundle.putSerializable("fullname", fullName);
                                                 bundle.putSerializable("email", email);
                                                 bundle.putSerializable("password", password);
-                                                UserDetailFragment userDetailFragment = new UserDetailFragment();
-                                                userDetailFragment.setArguments(bundle);
+                                                RegisterDetailFragment registerDetailFragment = new RegisterDetailFragment();
+                                                registerDetailFragment.setArguments(bundle);
                                                 app.getSupportFragmentManager()
                                                         .beginTransaction()
-                                                        .replace(R.id.fragmentContainer, userDetailFragment)
+                                                        .replace(R.id.fragmentContainer, registerDetailFragment)
                                                         .commit();
                                             } else {
                                                 Toast.makeText(getContext(), "Failed to register! Try again!", Toast.LENGTH_LONG).show();

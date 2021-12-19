@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.g1_admin.Model.Order;
@@ -15,11 +14,11 @@ import com.example.g1_admin.R;
 
 import java.util.ArrayList;
 
-public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> {
+public class OrderRecyclerView extends RecyclerView.Adapter<OrderRecyclerView.ViewHolder> {
     private Context context;
     private ArrayList<Order> orders;
 
-    public OrderAdapter(ArrayList<Order> orders, Context context) {
+    public OrderRecyclerView(ArrayList<Order> orders, Context context) {
         this.orders = orders;
         this.context = context;
     }

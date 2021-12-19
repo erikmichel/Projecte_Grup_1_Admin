@@ -1,7 +1,5 @@
 package com.example.g1_admin.Controllers.Fragment;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,23 +9,12 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
-import android.widget.TextView;
 
-import com.example.g1_admin.Adapter.HomeViewAdapter;
-import com.example.g1_admin.Adapter.OrderAdapter;
-import com.example.g1_admin.Adapter.RecyclerTouchListener;
-import com.example.g1_admin.Adapter.RecyclerViewAdapter;
-import com.example.g1_admin.Adapter.itemSelected;
+import com.example.g1_admin.Adapter.OrderRecyclerView;
 import com.example.g1_admin.DBHelper.DBHelper;
-import com.example.g1_admin.Model.Category;
-import com.example.g1_admin.Model.ItemCart;
 import com.example.g1_admin.Model.Order;
 import com.example.g1_admin.R;
 import com.google.firebase.database.DataSnapshot;
@@ -36,19 +23,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-
-import javax.annotation.RegEx;
 
 public class OrderListFragment extends Fragment {
 
     DatabaseReference mDatabase;
     DBHelper dbHelper;
 
-    private OrderAdapter orderAdapter;
-    private RecyclerView orderRecyclerView;
+    private OrderRecyclerView orderRecyclerView;
+    private RecyclerView recyclerView;
     ArrayList<Order> orders;
 
     public OrderListFragment() {
@@ -63,9 +46,9 @@ public class OrderListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_view_orders, container, false);
+        View view = inflater.inflate(R.layout.fragment_order_list, container, false);
 
-        orderRecyclerView = view.findViewById(R.id.recyclerViewOrders);
+        recyclerView = view.findViewById(R.id.recyclerViewOrders);
         orders = new ArrayList<>();
 
         DatabaseReference reference = FirebaseDatabase.getInstance("https://admin-987aa-default-rtdb.europe-west1.firebasedatabase.app/").getReference("order");
@@ -78,10 +61,9 @@ public class OrderListFragment extends Fragment {
                     order.setId(dataSnapshot.getKey());
                     orders.add(order);
                 }
-                OrderAdapter orderAdapter = new OrderAdapter(orders, getContext());
-                orderRecyclerView.setAdapter(orderAdapter);
-                orderRecyclerView.setLayoutManager(new LinearLayoutManager((getContext())));
-                orderRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+                OrderRecyclerView orderRecyclerView = new OrderRecyclerView(orders, getContext());
+                OrderListFragment.this.recyclerView.setAdapter(orderRecyclerView);
+                OrderListFragment.this.recyclerView.setLayoutManager(new LinearLayoutManager((getContext())));
             }
 
             @Override

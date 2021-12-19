@@ -24,12 +24,12 @@ import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 
-public class HomeViewAdapter extends RecyclerView.Adapter<HomeViewAdapter.ViewHolder> {
+public class CategoriesRecyclerView extends RecyclerView.Adapter<CategoriesRecyclerView.ViewHolder> {
 
     private ArrayList<Category> array_Cat;
     private SelectListner lisnter;
     private Context context;
-    public HomeViewAdapter(ArrayList<Category> cat, SelectListner lisnter, Context context){
+    public CategoriesRecyclerView(ArrayList<Category> cat, SelectListner lisnter, Context context){
         array_Cat = cat;
         this.lisnter = lisnter;
         this.context = context;
