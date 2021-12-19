@@ -30,14 +30,16 @@ import java.util.ArrayList;
 
 public class CategoryListFragment extends Fragment implements SelectListner {
     DBHelper dbHelper;
+    DatabaseReference mDatabase;
     ArrayList<Category> categories;
     RecyclerView recyclerView;
 
     public CategoryListFragment() {
     }
 
-    public CategoryListFragment(DBHelper dbHelper) {
+    public CategoryListFragment(DBHelper dbHelper, DatabaseReference mDatabase) {
         this.dbHelper = dbHelper;
+        this.mDatabase = mDatabase;
     }
 
     @Override
@@ -81,7 +83,7 @@ public class CategoryListFragment extends Fragment implements SelectListner {
     */
         Bundle bundle = new Bundle();
         bundle.putSerializable("category", category.getCategoryName());
-        DishListFragment categoriaFragment= new DishListFragment();
+        DishListFragment categoriaFragment= new DishListFragment(dbHelper, mDatabase);
         categoriaFragment.setArguments(bundle);
 
         getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, categoriaFragment).commit();

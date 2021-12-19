@@ -2,6 +2,7 @@ package com.example.g1_admin.Controllers.Fragment;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -20,6 +21,11 @@ import com.example.g1_admin.DBHelper.DBHelper;
 import com.example.g1_admin.Model.Category;
 import com.example.g1_admin.Model.Dish;
 import com.example.g1_admin.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -27,12 +33,18 @@ import java.util.ArrayList;
 public class DishListFragment extends Fragment implements SelectListner {
 
     DBHelper dbHelper;
+    DatabaseReference mDatabase;
+
+    private ArrayList<Dish> data = new ArrayList();
+
+    private RecyclerViewAdapter adapter;
 
     public DishListFragment() {
     }
 
-    public DishListFragment(DBHelper dbHelper) {
+    public DishListFragment(DBHelper dbHelper, DatabaseReference mDatabase) {
         this.dbHelper = dbHelper;
+        this.mDatabase = mDatabase;
     }
 
     @Override
@@ -41,39 +53,46 @@ public class DishListFragment extends Fragment implements SelectListner {
         // Inflate the layout for this fragment
         View view=inflater.inflate(R.layout.fragment_category, container, false);
 
-
-        // Inflate the layout for this fragment
         Bundle bundle = getArguments();
+
+        // Gets the selected category name
         String categoryName = (String) bundle.getSerializable("category");
 
-        ArrayList<Dish> data = new ArrayList();
-        ArrayList<Dish> dataFilter = new ArrayList();
-        SearchView searchItem = (SearchView) view.findViewById(R.id.searchView);
-        data.add(new Dish("imagePlaceholder","Appetizers", "Fries", "Description", 5.99));
-        data.add(new Dish("imagePlaceholder","Appetizers", "Fried Chicken", "Description", 5.99));
-        data.add(new Dish("imagePlaceholder","Appetizers", "Deluxe Fries", "Description", 5.99));
-        data.add(new Dish("imagePlaceholder","Appetizers", "Salad", "Description", 5.99));
-        data.add(new Dish("imagePlaceholder","Appetizers", "Garlic Bread", "Description", 5.99));
-        data.add(new Dish("imagePlaceholder","Pizzas", "Margherita", "Description", 12.50));
-        data.add(new Dish("imagePlaceholder","Pizzas", "Pepperoni", "Description", 12.50));
-        data.add(new Dish("imagePlaceholder","Pizzas", "Hawaiian", "Description", 12.50));
-        data.add(new Dish("imagePlaceholder","Pizzas", "Buffalo", "Description", 12.50));
-        data.add(new Dish("imagePlaceholder","Pizzas", "Veggie", "Description", 12.50));
-        data.add(new Dish("imagePlaceholder","Pizzas", "Cheese", "Description", 12.50));
-        data.add(new Dish("imagePlaceholder","Pizzas", "Meat", "Description", 12.50));
-        data.add(new Dish("imagePlaceholder","Drinks", "Cocacola", "Description", 2.99));
-        data.add(new Dish("imagePlaceholder","Drinks", "Fanta", "Description", 2.99));
-        data.add(new Dish("imagePlaceholder","Drinks", "Water", "Description", 2.99));
-        data.add(new Dish("imagePlaceholder","Drinks", "Beer", "Description", 2.99));
-        for(int i=0;i<data.size();i++){
-            if((data.get(i).getCategory()).equals(categoryName)){
-                dataFilter.add(data.get(i));
-            }
-        }
         RecyclerView recyclerView = view.findViewById(R.id.recyclerView);
-        RecyclerViewAdapter adapter = new RecyclerViewAdapter(dataFilter,this);
-        recyclerView.setAdapter(adapter);
-         searchItem.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        SelectListner selectListner = this;
+
+        DatabaseReference reference = FirebaseDatabase.getInstance("https://admin-987aa-default-rtdb.europe-west1.firebasedatabase.app/").getReference("dish");
+        // Gets all the nodes from a category from the firebase and adds them to an ArrayList
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    data.clear();
+                    // Gets the child's from Order
+                    for (DataSnapshot dataSnapshot: snapshot.child(categoryName).getChildren()) {
+
+                        Log.i("getDishesFirebase", dataSnapshot.child("name").getValue().toString());
+
+                        Dish d = dataSnapshot.getValue(Dish.class);
+                        d.setId(dataSnapshot.getKey());
+                        data.add(d);
+
+                    }
+
+                    // Sets the adapter for the RecyclerView
+                    adapter = new RecyclerViewAdapter(data, selectListner, getContext());
+                    recyclerView.setAdapter(adapter);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Do nothing
+            }
+        });
+
+        // Searcher that lets search items by name
+        SearchView searchItem = (SearchView) view.findViewById(R.id.searchView);
+        searchItem.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 adapter.filter(query);
@@ -85,8 +104,11 @@ public class DishListFragment extends Fragment implements SelectListner {
                 adapter.filter(newText);
                 return false;
             }});
+
+        // Divider for the RecyclerView
         recyclerView.setLayoutManager(new LinearLayoutManager((getContext())));
         recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+
         return view;
 
     }
