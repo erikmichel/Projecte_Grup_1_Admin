@@ -87,7 +87,7 @@ public class CategoryFormFragment extends Fragment {
                     public void onClick(DialogInterface dialog, int id) {
                         //We check that the user has changed the default image
                         if (imageViewCategory.getDrawable().toString().equals(defaultImageIdentificator)) {
-                            Toast.makeText(getContext(), "You need to change the default image", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), getString(R.string.no_default_image), Toast.LENGTH_SHORT).show();
                         } else {
                             uploadNewCategory();
                         }
@@ -95,7 +95,7 @@ public class CategoryFormFragment extends Fragment {
                 });
                 builder.setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        Toast.makeText(getContext(), "Operation cancelled", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), getString(R.string.operation_cancelled), Toast.LENGTH_SHORT).show();
                     }
                 });
                 AlertDialog dialog = builder.create();
@@ -149,13 +149,13 @@ public class CategoryFormFragment extends Fragment {
 
         // Image check
         if(image == null) {
-            Toast.makeText(getContext(), "Category image is required", Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), getString(R.string.cat_image_required), Toast.LENGTH_LONG).show();
             return;
         }
 
         // Name check
         if(name.isEmpty()) {
-            categoryFormName.setError("Category name is required");
+            categoryFormName.setError(getString(R.string.cat_name_required));
             categoryFormName.requestFocus();
             return;
         }
@@ -182,13 +182,13 @@ public class CategoryFormFragment extends Fragment {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         imageViewCategory.setImageURI(null);
-                        Toast.makeText(getContext(), "Successfully Uploaded", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), getString(R.string.success_uploaded), Toast.LENGTH_SHORT).show();
 
                     }
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getContext(), "Failed to Upload", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getString(R.string.failed_upload), Toast.LENGTH_SHORT).show();
             }
         });
     }

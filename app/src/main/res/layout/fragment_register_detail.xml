@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:text="User Created"
+        android:text="@string/user_created"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:text="Fullname:"
+        android:text="@string/fullname"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Email:"
+        android:text="@string/email"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -43,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:text="Password:"
+        android:text="@string/pass"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -83,7 +83,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:text="OK"
+        android:text="@android:string/ok"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/createdPassword" />
