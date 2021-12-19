@@ -25,6 +25,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.g1_admin.DBHelper.DBHelper;
@@ -72,6 +73,10 @@ public class DishFormFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View formView = inflater.inflate(R.layout.fragment_dish_form, container, false);
+
+        // Appbar title and subtitle
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Insert");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setSubtitle("Dish");
 
         image = formView.findViewById(R.id.dishImage);
         image.setImageResource(R.drawable.pizza_generic);

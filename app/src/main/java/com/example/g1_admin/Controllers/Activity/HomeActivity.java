@@ -103,7 +103,6 @@ public class HomeActivity extends AppCompatActivity {
         // Actionbar options
         actionBarDrawerToggle.syncState(); // Refresh menu button to get correct icon depending on state
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Shows drawer menu button for open and close
-        getSupportActionBar().setTitle("Home");
         drawerLayout.addDrawerListener(actionBarDrawerToggle); // Sets actionbar as listener for drawer menu
 
         // When menu option selected

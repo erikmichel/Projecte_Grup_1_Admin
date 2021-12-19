@@ -22,6 +22,10 @@ public class RegisterDetailFragment extends Fragment {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_register_detail, container, false);
 
+        // Appbar title and subtitle
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Register");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setSubtitle("Details");
+
         // Views init
         TextView txtFullname = root.findViewById(R.id.createdFullname);
         TextView txtEmail = root.findViewById(R.id.createdEmail);

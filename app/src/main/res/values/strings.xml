@@ -66,7 +66,7 @@
     <string name="name">Name</string>
     <string name="details">Details</string>
     <string name="user">User</string>
-    <string name="date">Date</string>
+    <string name="date">Date:</string>
     <string name="status">Status</string>
     <string name="main">Main</string>
     <string name="home">Home</string>

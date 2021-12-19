@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -54,6 +55,10 @@ public class OrderListFragment extends Fragment implements SelectListner {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_order_list, container, false);
+
+        // Appbar title and subtitle
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Order");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setSubtitle("List");
 
         recyclerView = view.findViewById(R.id.recyclerViewOrders);
         orders = new ArrayList<>();

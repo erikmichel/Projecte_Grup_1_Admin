@@ -13,6 +13,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.provider.MediaStore;
@@ -67,6 +68,11 @@ public class CategoryFormFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View root = inflater.inflate(R.layout.fragment_category_form, container, false);
+
+        // Appbar title and subtitle
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setTitle("Insert");
+        ((AppCompatActivity)getActivity()).getSupportActionBar().setSubtitle("Category");
+
 
         // Views
         categoryFormName = root.findViewById(R.id.categoryFormName);
