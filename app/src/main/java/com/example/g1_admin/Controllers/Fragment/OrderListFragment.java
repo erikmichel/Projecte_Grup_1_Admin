@@ -5,7 +5,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,8 +12,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.g1_admin.Adapter.OrderRecyclerView;
+
+import com.example.g1_admin.Adapter.SelectListner;
 import com.example.g1_admin.DBHelper.DBHelper;
+import com.example.g1_admin.Model.Category;
+import com.example.g1_admin.Model.Dish;
+
+
+import com.example.g1_admin.Adapter.OrderRecyclerView;
+
 import com.example.g1_admin.Model.Order;
 import com.example.g1_admin.R;
 import com.google.firebase.database.DataSnapshot;
@@ -25,7 +31,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class OrderListFragment extends Fragment {
+public class OrderListFragment extends Fragment implements SelectListner {
+
 
     DatabaseReference mDatabase;
     DBHelper dbHelper;
@@ -61,7 +68,8 @@ public class OrderListFragment extends Fragment {
                     order.setId(dataSnapshot.getKey());
                     orders.add(order);
                 }
-                OrderRecyclerView orderRecyclerView = new OrderRecyclerView(orders, getContext());
+
+                OrderRecyclerView orderRecyclerView = new OrderRecyclerView(orders, OrderListFragment.this, getContext());
                 OrderListFragment.this.recyclerView.setAdapter(orderRecyclerView);
                 OrderListFragment.this.recyclerView.setLayoutManager(new LinearLayoutManager((getContext())));
             }
@@ -101,6 +109,30 @@ public class OrderListFragment extends Fragment {
 
         return view;
 
+    }
+
+    @Override
+    public void onItemClicked(Category category) {
+
+    }
+
+    @Override
+    public void onItemClicked(Dish dish) {
+
+    }
+
+    @Override
+    public void onItemClicked(Order order) {
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("order", order);
+        OrderDetailFragment orderDetailFragment = new OrderDetailFragment(mDatabase, dbHelper);
+        orderDetailFragment.setArguments(bundle);
+
+        getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, orderDetailFragment).commit();
+
+        // ActionBar subtitle
+        //((AppCompatActivity)getActivity()).getSupportActionBar().setSubtitle(order.getCategoryName());
     }
 
 }

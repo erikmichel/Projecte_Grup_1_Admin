@@ -19,6 +19,7 @@ import com.example.g1_admin.Adapter.SelectListner;
 import com.example.g1_admin.DBHelper.DBHelper;
 import com.example.g1_admin.Model.Category;
 import com.example.g1_admin.Model.Dish;
+import com.example.g1_admin.Model.Order;
 import com.example.g1_admin.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -125,5 +126,10 @@ public class DishListFragment extends Fragment implements SelectListner {
         promotionFragment.setArguments(bundle);
 
         getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, promotionFragment).commit();
+    }
+
+    @Override
+    public void onItemClicked(Order order) {
+
     }
 }

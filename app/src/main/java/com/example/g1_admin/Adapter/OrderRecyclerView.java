@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.g1_admin.Model.Order;
@@ -16,10 +18,13 @@ import java.util.ArrayList;
 
 public class OrderRecyclerView extends RecyclerView.Adapter<OrderRecyclerView.ViewHolder> {
     private Context context;
+    private SelectListner listener;
     private ArrayList<Order> orders;
 
-    public OrderRecyclerView(ArrayList<Order> orders, Context context) {
+
+    public OrderRecyclerView(ArrayList<Order> orders, SelectListner listener, Context context) {
         this.orders = orders;
+        this.listener = listener;
         this.context = context;
     }
 
@@ -48,6 +53,12 @@ public class OrderRecyclerView extends RecyclerView.Adapter<OrderRecyclerView.Vi
                 holder.txtOrderStatus.setTextColor(context.getResources().getColor(R.color.redStatus));
                 break;
         }
+        holder.itemOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onItemClicked(orders.get(position));
+            }
+        });
     }
 
     @Override
@@ -57,6 +68,7 @@ public class OrderRecyclerView extends RecyclerView.Adapter<OrderRecyclerView.Vi
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
+        private ConstraintLayout itemOrder;
         private TextView txtOrderName;
         private TextView txtOrderId;
         private TextView txtOrderDate;
@@ -64,6 +76,7 @@ public class OrderRecyclerView extends RecyclerView.Adapter<OrderRecyclerView.Vi
 
         public ViewHolder(@NonNull View view) {
             super(view);
+            itemOrder= view.findViewById(R.id.orderItem);
             txtOrderName = view.findViewById(R.id.orderItemUser);
             txtOrderId = view.findViewById(R.id.orderItemId);
             txtOrderDate = view.findViewById(R.id.orderItemDate);
