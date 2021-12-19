@@ -56,38 +56,6 @@
             android:text="TextView" />
 
         <TextView
-            android:id="@+id/txtQuantity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Quantity:"
-            android:textColor="@color/black"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/txtQuantityBlank"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="TextView" />
-
-        <TextView
-            android:id="@+id/txtOrderPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="Price:"
-            android:textColor="@color/black"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/txtOrderPriceBlank"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="TextView" />
-
-        <TextView
             android:id="@+id/txtOrderDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -114,9 +82,16 @@
 
         <Spinner
             android:id="@+id/spinnerDetailOrder"
-            android:layout_width="234dp"
+            android:layout_width="230dp"
             android:layout_height="48dp"
             tools:ignore="SpeakableTextPresentCheck" />
+
+        <Button
+            android:id="@+id/changeStateButton"
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Change state" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

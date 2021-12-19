@@ -12,7 +12,7 @@
         "android_client_info": {
           "package_name": "com.example.EatSleepAndRepeat_User"
         }
-      }{
+      },
       "project_info": {
         "project_number": "890339539734",
         "firebase_url": "https://admin-987aa-default-rtdb.europe-west1.firebasedatabase.app",
@@ -105,7 +105,7 @@
       ],
       "configuration_version": "1"
     },
-      "oauth_client": [
+      "oauth_client", [
         {
           "client_id": "890339539734-11ngc6b0r96h717iou3bad1ess5pd42f.apps.googleusercontent.com",
           "client_type": 1,
@@ -127,12 +127,12 @@
           "client_type": 3
         }
       ],
-      "api_key": [
+      "api_key", [
         {
           "current_key": "AIzaSyDuDAFgXiNsyMawuWjQCgkyR3xAU0zLAy8"
         }
       ],
-      "services": {
+      "services", {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
@@ -141,8 +141,7 @@
             }
           ]
         }
-      }
-    },
+      },
     {
       "client_info": {
         "mobilesdk_app_id": "1:890339539734:android:bd8950ec9ac13e5821ee37",

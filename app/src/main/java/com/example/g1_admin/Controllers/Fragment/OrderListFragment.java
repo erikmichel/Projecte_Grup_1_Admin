@@ -84,7 +84,6 @@ public class OrderListFragment extends Fragment implements SelectListner {
                 OrderAdapter orderAdapter = new OrderAdapter(orders, OrderListFragment.this, getContext());
                 orderRecyclerView.setAdapter(orderAdapter);
                 orderRecyclerView.setLayoutManager(new LinearLayoutManager((getContext())));
-                orderRecyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
             }
 
             @Override
@@ -139,7 +138,7 @@ public class OrderListFragment extends Fragment implements SelectListner {
 
         Bundle bundle = new Bundle();
         bundle.putSerializable("order", order);
-        DetailOrder detailOrder = new DetailOrder();
+        DetailOrder detailOrder = new DetailOrder(mDatabase, dbHelper);
         detailOrder.setArguments(bundle);
 
         getFragmentManager().beginTransaction().replace(R.id.fragmentContainer, detailOrder).commit();

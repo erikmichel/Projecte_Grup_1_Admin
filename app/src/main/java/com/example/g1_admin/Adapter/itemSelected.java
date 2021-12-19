@@ -20,7 +20,6 @@ public class itemSelected extends AppCompatActivity {
 
         TextView id = findViewById(R.id.txtDetailIDBlank);
         TextView name = findViewById(R.id.txtUserNameBlank);
-        TextView price = findViewById(R.id.txtOrderPrice);
         ImageButton bnt = findViewById(R.id.btnGoBack);
         Spinner spinner = findViewById(R.id.spinnerDetailOrder);
 
@@ -37,7 +36,6 @@ public class itemSelected extends AppCompatActivity {
         if (bundle != null) {
             id.setText(str1);
             name.setText(str2);
-            price.setText(str3);
         }
 
         // Button to go back to list page
