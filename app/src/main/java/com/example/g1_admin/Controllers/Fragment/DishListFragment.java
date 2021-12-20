@@ -92,11 +92,12 @@ public class DishListFragment extends Fragment implements SelectListner {
 
         // Searcher that lets search items by name
         SearchView searchItem = (SearchView) view.findViewById(R.id.searchView);
+        searchItem.setIconified(false);
         searchItem.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 adapter.filter(query);
-                return false;
+                                return false;
             }
 
             @Override
